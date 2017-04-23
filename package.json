@@ -1,0 +1,39 @@
+{
+  "name": "redux-saga-in-korean",
+  "version": "0.9.5",
+  "description": "Redux-saga 한국어",
+  "scripts": {
+    "clean": "rimraf _book",
+    "build": "gitbook build -g mskims/redux-saga-in-korean",
+    "watch": "gitbook serve",
+    "publish": "npm run prepublish && npm run gh-pages",
+    "gh-pages": "./node_modules/gh-pages/bin/gh-pages -d _book -r git+https://github.com/mskims/redux-saga-in-korean.git",
+    "prepublish": "npm run clean && npm run build && cd _book && git init && git commit --allow-empty -m 'update book' && git checkout -b gh-pages && touch .nojekyll && git add . && git commit -am 'update book'"
+  },
+  "repository": {ㅊㅎ
+    "type": "git",
+    "url": "https://github.com/mskims/redux-saga-in-korean.git"
+  },
+  "keywords": [
+    "javascript",
+    "redux",
+    "middleware",
+    "saga",
+    "effects",
+    "side effects"
+  ],
+  "author": "MinSeok Kim <its@mskim.me> (http://github.com/mskims)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mskims/redux-saga-in-korean/issues"
+  },
+  "homepage": "https://github.com/mskims/redux-saga-in-korean",
+  "devDependencies": {
+    "gitbook-cli": "^0.3.4",
+    "gitbook-plugin-prism": "^0.1.1",
+    "gitbook-plugin-ga": "^0.2.1",
+    "gitbook-plugin-edit-link": "^1.4.1",
+    "gh-pages": "~0.11.0",
+    "rimraf": "^2.3.4"
+  }
+}
