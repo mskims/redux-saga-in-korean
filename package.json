@@ -4,13 +4,14 @@
   "description": "Redux-saga 한국어",
   "scripts": {
     "clean": "rimraf _book",
-    "build": "gitbook build -g mskims/redux-saga-in-korean",
+    "prepare": "gitbook install",
+    "build": "npm run prepare && gitbook build -g mskims/redux-saga-in-korean",
     "watch": "gitbook serve",
     "publish": "npm run prepublish && npm run gh-pages",
-    "gh-pages": "./node_modules/gh-pages/bin/gh-pages -d _book -r git+https://github.com/mskims/redux-saga-in-korean.git",
+    "gh-pages": "./node_modules/gh-pages/bin/gh-pages -d _book -r git@github.com:mskims/redux-saga-in-korean.git",
     "prepublish": "npm run clean && npm run build && cd _book && git init && git commit --allow-empty -m 'update book' && git checkout -b gh-pages && touch .nojekyll && git add . && git commit -am 'update book'"
   },
-  "repository": {ㅊㅎ
+  "repository": {
     "type": "git",
     "url": "https://github.com/mskims/redux-saga-in-korean.git"
   },
@@ -28,12 +29,10 @@
     "url": "https://github.com/mskims/redux-saga-in-korean/issues"
   },
   "homepage": "https://github.com/mskims/redux-saga-in-korean",
-  "devDependencies": {
-    "gitbook-cli": "^0.3.4",
-    "gitbook-plugin-prism": "^0.1.1",
-    "gitbook-plugin-ga": "^0.2.1",
-    "gitbook-plugin-edit-link": "^1.4.1",
-    "gh-pages": "~0.11.0",
-    "rimraf": "^2.3.4"
+  "devDependencies": {},
+  "dependencies": {
+    "gitbook-cli": "2.3.0",
+    "gh-pages": "^0.12.0",
+    "rimraf": "^2.6.1"
   }
 }
