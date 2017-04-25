@@ -1,4 +1,4 @@
 ## Introduction
 
-* [Beginner Tutorial](BeginnerTutorial.md)
-* [Background on the Saga concept](SagaBackground.md)
+* [튜토리얼](BeginnerTutorial.md)
+* [배경지식](SagaBackground.md)

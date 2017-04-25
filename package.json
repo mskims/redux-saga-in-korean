@@ -4,8 +4,7 @@
   "description": "Redux-saga 한국어",
   "scripts": {
     "clean": "rimraf _book",
-    "prepare": "gitbook install",
-    "build": "npm run prepare && gitbook build -g mskims/redux-saga-in-korean",
+    "build": "gitbook build -g mskims/redux-saga-in-korean",
     "watch": "gitbook serve",
     "publish": "npm run prepublish && npm run gh-pages",
     "gh-pages": "./node_modules/gh-pages/bin/gh-pages -d _book -r git@github.com:mskims/redux-saga-in-korean.git",
