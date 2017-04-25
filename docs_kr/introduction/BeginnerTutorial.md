@@ -103,7 +103,7 @@ const action = type => store.dispatch({type})
 
 ## 비동기 호출
 
-이제, 오리지널 카운터 데모에 가까운 무언가를 추가해봅시다. 비동기 호출을 설명하기 위해 클릭 1초 후 증가되는 또다른 버튼을 추가할겁니다.
+이제, 오리지널 카운터 데모 가까이 무언가를 추가해봅시다. 비동기 호출을 설명하기 위해 클릭 1초 후 증가되는 또다른 버튼을 추가할겁니다.
 <!--Now let's add something closer to the original Counter demo. To illustrate asynchronous calls, we will add another button to increment the counter 1 second after the click.-->
 
 먼저, UI 컴포넌트에 `onIncrementAsync` 라는 콜백을 넣을겁니다.
@@ -345,9 +345,12 @@ put({type: 'INCREMENT'}) // => { PUT: {type: 'INCREMENT'} }
 call(delay, 1000)        // => { CALL: {fn: delay, args: [1000]}}
 ```
 
-What happens is that the middleware examines the type of each yielded Effect then decides how to fulfill that Effect. If the Effect type is a `PUT` then it will dispatch an action to the Store. If the Effect is a `CALL` then it'll call the given function.
+무슨일이 일어날까요? 미들웨어는 각각의 yield 된 이펙트들을 검사한뒤, 어떻게 이펙트를 수행할지 결정합니다. 만약 이펙트의 타입이 `PUT` 이라면, 미들웨어는 스토어에 액션을 dispatch 할것입니다. `CALL` 인 경우엔 주어진 함수를 실행하게 되는것 이고요.
 
-This separation between Effect creation and Effect execution makes it possible to test our Generator in a surprisingly easy way:
+<!--What happens is that the middleware examines the type of each yielded Effect then decides how to fulfill that Effect. If the Effect type is a `PUT` then it will dispatch an action to the Store. If the Effect is a `CALL` then it'll call the given function.-->
+
+이 이펙트생성과 이펙트 실행의 분리는 제너레이터를 놀랍게도 쉽게 테스트가 가능하도록 만듭니다.
+<!--This separation between Effect creation and Effect execution makes it possible to test our Generator in a surprisingly easy way:-->
 
 ```javascript
 import test from 'tape';
@@ -381,12 +384,16 @@ test('incrementAsync Saga test', (assert) => {
 });
 ```
 
-Since `put` and `call` return plain objects, we can reuse the same functions in our test code. And to test the logic of `incrementAsync`, we simply iterate over the generator and do `deepEqual` tests on its values.
+`put` 과 `call` 이 순수 객체를 반환하기 때문에, 테스트 코드에서 같은 함수들을 재사용할수 있게 되었고, `incrementAsync` 의 로직을 테스트 하기 위해 단순히 제너레이터를 반복하고 값에 대해 `deepEqual` 테스트를 할수 있게 되었습니다.
 
-In order to run the above test, run:
+<!--Since `put` and `call` return plain objects, we can reuse the same functions in our test code. And to test the logic of `incrementAsync`, we simply iterate over the generator and do `deepEqual` tests on its values.-->
+
+위의 테스트를 진행하기 위한 코드입니다:
+<!--In order to run the above test, run:-->
 
 ```sh
 $ npm test
 ```
 
-which should report the results on the console.
+이 테스트는 콘솔에 결과를 보고해야 합니다.
+<!--which should report the results on the console.-->

@@ -1,10 +1,13 @@
-# Using Saga Helpers
+# 헬퍼 함수
 
-`redux-saga` provides some helper effects wrapping internal functions to spawn tasks when some specific actions are dispatched to the Store.
+`redux-saga` 는 스토어에 몇몇 지정된 액션들이 dispatch 되었을때 태스크를 만들기 위해 내부 함수들을 감싸는 몇몇 헬퍼 이펙트들을 제공합니다.
+<!--`redux-saga` provides some helper effects wrapping internal functions to spawn tasks when some specific actions are dispatched to the Store.-->
 
-The helper functions are built on top of the lower level API. In the advanced section, we'll see how those functions can be implemented.
+헬퍼 함수들은 저레벨 API의 상단에 내장되어있습니다. 우리는 심화 섹션에서 어떻게 이 함수들이 구현될 수 있는지 볼겁니다.
+<!--The helper functions are built on top of the lower level API. In the advanced section, we'll see how those functions can be implemented.-->
 
-The first function, `takeEvery` is the most familiar and provides a behavior similar to `redux-thunk`.
+첫번쨰 헬버 함수는 `redux-thunk` 과 비슷한 행동을 제공하는 아주 유명한 `takeEvery` 함수 입니다
+<!--The first function, `takeEvery` is the most familiar and provides a behavior similar to `redux-thunk`.-->
 
 Let's illustrate with the common AJAX example. On each click on a Fetch button we dispatch a `FETCH_REQUESTED` action. We want to handle this action by launching a task that will fetch some data from the server.
 

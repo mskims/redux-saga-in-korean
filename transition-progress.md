@@ -1,11 +1,11 @@
 # 번역 상태
 
 * [ ] [Read Me](/README.md)
-* [ ] [소개](/introduction/README.md)
-  * [ ] [튜토리얼](/introduction/BeginnerTutorial.md) `진행중`
-  * [ ] [배경지식](/introduction/SagaBackground.md)
+* [x] [소개](/introduction/README.md)
+  * [x] [튜토리얼](/introduction/BeginnerTutorial.md)
+  * [x] [배경지식](/introduction/SagaBackground.md) 
 * [ ] [기본](/basics/README.md)
-  * [ ] [헬퍼 함수](/basics/UsingSagaHelpers.md)
+  * [ ] [헬퍼 함수](/basics/UsingSagaHelpers.md) `진행중`
   * [ ] [효과](/basics/DeclarativeEffects.md)
   * [ ] [액션 확산](/basics/DispatchingActions.md)
   * [ ] [에러 핸들링](/basics/ErrorHandling.md)
