@@ -11,12 +11,12 @@
 
 ### 초기 설정
 
-시작하기 전에, [튜토리얼 저장소](https://github.com/redux-saga/redux-saga-beginner-tutorial). 를 클론 하세요.
+시작하기 전에, [튜토리얼 저장소](https://github.com/redux-saga/redux-saga-beginner-tutorial) 를 클론 하세요.
 <!--Before we start, clone the [tutorial repository](https://github.com/redux-saga/redux-saga-beginner-tutorial).-->
 
 > 이 튜토리얼의 코드들은 `sagas` 브랜치에 있습니다.
 
-<!--> The final code of this tutorial is located in the `sagas` branch.-->
+<!--The final code of this tutorial is located in the `sagas` branch.-->
 
 커맨드 라인에서 다음 명령어를 실행하세요:
 <!--Then in the command line, run:-->
