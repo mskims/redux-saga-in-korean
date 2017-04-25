@@ -41,7 +41,7 @@ $ npm start
 
 > 만약 이 단계에서 어려움을 겪고계시다면, 고민하지 마시고 [튜토리얼 저장소](https://github.com/redux-saga/redux-saga-beginner-tutorial/issues) 에 에슈를 만들어주세요.
 
-<!--> In case you encountered an issue with running the application. Feel free to create an issue on the [tutorial repo](https://github.com/redux-saga/redux-saga-beginner-tutorial/issues).-->
+<!-- > In case you encountered an issue with running the application. Feel free to create an issue on the [tutorial repo](https://github.com/redux-saga/redux-saga-beginner-tutorial/issues).-->
 
 ## Hello Sagas!
 
@@ -144,48 +144,69 @@ function render() {
 명심하세요, redux-thunk 와는 달리 우리의 컴포넌트는 순수 액션 오브젝트만 dispatch 할겁니다.
 <!--Note that unlike in redux-thunk, our component dispatches a plain object action.-->
 
-Now we will introduce another Saga to perform the asynchronous call. Our use case is as follows:
+이제 비동기 호출을 구현하기 위해 또다른 Saga 를 소개해볼까 합니다. 
+<!--Now we will introduce another Saga to perform the asynchronous call. Our use case is as follows:-->
 
-> On each `INCREMENT_ASYNC` action, we want to start a task that will do the following
+> 각각의 `INCREMENT_ASYNC` 액션에서, 우리는 다음과 같은 작업을 수행할 태스크를 시작하고자 합니다. 
 
-> - Wait 1 second then increment the counter
+<!--> On each `INCREMENT_ASYNC` action, we want to start a task that will do the following-->
 
-Add the following code to the `sagas.js` module:
+> - 1 초를 기다린 후 카운터 증가
+
+<!-- > - Wait 1 second then increment the counter-->
+
+다음 코드를 `sagas.js` 모듈에 추가하세요.
+<!--Add the following code to the `sagas.js` module:-->
 
 ```javascript
 import { delay } from 'redux-saga'
 import { put, takeEvery } from 'redux-saga/effects'
 
-// Our worker Saga: will perform the async increment task
+// worker Saga: 비동기 증가 태스크를 수행할겁니다.
 export function* incrementAsync() {
   yield delay(1000)
   yield put({ type: 'INCREMENT' })
 }
 
-// Our watcher Saga: spawn a new incrementAsync task on each INCREMENT_ASYNC
+// watcher Saga: 각각의 INCREMENT_ASYNC 에 incrementAsync 태스크를 생성할겁니다.
 export function* watchIncrementAsync() {
   yield takeEvery('INCREMENT_ASYNC', incrementAsync)
 }
 ```
 
-Time for some explanations.
+설명할 때가 왔군요.
+<!--Time for some explanations.-->
 
-We import `delay`, a utility function that returns a [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) that will resolve after a specified number of milliseconds. We'll use this function to *block* the Generator.
+`delay` 라는 유틸리티 함수를 임포트 했는데요, 이 함수는 설정된 시간 이후에 resolve 를 하는 [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) 객체를 리턴합니다. 우리는 이 함수를 제너레이터를 *정지* 하는데 사용할겁니다.
 
-Sagas are implemented as [Generator functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function*) that *yield* objects to the redux-saga middleware. The yielded objects are a kind of instruction to be interpreted by the middleware. When a Promise is yielded to the middleware, the middleware will suspend the Saga until the Promise completes. In the above example, the `incrementAsync` Saga is suspended until the Promise returned by `delay` resolves, which will happen after 1 second.
+<!--We import `delay`, a utility function that returns a [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) that will resolve after a specified number of milliseconds. We'll use this function to *block* the Generator.-->
 
-Once the Promise is resolved, the middleware will resume the Saga, executing code until the next yield. In this example, the next statement is another yielded object: the result of calling `put({type: 'INCREMENT'})`, which instructs the middleware to dispatch an `INCREMENT` action.
+Sagas 는 오브젝트들을 redux-saga 미들웨어에 *yield* 하는 [생성자 함수](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function*) 로 구현되었습니다. *yield된* 오브젝트들은 미들웨어에 의해 해석되는 명령의 한 종류입니다. Promise 가 미들웨어에 yield 될 때, 미들웨어는 Promise 가 끝날때 까지 Saga 를 일시정지 시킬것 입니다. 위의 예시에서, `incrementAsync` Saga 는 1초 후에 일어날 `delay`의 resolve 에 의해 Promise 가 리턴될때 까지 정지되어있을겁니다.
 
-`put` is one example of what we call an *Effect*. Effects are simple JavaScript objects which contain instructions to be fulfilled by the middleware. When a middleware retrieves an Effect yielded by a Saga, the Saga is paused until the Effect is fulfilled.
+<!--Sagas are implemented as [Generator functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function*) that *yield* objects to the redux-saga middleware. The yielded objects are a kind of instruction to be interpreted by the middleware. When a Promise is yielded to the middleware, the middleware will suspend the Saga until the Promise completes. In the above example, the `incrementAsync` Saga is suspended until the Promise returned by `delay` resolves, which will happen after 1 second.-->
 
-So to summarize, the `incrementAsync` Saga sleeps for 1 second via the call to `delay(1000)`, then dispatches an `INCREMENT` action.
+Promise 가 한번 resolve 되고 나면, 미들웨어는 Saga 를 다시 작동시키면서, 다음 yield 까지 코드를 실행합니다. 이 예제에서 다음 상태는 미들웨어에게 `INCREMENT` 액션을 dispach 하게 알려주는  `put({type: 'INCREMENT'})` 의 결과 객체가 됩니다.
 
-Next, we created another Saga `watchIncrementAsync`. We use `takeEvery`, a helper function provided by `redux-saga`, to listen for dispatched `INCREMENT_ASYNC` actions and run `incrementAsync` each time.
+<!--Once the Promise is resolved, the middleware will resume the Saga, executing code until the next yield. In this example, the next statement is another yielded object: the result of calling `put({type: 'INCREMENT'})`, which instructs the middleware to dispatch an `INCREMENT` action.-->
 
-Now we have 2 Sagas, and we need to start them both at once. To do that, we'll add a `rootSaga` that is responsible for starting our other Sagas. In the same file `sagas.js`, add the following code:
+`put` 은 우리가 *이펙트* 라고 부르는 예중 하나입니다. 이펙트는 미들웨어에 의해 수행되는 지시를 담고있는 간단한 자바스크립트 객체입니다. 미들웨어가 Saga 에 의해 yield 된 이펙트를 받을때, Saga 는 이펙트가 수행될때까지 정지되어 있을겁니다.
+
+<!--`put` is one example of what we call an *Effect*. Effects are simple JavaScript objects which contain instructions to be fulfilled by the middleware. When a middleware retrieves an Effect yielded by a Saga, the Saga is paused until the Effect is fulfilled.-->
+
+정리하자면, `incrementAsync` Saga 는 `delay(1000)` 호출에 의해 1초동안 자고있다가, `INCREMENT` 액션을 dispatch 하게 되는것이죠.
+<!--So to summarize, the `incrementAsync` Saga sleeps for 1 second via the call to `delay(1000)`, then dispatches an `INCREMENT` action.-->
+
+다음으로, 우리는 `watchIncrementAsync` 라는 또다른 Saga를 만들었습니다. dispatch된 `INCREMENT_ASYNC` 액션을 바라보고, 매번 `incrementAsync` 를 실행하기 위해 `redux-saga` 패키지가 제공하는 `takeEvery` 헬퍼 함수를 사용했습니다.
+<!--Next, we created another Saga `watchIncrementAsync`. We use `takeEvery`, a helper function provided by `redux-saga`, to listen for dispatched `INCREMENT_ASYNC` actions and run `incrementAsync` each time.-->
+
+이제 두개의 Saga가 있네요, 이제 두 Saga 모두 한번에 실행해야할 필요가 생겼습니다, 이 작업을 하려면, 다른 Saga들을 시작해야할 책임이 있는 `rootSaga` 를 추가해봅시다.
+
+자 이제 여기 코드들을 `sagas.js` 에 추가해보세요.
+
+<!--Now we have 2 Sagas, and we need to start them both at once. To do that, we'll add a `rootSaga` that is responsible for starting our other Sagas. In the same file `sagas.js`, add the following code:-->
 
 ```javascript
-// single entry point to start all Sagas at once
+// 모든 Saga들을 한번에 시작하기 위한 하나의 지점입니다.
 export default function* rootSaga() {
   yield [
     incrementAsync(),
@@ -194,7 +215,9 @@ export default function* rootSaga() {
 }
 ```
 
-This Saga yields an array with the results of calling our two sagas, `helloSaga` and `watchIncrementAsync`. This means the two resulting Generators will be started in parallel. Now we only have to invoke `sagaMiddleware.run` on the root Saga in `main.js`.
+이 Saga는 `helloSaga` Saga 와 `watchIncrementAsync` Saga 가 호출된 결과의 배열을 yield 합니다. 이것은 생선된 두 생성자가 병렬로 시작된다는것을 의미하죠. 이제 `sagaMiddleware.run` 를 `main.js` 의 root Saga에 주입할 일만 남았습니다.
+
+<!--This Saga yields an array with the results of calling our two sagas, `helloSaga` and `watchIncrementAsync`. This means the two resulting Generators will be started in parallel. Now we only have to invoke `sagaMiddleware.run` on the root Saga in `main.js`.-->
 
 ```javascript
 // ...
@@ -207,11 +230,13 @@ sagaMiddleware.run(rootSaga)
 // ...
 ```
 
-## Making our code testable
+## 테스트
 
-We want to test our `incrementAsync` Saga to make sure it performs the desired task.
+이제 우리의 `incrementAsync` Saga 가 바람직한 태스크를 수행하는지 확실하게 해야겠죠? 테스트를 만들어 봅시다.
+<!--We want to test our `incrementAsync` Saga to make sure it performs the desired task.-->
 
-Create another file `sagas.spec.js`:
+`sagas.spec.js` 파일을 만듭시다.
+<!--Create another file `sagas.spec.js`:-->
 
 ```javascript
 import test from 'tape';
@@ -225,23 +250,30 @@ test('incrementAsync Saga test', (assert) => {
 });
 ```
 
-`incrementAsync` is a generator function. When run, it returns an iterator object, and the iterator's `next` method returns an object with the following shape
+`incrementAsync` 는 제너레이터 함수입니다. 이것을 실행하면, 이터레이터 오브젝트를 반환하고, 이터레이터의 `next` 메소드는 다음과 같은 모양을 가진 객체를 돌려줍니다. 
+<!--`incrementAsync` is a generator function. When run, it returns an iterator object, and the iterator's `next` method returns an object with the following shape-->
 
 ```javascript
 gen.next() // => { done: boolean, value: any }
 ```
 
-The `value` field contains the yielded expression, i.e. the result of the expression after
+`value` 필드는 yield 된 표현식을 포함합니다. `yield` 다음 표현식의 결과 같은 것 말이죠.
+`done` 필드는 아직 `yield` 표현이 남아있는지, 아니면 제너레이터가 종료되었는지 가리킵니다.
+<!--The `value` field contains the yielded expression, i.e. the result of the expression after
 the `yield`. The `done` field indicates if the generator has terminated or if there are still
-more 'yield' expressions.
+more 'yield' expressions.-->
 
-In the case of `incrementAsync`, the generator yields 2 values consecutively:
+
+`incrementAsync` 로 예를 들자면, 제너레이터는 두개의 값을 연속으로 yield 합니다.
+<!--In the case of `incrementAsync`, the generator yields 2 values consecutively:-->
 
 1. `yield delay(1000)`
 2. `yield put({type: 'INCREMENT'})`
 
-So if we invoke the next method of the generator 3 times consecutively we get the following
-results:
+
+그래서 우리가 제너레이터의 next 메소드를 세번 연속하여 부른다면, 다음과 같은 결과값을 얻게 됩니다.
+<!--So if we invoke the next method of the generator 3 times consecutively we get the following
+results:-->
 
 ```javascript
 gen.next() // => { done: false, value: <result of calling delay(1000)> }
@@ -249,13 +281,16 @@ gen.next() // => { done: false, value: <result of calling put({type: 'INCREMENT'
 gen.next() // => { done: true, value: undefined }
 ```
 
-The first 2 invocations return the results of the yield expressions. On the 3rd invocation
+처음 두개 호출은 yield 표현의 결과를 돌려줍니다. 3번째 호출은 더이상 yield 가 없기 때문에 `done` 필드는 true 로 설정되고, `incrementAsync` 제너레이터가 아무것도 리턴하지 않기 때문에 `value` 필드는 `undefined` 로 설정됩니다.
+<!--The first 2 invocations return the results of the yield expressions. On the 3rd invocation
 since there is no more yield the `done` field is set to true. And since the `incrementAsync`
 Generator doesn't return anything (no `return` statement), the `value` field is set to
-`undefined`.
+`undefined`.-->
 
-So now, in order to test the logic inside `incrementAsync`, we'll simply have to iterate
-over the returned Generator and check the values yielded by the generator.
+
+자 이제, `incrementAsync` 안에서 로직을 테스트하기 위해, 돌려받은 제너레이터를 반복하고, 제너레이터에 의해 yield 된 값들을 간단히 체크할겁니다.
+<!--So now, in order to test the logic inside `incrementAsync`, we'll simply have to iterate
+over the returned Generator and check the values yielded by the generator.-->
 
 ```javascript
 import test from 'tape';
@@ -273,11 +308,13 @@ test('incrementAsync Saga test', (assert) => {
 });
 ```
 
-The issue is how do we test the return value of `delay`? We can't do a simple equality test
-on Promises. If `delay` returned a *normal* value, things would've been easier to test.
+하지만 Promise 에선 비교연산을 할 수 없는데 어떻게 `delay` 의 리턴값을 테스트 하죠?  만약 `delay` 가 *평범한* 값을 돌려준다면 테스트하기 쉬울텐데요..
+<!--The issue is how do we test the return value of `delay`? We can't do a simple equality test
+on Promises. If `delay` returned a *normal* value, things would've been easier to test.-->
 
-Well, `redux-saga` provides a way to make the above statement possible. Instead of calling
-`delay(1000)` directly inside `incrementAsync`, we'll call it *indirectly*:
+`redux-saga` 는 위의 고민을 해결할 방법을 제시하고 있습니다. `incrementAsync` 에서 `delay(1000)` 을 직접적으로 호출하는것 대신, 우린 *간접적으로* 호출할겁니다.
+<!--Well, `redux-saga` provides a way to make the above statement possible. Instead of calling
+`delay(1000)` directly inside `incrementAsync`, we'll call it *indirectly*:-->
 
 ```javascript
 // ...
@@ -291,11 +328,17 @@ export function* incrementAsync() {
 }
 ```
 
-Instead of doing `yield delay(1000)`, we're now doing `yield call(delay, 1000)`. What's the difference?
+`yield delay(1000)` 대신 `yield call(delay, 1000)` 를 하고있습니다, 무엇이 달라졌는지 보이시나요?
+<!--Instead of doing `yield delay(1000)`, we're now doing `yield call(delay, 1000)`. What's the difference?-->
 
-In the first case, the yield expression `delay(1000)` is evaluated before it gets passed to the caller of `next` (the caller could be the middleware when running our code. It could also be our test code which runs the Generator function and iterates over the returned Generator). So what the caller gets is a Promise, like in the test code above.
+첫번째 경우에서, `delay(1000)` yield 구문은 `next` 의 호출자로 넘겨지기 전에 실행되고, (여기서 호출자는 미들웨어가 되거나, 생성자 함수를 실행하고 리턴된 생성자를 넘어 반복하는 테스트코드가 되어야 합니다.)  호출자가 얻게 되는것은 Promise 입니다. 아래 코드를 참고하세요.
 
-In the second case, the yield expression `call(delay, 1000)` is what gets passed to the caller of `next`. `call` just like `put`, returns an Effect which instructs the middleware to call a given function with the given arguments. In fact, neither `put` nor `call` performs any dispatch or asynchronous call by themselves, they simply return plain JavaScript objects.
+<!--In the first case, the yield expression `delay(1000)` is evaluated before it gets passed to the caller of `next` (the caller could be the middleware when running our code. It could also be our test code which runs the Generator function and iterates over the returned Generator). So what the caller gets is a Promise, like in the test code above.-->
+
+두번째 경우에선, `call(delay, 1000)` yield 구문은 `next` 의 호출자에게 넘겨지게 됩니다. `put` 과 유사한 `call` 은 미들웨어에게 주어진 함수와 인자들을 실행하라는 지시를 하는 이펙트를 리턴합니다.
+사실, `put` 과 `call` 은 스스로 어떤 dispatch 나 비동기적인 호출을 하지 않습니다. 그들은 단지 순수한 자바스크립트 객체를 돌려줄 뿐입니다.
+
+<!--In the second case, the yield expression `call(delay, 1000)` is what gets passed to the caller of `next`. `call` just like `put`, returns an Effect which instructs the middleware to call a given function with the given arguments. In fact, neither `put` nor `call` performs any dispatch or asynchronous call by themselves, they simply return plain JavaScript objects.-->
 
 ```javascript
 put({type: 'INCREMENT'}) // => { PUT: {type: 'INCREMENT'} }
