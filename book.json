@@ -1,5 +1,7 @@
 {
   "gitbook": "3.2.0",
+  "root": "./docs_kr",
+  "language": "ko",
   "plugins": ["prism@1.0.0", "-highlight", "github"],
   "pluginsConfig": {
     "github": {
