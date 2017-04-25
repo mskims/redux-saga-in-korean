@@ -181,7 +181,7 @@ export function* watchIncrementAsync() {
 
 <!--We import `delay`, a utility function that returns a [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) that will resolve after a specified number of milliseconds. We'll use this function to *block* the Generator.-->
 
-Sagas 는 오브젝트들을 redux-saga 미들웨어에 *yield* 하는 [생성자 함수](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function*) 로 구현되었습니다. *yield된* 오브젝트들은 미들웨어에 의해 해석되는 명령의 한 종류입니다. Promise 가 미들웨어에 yield 될 때, 미들웨어는 Promise 가 끝날때 까지 Saga 를 일시정지 시킬것 입니다. 위의 예시에서, `incrementAsync` Saga 는 1초 후에 일어날 `delay`의 resolve 에 의해 Promise 가 리턴될때 까지 정지되어있을겁니다.
+Sagas 는 오브젝트들을 redux-saga 미들웨어에 *yield* 하는 [제너레이터 함수](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function*) 로 구현되었습니다. *yield된* 오브젝트들은 미들웨어에 의해 해석되는 명령의 한 종류입니다. Promise 가 미들웨어에 yield 될 때, 미들웨어는 Promise 가 끝날때 까지 Saga 를 일시정지 시킬것 입니다. 위의 예시에서, `incrementAsync` Saga 는 1초 후에 일어날 `delay`의 resolve 에 의해 Promise 가 리턴될때 까지 정지되어있을겁니다.
 
 <!--Sagas are implemented as [Generator functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function*) that *yield* objects to the redux-saga middleware. The yielded objects are a kind of instruction to be interpreted by the middleware. When a Promise is yielded to the middleware, the middleware will suspend the Saga until the Promise completes. In the above example, the `incrementAsync` Saga is suspended until the Promise returned by `delay` resolves, which will happen after 1 second.-->
 
@@ -215,7 +215,7 @@ export default function* rootSaga() {
 }
 ```
 
-이 Saga는 `helloSaga` Saga 와 `watchIncrementAsync` Saga 가 호출된 결과의 배열을 yield 합니다. 이것은 생선된 두 생성자가 병렬로 시작된다는것을 의미하죠. 이제 `sagaMiddleware.run` 를 `main.js` 의 root Saga에 주입할 일만 남았습니다.
+이 Saga는 `helloSaga` Saga 와 `watchIncrementAsync` Saga 가 호출된 결과의 배열을 yield 합니다. 이것은 생선된 두 제너레이터가 병렬로 시작된다는것을 의미하죠. 이제 `sagaMiddleware.run` 를 `main.js` 의 root Saga에 주입할 일만 남았습니다.
 
 <!--This Saga yields an array with the results of calling our two sagas, `helloSaga` and `watchIncrementAsync`. This means the two resulting Generators will be started in parallel. Now we only have to invoke `sagaMiddleware.run` on the root Saga in `main.js`.-->
 
@@ -331,7 +331,7 @@ export function* incrementAsync() {
 `yield delay(1000)` 대신 `yield call(delay, 1000)` 를 하고있습니다, 무엇이 달라졌는지 보이시나요?
 <!--Instead of doing `yield delay(1000)`, we're now doing `yield call(delay, 1000)`. What's the difference?-->
 
-첫번째 경우에서, `delay(1000)` yield 구문은 `next` 의 호출자로 넘겨지기 전에 실행되고, (여기서 호출자는 미들웨어가 되거나, 생성자 함수를 실행하고 리턴된 생성자를 넘어 반복하는 테스트코드가 되어야 합니다.)  호출자가 얻게 되는것은 Promise 입니다. 아래 코드를 참고하세요.
+첫번째 경우에서, `delay(1000)` yield 구문은 `next` 의 호출자로 넘겨지기 전에 실행되고, (여기서 호출자는 미들웨어가 되거나, 제너레이터 함수를 실행하고 리턴된 제너레이터를 넘어 반복하는 테스트코드가 되어야 합니다.)  호출자가 얻게 되는것은 Promise 입니다. 아래 코드를 참고하세요.
 
 <!--In the first case, the yield expression `delay(1000)` is evaluated before it gets passed to the caller of `next` (the caller could be the middleware when running our code. It could also be our test code which runs the Generator function and iterates over the returned Generator). So what the caller gets is a Promise, like in the test code above.-->
 
