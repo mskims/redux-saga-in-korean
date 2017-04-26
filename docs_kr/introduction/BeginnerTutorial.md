@@ -5,7 +5,7 @@
 이 튜토리얼은 redux-saga 를 가능한 쉬운 방법으로 소개할것입니다.
 <!--This tutorial attempts to introduce redux-saga in a (hopefully) accessible way.-->
 
-튜토리얼을 위해서, 우리는 간단한 Redux 저장소에 있는 간단한 카운터 예시를 사용할겁니다.
+튜토리얼을 위해서, 우리는 Redux 저장소에 있는 간단한 카운터 예시를 사용할겁니다.
 이 카운터 애플리케이션은 아주 간단하면서, 과도하게 빠지지 않고 redux-sage 의 기본 컨셉들을 설명 하기에 딱입니다.
 <!--For our getting started tutorial, we are going to use the trivial Counter demo from the Redux repo. The application is quite simple but is a good fit to illustrate the basic concepts of redux-saga without being lost in excessive details.-->
 
@@ -33,7 +33,7 @@ $ npm install
 $ npm start
 ```
 
-우리는 `증가` 와 `감소` 버튼이 있는 카운터로 아주 간단하게 시작하고, 그후 비동기 호출에 대해서 설명하겠습니다
+`증가` 와 `감소` 버튼이 있는 카운터로 아주 간단하게 시작하고, 그후 비동기 호출에 대해서 설명하겠습니다
 <!--We are starting with the simplest use case: 2 buttons to `Increment` and `Decrement` a counter. Later, we will introduce asynchronous calls.-->
 
 이상이 없다면, 당신은 `증가` 와 `감소` 버튼과 `Counter: 0` 이라는 메세지를 볼 수 있을것 입니다.
@@ -189,7 +189,7 @@ Promise 가 한번 resolve 되고 나면, 미들웨어는 Saga 를 다시 작동
 
 <!--Once the Promise is resolved, the middleware will resume the Saga, executing code until the next yield. In this example, the next statement is another yielded object: the result of calling `put({type: 'INCREMENT'})`, which instructs the middleware to dispatch an `INCREMENT` action.-->
 
-`put` 은 우리가 *이펙트* 라고 부르는 예중 하나입니다. 이펙트는 미들웨어에 의해 수행되는 지시를 담고있는 간단한 자바스크립트 객체입니다. 미들웨어가 Saga 에 의해 yield 된 이펙트를 받을때, Saga 는 이펙트가 수행될때까지 정지되어 있을겁니다.
+`put` 은 우리가 *이펙트* 라고 부르는 예중 하나입니다. 이펙트는 미들웨어에 의해 수행되는 명령을 담고있는 간단한 자바스크립트 객체입니다. 미들웨어가 Saga 에 의해 yield 된 이펙트를 받을때, Saga 는 이펙트가 수행될때까지 정지되어 있을겁니다.
 
 <!--`put` is one example of what we call an *Effect*. Effects are simple JavaScript objects which contain instructions to be fulfilled by the middleware. When a middleware retrieves an Effect yielded by a Saga, the Saga is paused until the Effect is fulfilled.-->
 
@@ -335,7 +335,7 @@ export function* incrementAsync() {
 
 <!--In the first case, the yield expression `delay(1000)` is evaluated before it gets passed to the caller of `next` (the caller could be the middleware when running our code. It could also be our test code which runs the Generator function and iterates over the returned Generator). So what the caller gets is a Promise, like in the test code above.-->
 
-두번째 경우에선, `call(delay, 1000)` yield 구문은 `next` 의 호출자에게 넘겨지게 됩니다. `put` 과 유사한 `call` 은 미들웨어에게 주어진 함수와 인자들을 실행하라는 지시를 하는 이펙트를 리턴합니다.
+두번째 경우에선, `call(delay, 1000)` yield 구문은 `next` 의 호출자에게 넘겨지게 됩니다. `put` 과 유사한 `call` 은 미들웨어에게 주어진 함수와 인자들을 실행하라는 명령을 하는 이펙트를 리턴합니다.
 사실, `put` 과 `call` 은 스스로 어떤 dispatch 나 비동기적인 호출을 하지 않습니다. 그들은 단지 순수한 자바스크립트 객체를 돌려줄 뿐입니다.
 
 <!--In the second case, the yield expression `call(delay, 1000)` is what gets passed to the caller of `next`. `call` just like `put`, returns an Effect which instructs the middleware to call a given function with the given arguments. In fact, neither `put` nor `call` performs any dispatch or asynchronous call by themselves, they simply return plain JavaScript objects.-->
