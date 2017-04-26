@@ -6,8 +6,8 @@
   * [x] [배경지식](/introduction/SagaBackground.md) 
 * [ ] [기본](/basics/README.md)
   * [x] [헬퍼 함수](/basics/UsingSagaHelpers.md)
-  * [ ] [선언적 이펙트](/basics/DeclarativeEffects.md) `진행중`
-  * [ ] [액션 확산](/basics/DispatchingActions.md)
+  * [x] [선언적 이펙트](/basics/DeclarativeEffects.md)
+  * [ ] [액션 확산](/basics/DispatchingActions.md) `진행중`
   * [ ] [에러 핸들링](/basics/ErrorHandling.md)
   * [ ] [이펙트 추상화](/basics/Effect.md)
 * [ ] [심화](/advanced/README.md)

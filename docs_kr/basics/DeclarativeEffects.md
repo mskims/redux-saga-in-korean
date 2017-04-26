@@ -44,20 +44,20 @@ const iterator = fetchProducts()
 assert.deepEqual(iterator.next().value, ??) // what do we expect ?
 ```
 
-제너레이터에 의해 yield 된 첫번째 결과를 체크하고 싶네요. 이 경우에선 Promise 인 `Api.fetch('/products')` 의 실행 결과가 됩니다. 하지만 테스트에 실제 서비스를 호출하는건 현실적이지도, 실용적이지도 못합니다. 그래서 `Api.fetch` 함수를 *흉내* 낼 필요가 있습니다. 예를들자면, 진짜 함수대신 실제 AJAX 요청을 실행하지 않고 우리가 `Api.fetch` 를 인자들(위 경우에선 `'/products'`)과 함께 불렀다는 것만 확인하는 가짜 함수로 바꾸는것 처럼요.
+제너레이터에 의해 yield 된 첫번째 결과를 체크하고 싶습니다. 이 경우에선 `Api.fetch('/products')` 의 실행 결과인 Promise 가 됩니다. 하지만 테스트에 실제 서비스를 호출하는건 현실적이지도, 실용적이지도 못합니다. 그래서 실제 AJAX 요청을 실행하지 않고 진짜 함수대신 함수와 인자들을 올바르게 호출했다는 사실만 확인하는 가짜함수를 사용해서 `Api.fetch` 함수를 *흉내* 내봅시다. 
 <!-- We want to check the result of the first value yielded by the generator. In our case it's the result of running `Api.fetch('/products')` which is a Promise . Executing the real service during tests is neither a viable nor practical approach, so we have to *mock* the `Api.fetch` function, i.e. we'll have to replace the real function with a fake one which doesn't actually run the AJAX request but only checks that we've called `Api.fetch` with the right arguments (`'/products'` in our case). -->
 
-이런 가짜함수들은 테스팅을 더 어렵게 만듭니다, 하지만 다른 관점에서 보면, 결과를 체크하기 위해 간단한 `equal()` 을 사용할 수 있기 때문에 값들을 간단히 리턴하는 함수들은 테스트하기 더 쉽습니다. 이것이 가장 믿을만한 테스트를 작성하는 방법입니다.
+이런 가짜함수들은 테스팅을 더 어렵게 만들수도 있습니다, 하지만 다른 관점에서 보면, 결과를 체크하기 위해 `equal()` 을 사용할 수 있기 때문에 값들을 간단히 리턴하는 함수들은 테스트하기 더 쉽습니다. 이것이 가장 믿을만한 테스트를 작성하는 방법입니다.
 <!-- Mocks make testing more difficult and less reliable. On the other hand, functions that simply return values are easier to test, since we can use a simple `equal()` to check the result. This is the way to write the most reliable tests. -->
 
-아직 헷갈리십니까? [Eric Elliott의 글](https://medium.com/javascript-scene/what-every-unit-test-needs-f6cd34d9836d#.4ttnnzpgc)를 읽어보길 추천합니다:
+아직 헷갈리십니까? [Eric Elliott의 글](https://medium.com/javascript-scene/what-every-unit-test-needs-f6cd34d9836d#.4ttnnzpgc)를 읽어보세요!:
 
-> (...)`equal()`, 은 본질적으로 모든 단위테스트가 반드시 대답해야할 가장 중요한 두가지 질문에 대답합니다.
+> (...)`equal()`, 은 본질적으로 모든 단위테스트가 대답해야할 중요한 두가지 질문에 대답합니다.
 하지만 대부분은 그러지 않는것이죠:
 - 실제 출력값은 무엇입니까?
 - 예상된 출력값은 무엇입니까?
 >
-> 만약 이 두가지 질문에 답변하지 않고 테스트를 마쳤다면, 진짜 단위 테스트가 아닙니다. 반쪽짜리 날림 테스트가 될것입니다.
+> 만약 이 두가지 질문에 대답하지 않고 테스트를 마쳤다면, 진짜 단위 테스트가 아닌 반쪽짜리 날림 테스트가 될것입니다.
 
 <!-- 
  (...)`equal()`, by nature answers the two most important questions every unit test must answer,
@@ -67,10 +67,10 @@ but most don’t:
 
  If you finish a test without answering those two questions, you don’t have a real unit test. You have a sloppy, half-baked test. -->
 
-사실 우리가 원하는건 그저 `fetchProducts` 태스크가 함수, 그리고 인자들과 함께 call 을 yield 하는지 확실하게 만드는것입니다.
+사실 우리는 그저 `fetchProducts` 태스크가 정상적인 함수와 인자를 가진 call 을 yield 하는지 확실하게 만들고 싶을 뿐입니다.
 <!-- What we actually need is just to make sure the `fetchProducts` task yields a call with the right function and the right arguments. -->
 
-제너레이터 안에서 직접적으로 비동기 함수를 호출하는 대신, **함수 호출에 관한 설명만 yield 할 수 있습니다.**. 예를 들어, 간단히 다음과 같이 생긴 오브젝트를 yield 할겁니다.
+제너레이터 안에서 직접적으로 비동기 함수를 호출하는 대신, **함수 호출에 관한 설명만 yield 할 수 있습니다.**. 이제 다음과 같이 생긴 오브젝트를 간단히 yield 할겁니다.
 <!-- Instead of invoking the asynchronous function directly from inside the Generator, **we can yield only a description of the function invocation**. i.e. We'll simply yield an object which looks like -->
 
 ```javascript
@@ -83,7 +83,7 @@ but most don’t:
 }
 ```
 
-다른식으로 보자면, 제너레이터는 *명령* 을 담고 있는 순수한 객체를 yield 할 것이고, `redux-saga` 미들웨어는 이런 명령들의 실행을 처리하고, 결과를 제너레이터에 돌려줄 것입니다. 제너레이터를 테스트 할때 이 방법을 사용하면, 우리가 해야할 일은 단지 yield 된 객체에 간단한 `deepEqual` 을 수행해서, 올바른 명령을 yield 하는지 확인하는것이 될것입니다.
+다른식으로 보자면, 제너레이터는 *명령* 을 담고 있는 순수한 객체를 yield 할 것이고, `redux-saga` 미들웨어는 이런 명령들의 실행을 처리하고, 결과를 제너레이터에 돌려줄 것입니다. 제너레이터를 테스트 할때 이 방법을 사용하면, yield 된 객체에 간단한 `deepEqual` 을 사용해 비교해서, 올바른 명령을 yield 하는지 확인하기만 하면 됩니다.
 <!-- Put another way, the Generator will yield plain Objects containing *instructions*, and the `redux-saga` middleware will take care of executing those instructions and giving back the result of their execution to the Generator. This way, when testing the Generator, all we need to do is to check that it yields the expected instruction by doing a simple `deepEqual` on the yielded Object. -->
 
 이러한 이유 때문에, 이 라이브러리는 비동기 요청을 수행할 다른 방법을 제공합니다.
@@ -125,21 +125,25 @@ assert.deepEqual(
 이런 *선언적 호출을* 을 함으로써 Saga 내부에서 간단히 제너레이터를 반복하고, 연속적으로 yield 된 값들에 `deepEqual` 테스트를 하는것 만으로 모든 로직을 테스트 할 수 있습니다. 
 This is a real benefit, as your complex asynchronous operations are no longer black boxes, and you can test in detail their operational logic no matter how complex it is. <!-- The advantage of those *declarative calls* is that we can test all the logic inside a Saga by simply iterating over the Generator and doing a `deepEqual` test on the values yielded successively. -->
 
-`call` also supports invoking object methods, you can provide a `this` context to the invoked functions using the following form:
+`call` 은 또한 오브젝트 메소드 호출을 지원합니다. 다음과 같은 방식을 사용하여 호출된 함수에 `this` 컨텍스트를 사용할 수 있습니다.
+<!-- `call` also supports invoking object methods, you can provide a `this` context to the invoked functions using the following form: -->
 
 ```javascript
 yield call([obj, obj.method], arg1, arg2, ...) // as if we did obj.method(arg1, arg2 ...)
 ```
 
-`apply` is an alias for the method invocation form
+똑같은 기능을 하는 `apply` alias 함수도 있습니다.
+<!-- `apply` is an alias for the method invocation form -->
 
 ```javascript
 yield apply(obj, obj.method, [arg1, arg2, ...])
 ```
 
-`call` and `apply` are well suited for functions that return Promise results. Another function `cps` can be used to handle Node style functions (e.g. `fn(...args, callback)` where `callback` is of the form `(error, result) => ()`). `cps` stands for Continuation Passing Style.
+`call` 과 `apply` 는 Promise 들을 리턴하는 함수들에 적당합니다. 또다른 함수 `cps`(Continuation Passing Style) 는 노드 스타일의 함수들을 다루기 위해 쓰일수도 있습니다 (예: `fn(...args, callback)`, `callback` => `(error, result) => ()`). 
+<!-- `call` and `apply` are well suited for functions that return Promise results. Another function `cps` can be used to handle Node style functions (e.g. `fn(...args, callback)` where `callback` is of the form `(error, result) => ()`). `cps` stands for Continuation Passing Style. -->
 
-For example:
+예:
+<!-- For example: -->
 
 ```javascript
 import { cps } from 'redux-saga/effects'
@@ -147,7 +151,8 @@ import { cps } from 'redux-saga/effects'
 const content = yield cps(readFile, '/path/to/file')
 ```
 
-And of course you can test it just like you test `call`:
+그리고 당연히 `call` 로 테스트 했던것과 비슷하게 테스트 할 수 있습니다:
+<!-- And of course you can test it just like you test `call`: -->
 
 ```javascript
 import { cps } from 'redux-saga/effects'
@@ -156,4 +161,5 @@ const iterator = fetchSaga()
 assert.deepEqual(iterator.next().value, cps(readFile, '/path/to/file') )
 ```
 
+또, `cps` 는 `call` 과 똑같은 메소드 호출 형식을 지원합니다.
 `cps` also supports the same method invocation form as `call`.
