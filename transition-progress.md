@@ -13,10 +13,10 @@
 * [ ] [고급 개념](/advanced/README.md)
   * [x] [Pulling future actions](/advanced/FutureActions.md)
   * [x] [Non blocking calls](/advanced/NonBlockingCalls.md)
-  * [ ] [Running tasks in parallel](/advanced/RunningTasksInParallel.md) `진행중`
-  * [ ] [Starting a race between multiple Effects](/advanced/RacingEffects.md)
-  * [ ] [Sequencing Sagas using yield*](/advanced/SequencingSagas.md)
-  * [ ] [Composing Sagas](/advanced/ComposingSagas.md)
+  * [x] [Running tasks in parallel](/advanced/RunningTasksInParallel.md)
+  * [ ] [Starting a race between multiple Effects](/advanced/RacingEffects.md) `진행중`
+  * [ ] [Sequencing Sagas using yield*](/advanced/SequencingSagas.md) `진행중`
+  * [ ] [Composing Sagas](/advanced/ComposingSagas.md) `진행중`
   * [ ] [Task cancellation](/advanced/TaskCancellation.md)
   * [ ] [redux-saga's fork model](/advanced/ForkModel.md)
   * [ ] [Common Concurrency Patterns](/advanced/Concurrency.md)
