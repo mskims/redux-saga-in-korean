@@ -3,7 +3,7 @@
 이 장에서, 우리는 Redux-Saga가 제공하는 더욱 강력한 이펙트를 배울 것입니다.
 
 * [다음 액션을 풀 하기](FutureActions.md)
-* [Non-blocking calls](NonBlockingCalls.md)
+* [비봉쇄(non-blocking) 호출](NonBlockingCalls.md)
 * [Running tasks in parallel](RunningTasksInParallel.md)
 * [Starting a race between multiple Effects](RacingEffects.md)
 * [Sequencing Sagas using yield*](SequencingSagas.md)
