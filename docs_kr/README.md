@@ -6,32 +6,37 @@
 [![OpenCollective](https://opencollective.com/redux-saga/backers/badge.svg)](#backers)
 [![OpenCollective](https://opencollective.com/redux-saga/sponsors/badge.svg)](#sponsors)
 
-`redux-saga` is a library that aims to make side effects (i.e. asynchronous things like data fetching and impure things like accessing the browser cache) in React/Redux applications easier and better.
+### **NOTE**
+이 문서는 현재 `redux-saga` [d0aa83d](https://github.com/redux-saga/redux-saga/tree/d0aa83d782b241799264879e139db4d03438ae28) 기준으로 작성되었습니다.
 
-The mental model is that a saga is like a separate thread in your application that's solely responsible for side effects. `redux-saga` is a redux middleware, which means this thread can be started, paused and cancelled from the main application with normal redux actions, it has access to the full redux application state and it can dispatch redux actions as well.
+--
 
-It uses an ES6 feature called Generators to make those asynchronous flows easy to read, write and test. *(if you're not familiar with them [here are some introductory links](https://redux-saga.js.org/docs/ExternalResources.html))* By doing so, these asynchronous flows look like your standard synchronous JavaScript code. (kind of like `async`/`await`, but generators have a few more awesome features we need)
+`redux-saga` 는 리액트/리덕스 애플리케이션의 사이드 이펙트, 예를 들면 데이터 fetching이나 브라우저 캐시에 접근하는 순수하지 않은 비동기 동작들을, 더 쉽고 좋게 만드는 것을 목적으로하는 라이브러리입니다.
 
-You might've used `redux-thunk` before to handle your data fetching. Contrary to redux thunk, you don't end up in callback hell, you can test your asynchronous flows easily and your actions stay pure.
+saga는 애플리케이션에서 사이드 이펙트만을 담당하는 별도의 쓰레드와 같은 것으로 보면 됩니다. `redux-saga`는 리덕스 미들웨어입니다. 따라서 앞서 말한 쓰레드가 메인 애플리케이션에서 일반적인 리덕스 액션을 통해 실행되고, 멈추고, 취소될 수 있게 합니다. 또한 모든 리덕스 애플리케이션의 상태에 접근할 수 있고 리덕스 액션 또한 dispatch 할 수 있습니다.
 
-# Getting started
+이 라이브러리는 비동기 흐름을 쉽게 읽고, 쓰고, 테스트 할 수 있게 도와주는 ES6의 피쳐인 Generator를 사용합니다.  *(만약 Generator와 익숙하지 않다면 [여기 몇가지 소개 링크가 있습니다](https://redux-saga.js.org/docs/ExternalResources.html).)* Generator를 사용함으로써, 비동기 흐름은 표준 동기식 자바스크립트 코드처럼 보이게 됩니다. (`async`/`await`와 비슷한데, generator는 우리가 필요한 몇가지 훌륭한 피쳐들을 더 가지고 있습니다.)
 
-## Install
+당신은 데이터 fetching을 관리하기 위해 `redux-thunk`를 써본 적이 있을 수 있습니다. `redux-thunk`와는 대조적으로, 콜백 지옥에 빠지지 않으면서 비동기 흐름들을 쉽게 테스트할 수 있고 액션들을 순수하게 유지합니다.
+
+# 시작하기
+
+## 설치
 
 ```sh
 $ npm install --save redux-saga
 ```
-or
+혹은
 
 ```sh
 $ yarn add redux-saga
 ```
 
-Alternatively, you may use the provided UMD builds directly in the `<script>` tag of an HTML page. See [this section](#using-umd-build-in-the-browser).
+다른 방법으로, HTML 페이지의 `<script>` 태그에 직접 UMD 빌드를 사용할 수 있습니다. 이 [섹션](#using-umd-build-in-the-browser)을 확인하세요.
 
-## Usage Example
+## 사용 예제
 
-Suppose we have an UI to fetch some user data from a remote server when a button is clicked. (For brevity, we'll just show the action triggering code.)
+우리가 버튼을 눌렀을 때 원격 서버로부터 한 유저 데이터를 fetch하는 UI를 다룬다고 가정해봅시다. (간결함을 위해, 액션 실행 코드를 바로 보여드리겠습니다.)
 
 ```javascript
 class UserComponent extends React.Component {
@@ -44,7 +49,7 @@ class UserComponent extends React.Component {
 }
 ```
 
-The Component dispatches a plain Object action to the Store. We'll create a Saga that watches for all `USER_FETCH_REQUESTED` actions and triggers an API call to fetch the user data.
+컴포넌트는 플레인 오브젝트 액션을 스토어에 dispatch 합니다. 우리는 모든 `USER_FETCH_REQUESTED` 액션을 지켜보면서 유저 데이터를 fetch하는 API를 호출하도록 하는 Saga를 만들 것입니다.
 
 #### `sagas.js`
 
@@ -52,7 +57,7 @@ The Component dispatches a plain Object action to the Store. We'll create a Saga
 import { call, put, takeEvery, takeLatest } from 'redux-saga/effects'
 import Api from '...'
 
-// worker Saga: will be fired on USER_FETCH_REQUESTED actions
+// worker Saga: USER_FETCH_REQUESTED 액션에 대해 호출될 것입니다
 function* fetchUser(action) {
    try {
       const user = yield call(Api.fetchUser, action.payload.userId);
@@ -63,19 +68,17 @@ function* fetchUser(action) {
 }
 
 /*
-  Starts fetchUser on each dispatched `USER_FETCH_REQUESTED` action.
-  Allows concurrent fetches of user.
+  각각의 dispatch 된 `USER_FETCH_REQUESTED` 액션에 대해 fetchUser를 실행합니다.
+  동시에 user를 fetch하는 것을 허용합니다.
 */
 function* mySaga() {
   yield takeEvery("USER_FETCH_REQUESTED", fetchUser);
 }
 
 /*
-  Alternatively you may use takeLatest.
-
-  Does not allow concurrent fetches of user. If "USER_FETCH_REQUESTED" gets
-  dispatched while a fetch is already pending, that pending fetch is cancelled
-  and only the latest one will be run.
+  또는 takeLatest를 사용할 수 있습니다.
+  
+  동시에 user를 fetch하는 것을 허용하지 않습니다. 만약 fetch가 이미 대기 상태일 때  "USER_FETCH_REQUESTED"가 dispatch가 되었다면 대기 상태의 fetch는 취소되고 항상 최근 것만이 실행됩니다.
 */
 function* mySaga() {
   yield takeLatest("USER_FETCH_REQUESTED", fetchUser);
@@ -84,7 +87,7 @@ function* mySaga() {
 export default mySaga;
 ```
 
-To run our Saga, we'll have to connect it to the Redux Store using the `redux-saga` middleware.
+Saga를 실행하기 위해서 `redux-saga` 미들웨어를 리덕스 스토어에 연결해야 합니다.
 
 #### `main.js`
 
@@ -95,134 +98,133 @@ import createSagaMiddleware from 'redux-saga'
 import reducer from './reducers'
 import mySaga from './sagas'
 
-// create the saga middleware
+// saga 미들웨어를 생성합니다.
 const sagaMiddleware = createSagaMiddleware()
-// mount it on the Store
+// 스토어에 mount 합니다.
 const store = createStore(
   reducer,
   applyMiddleware(sagaMiddleware)
 )
 
-// then run the saga
+// 그리고 saga를 실행합니다.
 sagaMiddleware.run(mySaga)
 
-// render the application
+// 애플리케이션을 render합니다.
 ```
 
 # Documentation
 
-- [Introduction](https://redux-saga.js.org/docs/introduction/BeginnerTutorial.html)
-- [Basic Concepts](https://redux-saga.js.org/docs/basics/index.html)
-- [Advanced Concepts](https://redux-saga.js.org/docs/advanced/index.html)
-- [Recipes](https://redux-saga.js.org/docs/recipes/index.html)
-- [External Resources](https://redux-saga.js.org/docs/ExternalResources.html)
-- [Troubleshooting](https://redux-saga.js.org/docs/Troubleshooting.html)
-- [Glossary](https://redux-saga.js.org/docs/Glossary.html)
-- [API Reference](https://redux-saga.js.org/docs/api/index.html)
+- [시작하면서](https://redux-saga.js.org/docs/introduction/BeginnerTutorial.html)
+- [기본 개념](https://redux-saga.js.org/docs/basics/index.html)
+- [고급 개념](https://redux-saga.js.org/docs/advanced/index.html)
+- [레시피](https://redux-saga.js.org/docs/recipes/index.html)
+- [외부 자료](https://redux-saga.js.org/docs/ExternalResources.html)
+- [문제해결](https://redux-saga.js.org/docs/Troubleshooting.html)
+- [용어 사전](https://redux-saga.js.org/docs/Glossary.html)
+- [API 레퍼런스](https://redux-saga.js.org/docs/api/index.html)
 
-# Translation
+# 번역
 
-- [Chinese](https://github.com/superRaytin/redux-saga-in-chinese)
-- [Chinese Traditional](https://github.com/neighborhood999/redux-saga)
-- [Japanese](https://github.com/redux-saga/redux-saga/blob/master/README_ja.md)
-- [Korean](https://github.com/redux-saga/redux-saga/blob/master/README_ko.md)
-- [Russian](https://github.com/redux-saga/redux-saga/blob/master/README_ru.md)
+- [중국어 간체](https://github.com/superRaytin/redux-saga-in-chinese)
+- [중국어 번체](https://github.com/neighborhood999/redux-saga)
+- [일본어](https://github.com/redux-saga/redux-saga/blob/master/README_ja.md)
+- [한국어](https://github.com/redux-saga/redux-saga/blob/master/README_ko.md)
+- [러시아어](https://github.com/redux-saga/redux-saga/blob/master/README_ru.md)
 
-# Using umd build in the browser
+# 브라우저에서 umd 빌드 사용하기
 
-There is also a **umd** build of `redux-saga` available in the `dist/` folder. When using the umd build `redux-saga` is available as `ReduxSaga` in the window object.
+`dist/` 폴더 하위에 `redux-saga`의 **umd** 빌드 버전을 제공합니다. umd 빌드 버전의 `redux-saga`를 사용하면 window 오브젝트의 `ReduxSaga`를 사용할 수 있습니다.
 
-The umd version is useful if you don't use Webpack or Browserify. You can access it directly from [unpkg](https://unpkg.com/).
+이러한 umd 버전은 Webpack 혹은 Browserify를 사용하지 않을 때 매우 편리합니다. [unpkg](https://unpkg.com/)에서 직접 사용할 수도 있습니다.
 
-The following builds are available:
+다음과 같은 빌드 버전을 사용할 수 있습니다:
 
 - [https://unpkg.com/redux-saga/dist/redux-saga.js](https://unpkg.com/redux-saga/dist/redux-saga.js)
 - [https://unpkg.com/redux-saga/dist/redux-saga.min.js](https://unpkg.com/redux-saga/dist/redux-saga.min.js)
 
-**Important!** If the browser you are targeting doesn't support *ES2015 generators*, you must provide a valid polyfill, such as [the one provided by `babel`](https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.25/browser-polyfill.min.js). The polyfill must be imported before **redux-saga**:
+**중요!** 만약 당신의 타겟 브라우져가 **ES2015 genertor**를 지원하지 않는다면 [`babel`에서 제공하는 것](https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.25/browser-polyfill.min.js) 같은 polyfill을 이용해야 합니다. 이 때 **redux-saga** 보다 먼저 import 되야합니다.
 
 ```javascript
 import 'babel-polyfill'
-// then
+// 그 다음에
 import sagaMiddleware from 'redux-saga'
 ```
 
-# Building examples from sources
+# 소스를 빌드하는 예제
 
 ```sh
-$ git clone https://github.com/yelouafi/redux-saga.git
+$ git clone https://github.com/redux-saga/redux-saga.git
 $ cd redux-saga
 $ npm install
 $ npm test
 ```
 
-Below are the examples ported (so far) from the Redux repos.
+아래는 리덕스 저장소로부터 포팅한 (포팅중인) 예제들입니다.
 
-### Counter examples
+### 카운터 예제
 
-There are three counter examples.
+다음의 세가지 카운터 예제가 존재합니다.
 
-#### counter-vanilla
+#### 기본 카운터
 
-Demo using vanilla JavaScript and UMD builds. All source is inlined in `index.html`.
+UMD 빌드 버전과 기본 자바스크립트를 사용한 예제입니디. 모든 소스는 `index.html`에 작성되어 있습니다.
 
-To launch the example, just open `index.html` in your browser.
+예제를 실행하기 위해선 그냥 `index.html`를 브라우저에 실행시키면 됩니다.
 
-> Important: your browser must support Generators. Latest versions of Chrome/Firefox/Edge are suitable.
+> 중요: 브라우저가 Generator를 지원해야합니다. 최신 Chrome/Firefox/Edge 브라우저 버전은 지원됩니다.
 
-#### counter
+#### 카운터
 
-Demo using `webpack` and high-level API `takeEvery`.
+`webpack`과 high-level API인 `takeEvery`를 사용하는 예제입니다.
 
 ```sh
 $ npm run counter
 
-# test sample for the generator
+# generator를 위한 테스트 예제
 $ npm run test-counter
 ```
 
-#### cancellable-counter
+#### 취소할 수 있는 카운터
 
-Demo using low-level API to demonstrate task cancellation.
+low-level API를 이용해 동작을 취소하는 예제입니다.
 
 ```sh
 $ npm run cancellable-counter
 ```
 
-### Shopping Cart example
+### 쇼핑 카트 예제
 
 ```sh
 $ npm run shop
 
-# test sample for the generator
+# generator를 위한 테스트 예제
 $ npm run test-shop
 ```
 
-### async example
+### 비동기 예제
 
 ```sh
 $ npm run async
 
-# test sample for the generators
+# generator를 위한 테스트 예제
 $ npm run test-async
 ```
 
-### real-world example (with webpack hot reloading)
+### real-world 예제 (webpack hot reloading을 이용함)
 
 ```sh
 $ npm run real-world
 
-# sorry, no tests yet
+# 아직 작업 중 입니다
 ```
 
+### 로고
 
-### Logo
-
-You can find the official Redux-Saga logo with different flavors in the [logo directory](logo).
+다양한 종류의 공식 Redux-Saga 로고를 [로고 디렉토리](logo)에서 찾을 수 있습니다.
 
 
 ### Backers
-Support us with a monthly donation and help us continue our activities. \[[Become a backer](https://opencollective.com/redux-saga#backer)\]
+매달 기부함으로써 저희의 오픈 소스 활동을 서포트 해주세요. \[[후원자 되기](https://opencollective.com/redux-saga#backer)\]
 
 <a href="https://opencollective.com/redux-saga/backer/0/website" target="_blank"><img src="https://opencollective.com/redux-saga/backer/0/avatar.svg"></a>
 <a href="https://opencollective.com/redux-saga/backer/1/website" target="_blank"><img src="https://opencollective.com/redux-saga/backer/1/avatar.svg"></a>
@@ -256,8 +258,8 @@ Support us with a monthly donation and help us continue our activities. \[[Becom
 <a href="https://opencollective.com/redux-saga/backer/29/website" target="_blank"><img src="https://opencollective.com/redux-saga/backer/29/avatar.svg"></a>
 
 
-### Sponsors
-Become a sponsor and get your logo on our README on Github with a link to your site. \[[Become a sponsor](https://opencollective.com/redux-saga#sponsor)\]
+### 스폰서
+스폰서가 되어 당신의 로고와 링크를 Github README에 노출하세요. \[[스폰서 되기](https://opencollective.com/redux-saga#sponsor)\]
 
 <a href="https://opencollective.com/redux-saga/sponsor/0/website" target="_blank"><img src="https://opencollective.com/redux-saga/sponsor/0/avatar.svg"></a>
 <a href="https://opencollective.com/redux-saga/sponsor/1/website" target="_blank"><img src="https://opencollective.com/redux-saga/sponsor/1/avatar.svg"></a>
