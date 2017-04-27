@@ -6,10 +6,10 @@
   * [x] [배경지식](/introduction/SagaBackground.md) 
 * [ ] [기본 개념](/basics/README.md)
   * [x] [헬퍼 함수](/basics/UsingSagaHelpers.md)
-  * [x] [선언적 이펙트](/basics/DeclarativeEffects.md)
+  * [x] [서술적 이펙트](/basics/DeclarativeEffects.md)
   * [x] [액션 dispatch 하기](/basics/DispatchingActions.md) 
-  * [ ] [에러 핸들링](/basics/ErrorHandling.md) `진행중`
-  * [ ] [이펙트 추상화](/basics/Effect.md)
+  * [x] [에러 핸들링](/basics/ErrorHandling.md)
+  * [ ] [이펙트 추상화](/basics/Effect.md) `진행중`
 * [ ] [고급 개념](/advanced/README.md)
   * [x] [Pulling future actions](/advanced/FutureActions.md)
   * [x] [Non blocking calls](/advanced/NonBlockingCalls.md)

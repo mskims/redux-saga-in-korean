@@ -1,4 +1,4 @@
-# 선언적 이펙트
+# 서술적 이펙트
 
 `redux-saga` 에서, Saga들은 제너레이터 함수들을 사용해서 구현되었습니다. Saga 로직을 표현하기 위해서 우리는 제너레이터로부터 온 순수 자바스크립트 객체를 yield 합니다. 이런 오브젝트들을 *이펙트* 라고 부릅니다. 이펙트는 미들웨어에 의해 해석되는 몇몇 정보들을 담고있는 간단한 객체입니다. 어떤 기능을 수행하기 위해 미들웨어에 전해지는 명령(스토어에 액션을 dispatch 하는 행위나 비동기 함수를 호출하는 등)이라고 볼수 있죠.
 
@@ -122,7 +122,7 @@ assert.deepEqual(
 이제 아무것도 흉내낼 필교가 없어졌습니다. 간단한 비교 테스트로 충분할것입니다.
 <!-- Now we don't need to mock anything, and a simple equality test will suffice. -->
 
-이런 *선언적 호출을* 을 함으로써 Saga 내부에서 간단히 제너레이터를 반복하고, 연속적으로 yield 된 값들에 `deepEqual` 테스트를 하는것 만으로 모든 로직을 테스트 할 수 있습니다. 
+이런 *서술적 호출을* 을 함으로써 Saga 내부에서 간단히 제너레이터를 반복하고, 연속적으로 yield 된 값들에 `deepEqual` 테스트를 하는것 만으로 모든 로직을 테스트 할 수 있습니다. 
 This is a real benefit, as your complex asynchronous operations are no longer black boxes, and you can test in detail their operational logic no matter how complex it is. <!-- The advantage of those *declarative calls* is that we can test all the logic inside a Saga by simply iterating over the Generator and doing a `deepEqual` test on the values yielded successively. -->
 
 `call` 은 또한 오브젝트 메소드 호출을 지원합니다. 다음과 같은 방식을 사용하여 호출된 함수에 `this` 컨텍스트를 사용할 수 있습니다.

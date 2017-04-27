@@ -22,7 +22,7 @@ function* fetchProducts(dispatch) {
 <!-- However, this solution has the same drawbacks as invoking functions directly from inside the Generator (as discussed in the previous section). If we want to test that `fetchProducts` performs the dispatch after receiving the AJAX response, we'll need again to mock the `dispatch`
 function. -->
 
-흉내내는것 대신, 선언적 해결책이 필요합니다. 그저 미들웨어에게 어떤 액션을 dispatch 해야하는지 지시하는 객체를 만들고, 실제 dispatch 는 미들웨어가 하도록 놔두세요. 이렇게만 한다면 yield 된 이펙트를 검사하고 정확한 명령이 포함되어있는지 확인하는 것만으로 제너레이터의 dispatch 를 테스트 할 수 있습니다.
+흉내내는것 대신, 서술적 해결책이 필요합니다. 그저 미들웨어에게 어떤 액션을 dispatch 해야하는지 지시하는 객체를 만들고, 실제 dispatch 는 미들웨어가 하도록 놔두세요. 이렇게만 한다면 yield 된 이펙트를 검사하고 정확한 명령이 포함되어있는지 확인하는 것만으로 제너레이터의 dispatch 를 테스트 할 수 있습니다.
 
 <!-- Instead, we need the same declarative solution. Just create an Object to instruct the
 middleware that we need to dispatch some action, and let the middleware perform the real
