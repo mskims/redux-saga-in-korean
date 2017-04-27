@@ -1,6 +1,6 @@
 # 번역 상태
 
-* [ ] [Read Me](/README.md)
+* [x] [Read Me](/README.md)
 * [x] [소개](/introduction/README.md)
   * [x] [튜토리얼](/introduction/BeginnerTutorial.md)
   * [x] [배경지식](/introduction/SagaBackground.md) 
@@ -11,9 +11,9 @@
   * [ ] [에러 핸들링](/basics/ErrorHandling.md)
   * [ ] [이펙트 추상화](/basics/Effect.md)
 * [ ] [심화](/advanced/README.md)
-  * [ ] [Pulling future actions](/advanced/FutureActions.md)
-  * [ ] [Non blocking calls](/advanced/NonBlockingCalls.md)
-  * [ ] [Running tasks in parallel](/advanced/RunningTasksInParallel.md)
+  * [ ] [Pulling future actions](/advanced/FutureActions.md) `진행중`
+  * [ ] [Non blocking calls](/advanced/NonBlockingCalls.md) `진행중`
+  * [ ] [Running tasks in parallel](/advanced/RunningTasksInParallel.md) `진행중`
   * [ ] [Starting a race between multiple Effects](/advanced/RacingEffects.md)
   * [ ] [Sequencing Sagas using yield*](/advanced/SequencingSagas.md)
   * [ ] [Composing Sagas](/advanced/ComposingSagas.md)
