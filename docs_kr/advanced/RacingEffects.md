@@ -1,11 +1,8 @@
-## Starting a race between multiple Effects
+## 여러 이펙트의 경주
 
-Sometimes we start multiple tasks in parallel but we don't want to wait for all of them, we just need
-to get the *winner*: the first one that resolves (or rejects). The `race` Effect offers a way of
-triggering a race between multiple Effects.
+가끔씩 우리는 여러 태스크들을 병렬로 시작하지만, 그 태스크들을 전부 기다리고 싶지는 않을 때가 있습니다. 우리는 그저 *우승자*가 필요할 뿐입니다: 첫 번째로 resolve(혹은 reject)한 태스크 말입니다. `race` 이펙트는 여러 이펙트들을 경주할 수 있게 합니다.
 
-The following sample shows a task that triggers a remote fetch request, and constrains the response within a
-1 second timeout.
+다음 예시는 원격 요청을 하는 태스크입니다. 그리고 응답 시간을 1초로 제한하고 있습니다.
 
 ```javascript
 import { race, take, put } from 'redux-saga/effects'
@@ -24,14 +21,11 @@ function* fetchPostsWithTimeout() {
 }
 ```
 
-Another useful feature of `race` is that it automatically cancels the loser Effects. For example,
-suppose we have 2 UI buttons:
+`race`의 다른 유용한 기능 중 하나는 경주에서 진 이펙트들을 자동으로 취소시키는 것입니다. 예를 들어, 우리가 두 개의 UI 버튼이 있다고 가정해봅시다:
 
-- The first starts a task in the background that runs in an endless loop `while (true)`
-(e.g. syncing some data with the server each x seconds).
+- 첫 번째 버튼은 백그라운드에서 무한루프 `while (true)` 안에서 태스크를 시작합니다 (예를 들어, 매 x초마다 데이터를 서버와 싱크하는 태스크가 있겠죠).
 
-- Once the background task is started, we enable a second button which will cancel the task
-
+- 백그라운드 태스크가 시작하면, 우리는 두 번째 버튼을 눌러 이 태스크를 취소할 수 있습니다.
 
 ```javascript
 import { race, take, put } from 'redux-saga/effects'
@@ -51,5 +45,4 @@ function* watchStartBackgroundTask() {
 }
 ```
 
-In the case a `CANCEL_TASK` action is dispatched, the `race` Effect will automatically cancel
-`backgroundTask` by throwing a cancellation error inside it.
+이 경우에서 `CANCEL_TASK` 액션이 dispatch되면, `race` 이펙트는 자동으로 `backgroundTask`를 취소할 것입니다. 그리고 그 태스크 내부에 취소 에러를 throw할 것입니다.
