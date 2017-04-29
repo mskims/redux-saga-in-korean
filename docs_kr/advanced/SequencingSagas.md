@@ -1,6 +1,6 @@
-# Sequencing Sagas via `yield*`
+# yield*로 사가 배열하기
 
-You can use the builtin `yield*` operator to compose multiple Sagas in a sequential way. This allows you to sequence your *macro-tasks* in a simple procedural style.
+`yield*` 연산자를 이용해서 여러 개의 사가들을 순서에 맞게 배열할 수 있습니다. 이는 당신의 *마이크로 태스크*들을 간단하고 절차적인 스타일로 배열할 수 있게 합니다.
 
 ```javascript
 function* playLevelOne() { ... }
@@ -21,4 +21,4 @@ function* game() {
 }
 ```
 
-Note that using `yield*` will cause the JavaScript runtime to *spread* the whole sequence. The resulting iterator (from `game()`) will yield all values from the nested iterators. A more powerful alternative is to use the more generic middleware composition mechanism.
+`yield*`가 자바스크립트 런타임을 골고루 *퍼지게* 한다는 것에 주목하세요. `game()`은 각 반복(LevelOne, LevelTwo, LevelThree)으로부터 모든 값들을 yield할 것입니다. 더 강력한 대안은 더 일반적인 미들웨어 구성 메커니즘을 사용하는 것입니다.
