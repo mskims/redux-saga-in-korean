@@ -1,4 +1,4 @@
-# Pulling future actions
+# 액션 풀링
 
 지금까지 우리는 들어오는 각각의 액션에 새로운 테스크를 만들기 위해서 `takeEvery` 헬퍼 이펙트를 사용했습니다. 이것은 약간 redux-thunk를 흉내낸 것 같습니다: 예를 들어, 매번 `fetchProducts` 액션 크리에이터를 호출하면, 그 액션 크리에이터는 데이터 컨트롤을 위해 썽크를 dispatch하는 것과 같네요.
 
