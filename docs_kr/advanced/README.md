@@ -7,7 +7,7 @@
 * [병렬 태스크 실행](RunningTasksInParallel.md)
 * [여러 이펙트의 경주](RacingEffects.md)
 * [yield*로 사가 배열하기](SequencingSagas.md)
-* [Composing Sagas](ComposingSagas.md)
+* [사가 조합하기](ComposingSagas.md)
 * [Task cancellation](TaskCancellation.md)
 * [redux-saga's fork model](ForkModel.md)
 * [Common Concurrency Patterns](Concurrency.md)
