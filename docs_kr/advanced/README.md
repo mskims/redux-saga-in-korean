@@ -11,6 +11,6 @@
 * [태스크 취소](TaskCancellation.md)
 * [redux-saga의 포크(fork) 모델](ForkModel.md)
 * [동시성 패턴](Concurrency.md)
-* [Connecting Sagas to external Input/Output](UsingRunSaga.md)
 * [사가 테스트](Testing.md)
+* [사가와 외부 입/출력 연결](UsingRunSaga.md)
 * [Using Channels](Channels.md)
