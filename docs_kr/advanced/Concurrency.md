@@ -1,8 +1,8 @@
-# Concurrency
+# 동시성 패턴
 
-In the basics section, we saw how to use the helper effects `takeEvery` and `takeLatest` in order to manage concurrency between Effects.
+기본 장에서 우리는 이펙트 간의 동시성을 관리하기 위해 `takeEvery`와 `takeLatest`를  어떻게 사용하는지 배웠습니다.
 
-In this section we'll see how those helpers could be implemented using the low-level Effects.
+이 장에서 우리는 이러한 헬퍼들이 어떻게 로우 레벨 이펙트를 사용하여 작동하는지 볼 것입니다.
 
 ## `takeEvery`
 
@@ -18,7 +18,7 @@ function* takeEvery(pattern, saga, ...args) {
 }
 ```
 
-`takeEvery` allows multiple `saga` tasks to be forked concurrently.
+`takeEvery`는 여러 개의 `saga`가 동시에 포크되게 합니다.
 
 ## `takeLatest`
 
@@ -38,6 +38,6 @@ function* takeLatest(pattern, saga, ...args) {
 }
 ```
 
-`takeLatest` doesn't allow multiple Saga tasks to be fired concurrently. As soon as it gets a new dispatched action, it cancels any previously-forked task (if still running).
+`takeLatest`는 여러 개의 사가 태스크들이 동시에 실행되게 하지 않습니다. 새로운 액션이 dispatch되자 마자, 그것은 이전의 모든 포크된 태스크를 취소합니다 (이미 작동 중이더라도).
 
-`takeLatest` can be useful to handle AJAX requests where we want to only have the response to the latest request.
+`takeLatest`는 가장 나중의 응답만 받고 싶은 AJAX 요청을 다룰 때에 유용합니다.

@@ -1,16 +1,16 @@
-# Advanced
+# 심화
 
-In this section, we'll dig into more powerful Effects provided by the library.
+이 장에서, 우리는 Redux-Saga가 제공하는 더욱 강력한 이펙트를 배울 것입니다.
 
-* [Pulling future actions](FutureActions.md)
-* [Non-blocking calls](NonBlockingCalls.md)
-* [Running tasks in parallel](RunningTasksInParallel.md)
-* [Starting a race between multiple Effects](RacingEffects.md)
-* [Sequencing Sagas using yield*](SequencingSagas.md)
-* [Composing Sagas](ComposingSagas.md)
-* [Task cancellation](TaskCancellation.md)
-* [redux-saga's fork model](ForkModel.md)
-* [Common Concurrency Patterns](Concurrency.md)
-* [Examples of Testing Sagas](Testing.md)
-* [Connecting Sagas to external Input/Output](UsingRunSaga.md)
+* [액션 풀링](FutureActions.md)
+* [비봉쇄(non-blocking) 호출](NonBlockingCalls.md)
+* [병렬 태스크 실행](RunningTasksInParallel.md)
+* [여러 이펙트의 경주](RacingEffects.md)
+* [yield*를 이용한 사가 배열](SequencingSagas.md)
+* [사가 조합](ComposingSagas.md)
+* [태스크 취소](TaskCancellation.md)
+* [redux-saga의 포크(fork) 모델](ForkModel.md)
+* [동시성 패턴](Concurrency.md)
+* [사가 테스트](Testing.md)
+* [사가와 외부 입/출력 연결](UsingRunSaga.md)
 * [Using Channels](Channels.md)

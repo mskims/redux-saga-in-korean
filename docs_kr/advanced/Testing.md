@@ -1,10 +1,10 @@
-# Testing Sagas
+# 사가 테스트
 
-**Effects return plain javascript objects**
+**이펙트는 일반 자바스크립트 객체를 반환합니다.**
 
-Those objects describe the effect and redux-saga is in charge to execute them.
+이 객체들은 이펙트를 표현 또는 설명하고, redux-saga는 이를 실행합니다.
 
-This makes testing very easy because all you have to do is compare that the object yielded by the saga describe the effect you want.
+이렇게 하면 테스트가 아주 쉬워집니다. 왜냐하면, 사가에 의해 yield된 객체가 우리가 원하는 이펙트를 설명하는지 비교만 하면 되니까요.
  
 ## Basic Example
 
@@ -24,7 +24,7 @@ console.log(put({ type: MY_CRAZY_ACTION }));
  */
 ```
 
-Testing a saga that wait for a user action and dispatch
+사용자의 액션을 기다리고 dispatch하는 사가를 테스트해봅시다.
 
 ```javascript
 const CHOOSE_COLOR = 'CHOOSE_COLOR';
@@ -76,11 +76,12 @@ test('change color saga', assert => {
 });
 ```
 
-Another great benefit is that your tests are also your doc! They describe everything that should happen.
+테스트는 또한 문서처럼 사용되므로 더 좋습니다! 일어날만한 모든 일을 설명하니까요.
 
 ## Branching Saga 
 
-Sometimes your saga will have different outcomes. To test the different branches without repeating all the steps that lead to it you can use the utility function **cloneableGenerator**
+가끔씩 사가는 다른 결과를 가질 때가 있습니다. 사가의 모든 단계를 다시 반복하지 않고 분기하려면 **cloneableGenerator** 유틸리티 함수를 사용하세요.
+
 ```javascript
 const CHOOSE_NUMBER = 'CHOOSE_NUMBER';
 const CHANGE_UI = 'CHANGE_UI';
@@ -177,10 +178,10 @@ test('doStuffThenChangeColor', assert => {
 });
 ```
 
-See also: [Task cancellation](TaskCancellation.md) for testing fork effects
+fork 이펙트 테스트에 관해서는 [태스크 취소](TaskCancellation.md)를 참조하세요.
 
-See also: Repository Examples:
+저장소 예제들입니다.
 
-https://github.com/redux-saga/redux-saga/blob/master/examples/counter/test/sagas.js
+<https://github.com/redux-saga/redux-saga/blob/master/examples/counter/test/sagas.js>
 
-https://github.com/redux-saga/redux-saga/blob/master/examples/shopping-cart/test/sagas.js
+<https://github.com/redux-saga/redux-saga/blob/master/examples/shopping-cart/test/sagas.js>

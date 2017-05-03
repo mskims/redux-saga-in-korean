@@ -1,10 +1,10 @@
-# Connecting Sagas to external Input/Output
+# 사가와 외부 입/출력 연결
 
-We saw that `take` Effects are resolved by waiting for actions to be dispatched to the Store. And that `put` Effects are resolved by dispatching the actions provided as argument.
+`take` 이펙트는 스토어에 dispatch될 액션이 들어오면 resolve 되었습니다. 그리고 `put` 이펙트는 액션을 인자로 dispatch함으로써 resolve되었습니다.
 
-When a Saga is started (either at startup or later dynamically), the middleware automatically connects its `take`/`put` to the store. The 2 Effects can be seen as a sort of Input/Output to the Saga.
+사가가 시작될 때 미들웨어는 자동으로 `take`/`put`을 스토어와 연결합니다. 이 두 이펙트는 사가의 입력/출력처럼 보일 수 있겠죠.
 
-`redux-saga` provides a way to run a Saga outside of the Redux middleware environment and connect it to a custom Input/Output.
+`redux-saga`는 리덕스 미들웨어 환경 바깥에서 사가를 실행하고 커스텀 입/출력에 연결할 수 있는 방법을 제공합니다.
 
 ```javascript
 import { runSaga } from 'redux-saga'
@@ -23,4 +23,4 @@ runSaga(
 )
 ```
 
-For more info, see the [API docs](https://redux-saga.js.org/docs/api/index.html#runsagaiterator-options).
+자세한 정보는 [API 문서](https://mskims.github.io/redux-saga-in-korean/api/index.html#runsagaiterator-options)를 참조하세요.
