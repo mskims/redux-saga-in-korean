@@ -14,15 +14,15 @@
   * [x] [Pulling future actions](/advanced/FutureActions.md)
   * [x] [Non blocking calls](/advanced/NonBlockingCalls.md)
   * [x] [Running tasks in parallel](/advanced/RunningTasksInParallel.md)
-  * [ ] [Starting a race between multiple Effects](/advanced/RacingEffects.md) `진행중`
-  * [ ] [Sequencing Sagas using yield*](/advanced/SequencingSagas.md) `진행중`
-  * [ ] [Composing Sagas](/advanced/ComposingSagas.md) `진행중`
-  * [ ] [Task cancellation](/advanced/TaskCancellation.md)
-  * [ ] [redux-saga's fork model](/advanced/ForkModel.md)
-  * [ ] [Common Concurrency Patterns](/advanced/Concurrency.md)
-  * [ ] [Examples of Testing Sagas](/advanced/Testing.md)
-  * [ ] [Connecting Sagas to external Input/Output](/advanced/UsingRunSaga.md)
-  * [ ] [Using Channels](/advanced/Channels.md)
+  * [x] [Starting a race between multiple Effects](/advanced/RacingEffects.md) 
+  * [x] [Sequencing Sagas using yield*](/advanced/SequencingSagas.md) 
+  * [x] [Composing Sagas](/advanced/ComposingSagas.md) 
+  * [x] [Task cancellation](/advanced/TaskCancellation.md)
+  * [x] [redux-saga's fork model](/advanced/ForkModel.md)
+  * [x] [Common Concurrency Patterns](/advanced/Concurrency.md)
+  * [x] [Examples of Testing Sagas](/advanced/Testing.md)
+  * [x] [Connecting Sagas to external Input/Output](/advanced/UsingRunSaga.md)
+  * [ ] [Using Channels](/advanced/Channels.md) `진행중`
 * [ ] [레시피](/recipes/README.md)
 * [ ] [외부 자료](/ExternalResources.md)
 * [ ] [문제해결](/Troubleshooting.md)
