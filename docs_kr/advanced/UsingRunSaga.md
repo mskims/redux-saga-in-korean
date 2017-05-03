@@ -23,4 +23,4 @@ runSaga(
 )
 ```
 
-자세한 정보는 [API 문서](https://redux-saga.js.org/docs/api/index.html#runsagaiterator-options)를 참조하세요.
+자세한 정보는 [API 문서](https://mskims.github.io/redux-saga-in-korean/api/index.html#runsagaiterator-options)를 참조하세요.

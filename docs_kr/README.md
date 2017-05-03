@@ -15,7 +15,7 @@
 
 saga는 애플리케이션에서 사이드 이펙트만을 담당하는 별도의 쓰레드와 같은 것으로 보면 됩니다. `redux-saga`는 리덕스 미들웨어입니다. 따라서 앞서 말한 쓰레드가 메인 애플리케이션에서 일반적인 리덕스 액션을 통해 실행되고, 멈추고, 취소될 수 있게 합니다. 또한 모든 리덕스 애플리케이션의 상태에 접근할 수 있고 리덕스 액션 또한 dispatch 할 수 있습니다.
 
-이 라이브러리는 비동기 흐름을 쉽게 읽고, 쓰고, 테스트 할 수 있게 도와주는 ES6의 피쳐인 Generator를 사용합니다.  *(만약 Generator와 익숙하지 않다면 [여기 몇가지 소개 링크가 있습니다](https://redux-saga.js.org/docs/ExternalResources.html).)* Generator를 사용함으로써, 비동기 흐름은 표준 동기식 자바스크립트 코드처럼 보이게 됩니다. (`async`/`await`와 비슷한데, generator는 우리가 필요한 몇가지 훌륭한 피쳐들을 더 가지고 있습니다.)
+이 라이브러리는 비동기 흐름을 쉽게 읽고, 쓰고, 테스트 할 수 있게 도와주는 ES6의 피쳐인 Generator를 사용합니다.  *(만약 Generator와 익숙하지 않다면 [여기 몇가지 소개 링크가 있습니다](https://mskims.github.io/redux-saga-in-korean/ExternalResources.html).)* Generator를 사용함으로써, 비동기 흐름은 표준 동기식 자바스크립트 코드처럼 보이게 됩니다. (`async`/`await`와 비슷한데, generator는 우리가 필요한 몇가지 훌륭한 피쳐들을 더 가지고 있습니다.)
 
 당신은 데이터 fetching을 관리하기 위해 `redux-thunk`를 써본 적이 있을 수 있습니다. `redux-thunk`와는 대조적으로, 콜백 지옥에 빠지지 않으면서 비동기 흐름들을 쉽게 테스트할 수 있고 액션들을 순수하게 유지합니다.
 
@@ -114,14 +114,14 @@ sagaMiddleware.run(mySaga)
 
 # Documentation
 
-- [시작하면서](https://redux-saga.js.org/docs/introduction/BeginnerTutorial.html)
-- [기본 개념](https://redux-saga.js.org/docs/basics/index.html)
-- [고급 개념](https://redux-saga.js.org/docs/advanced/index.html)
-- [레시피](https://redux-saga.js.org/docs/recipes/index.html)
-- [외부 자료](https://redux-saga.js.org/docs/ExternalResources.html)
-- [문제해결](https://redux-saga.js.org/docs/Troubleshooting.html)
-- [용어 사전](https://redux-saga.js.org/docs/Glossary.html)
-- [API 레퍼런스](https://redux-saga.js.org/docs/api/index.html)
+- [시작하면서](https://mskims.github.io/redux-saga-in-korean/introduction/BeginnerTutorial.html)
+- [기본 개념](https://mskims.github.io/redux-saga-in-korean/basics/index.html)
+- [고급 개념](https://mskims.github.io/redux-saga-in-korean/advanced/index.html)
+- [레시피](https://mskims.github.io/redux-saga-in-korean/recipes/index.html)
+- [외부 자료](https://mskims.github.io/redux-saga-in-korean/ExternalResources.html)
+- [문제해결](https://mskims.github.io/redux-saga-in-korean/Troubleshooting.html)
+- [용어 사전](https://mskims.github.io/redux-saga-in-korean/Glossary.html)
+- [API 레퍼런스](https://mskims.github.io/redux-saga-in-korean/api/index.html)
 
 # 번역
 
