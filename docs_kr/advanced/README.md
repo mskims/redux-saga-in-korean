@@ -13,4 +13,4 @@
 * [동시성 패턴](Concurrency.md)
 * [사가 테스트](Testing.md)
 * [사가와 외부 입/출력 연결](UsingRunSaga.md)
-* [Using Channels](Channels.md)
+* [채널](Channels.md)
