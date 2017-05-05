@@ -109,7 +109,7 @@ LOGOUT.................................................. missed!
 
 그래서 우리가 필요한 것은 `authorize`를 봉쇄하지 않고 시작해서, `loginFlow`가 동시 발생적이고 우발적인 `LOGOUT`을 계속해서 watch할 수 있도록 하는 방법입니다.
 
-비봉쇄(non-blocking) 호출을 위해서, 라이브러리는 [`fork`](https://redux-saga.js.org/docs/api/index.html#forkfn-args)라는 다른 이펙트를 제공합니다. 우리가 태스크를 *fork*한다면, 그 태스크는 백그라운드에서 시작되고, 호출자는 fork된 태스크가 종료될 때까지 기다리지 않고 플로우를 계속해서 진행합니다.
+비봉쇄(non-blocking) 호출을 위해서, 라이브러리는 [`fork`](https://mskims.github.io/redux-saga-in-korean/api/index.html#forkfn-args)라는 다른 이펙트를 제공합니다. 우리가 태스크를 *fork*한다면, 그 태스크는 백그라운드에서 시작되고, 호출자는 fork된 태스크가 종료될 때까지 기다리지 않고, 플로우를 계속해서 진행합니다.
 
 그래서 `loginFlow`가 동시 발생적인 `LOGOUT`를 놓치지 않게 하려면, 우리는 `authorize`를 `call`하면 안되고, `fork`를 사용해야만 합니다.
 
@@ -165,7 +165,7 @@ function* loginFlow() {
 
 아직 끝나지 않았습니다. 만약 우리가 API 호출 도중에 `LOGOUT`을 받는다면, 우리는 `authorize` 프로세스를 취소해야만 합니다. 아니면 두 개의 동시 발생적인 태스크들이 진행되게 될 것입니다: `authorize` 태스크는 계속해서 성공 혹은 실패하는 결과를 기다릴 것이고, `LOGIN_SUCCESS` 혹은 `LOGIN_ERROR`를 dispatch해서 엇갈린 상태를 만들게 될 것입니다.
 
-우리는 전용 이펙트 [`cancel`](https://redux-saga.js.org/docs/api/index.html#canceltask)를 사용해서 fork된 태스크를 취소합니다.
+fork된 태스크를 취소하기 위해서, 우리는 전용 이펙트 [`cancel`](https://mskims.github.io/redux-saga-in-korean/api/index.html#canceltask)를 사용합니다.
 
 ```javascript
 import { take, put, call, fork, cancel } from 'redux-saga/effects'
@@ -185,7 +185,7 @@ function* loginFlow() {
 }
 ```
 
-`yield fork`는 [태스크 객체](https://redux-saga.js.org/docs/api/index.html#task)를 반환합니다. 우리는 지역 상수 `task`에 반환된 객체를 할당합니다. 나중에 만약 우리가 `LOGOUT` 액션을 받는다면, 우리는 그 태스크를 취소합니다. 만약 태스크가 실행 중이라면, 저지될 것입니다. 만약 태스크가 이미 완료되었다면, 아무런 일도 일어나지 않을 것이고, 취소 작업은 아무런 실행을 하지 않게 될 것입니다. 그리고 마지막으로, 만약 태스크가 에러로 종료되었다면, 우리는 아무것도 하지 않습니다. 왜냐하면 우리는 태스크가 이미 끝난 것을 알고 있기 때문입니다.
+`yield fork`는 [태스크 오브젝트](/api/index.html#task)를 리턴합니다. 우리는 지역 상수 `task`에 리턴된 오브젝트를 할당합니다. 나중에 만약 우리가 `LOGOUT` 액션을 받는다면, 우리는 그 태스크를 취소합니다. 만약 태스크가 실행 중이라면, 저지될 것입니다. 만약 태스크가 이미 완료되었다면, 아무런 일도 일어나지 않을 것이고, 취소 작업은 아무런 실행을 하지 않게 될 것입니다. 그리고 마지막으로, 만약 태스크가 에러로 종료되었다면, 우리는 아무것도 하지 않습니다. 왜냐하면 우리는 태스크가 이미 끝난 것을 알고 있기 때문입니다.
 
 *거의* 다 끝났습니다 (동시 실행은 그렇게 만만하지 않습니다. 조금만 더 힘냅시다 :D)
 
