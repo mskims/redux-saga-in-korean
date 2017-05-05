@@ -20,4 +20,4 @@ const [users, repos]  = yield [
 ]
 ```
 
-이펙트의 배열을 yield하면, 제너레이터는 모든 이펙트들이 resolve되거나, 어느 하나라도 reject될 때까지 봉쇄(blocked)됩니다 (`Promise.all`의 방식처럼요).
+위와 같이 이펙트의 배열을 yield하면, 제너레이터는 모든 이펙트들이 resolve되거나, 어느 하나라도 reject될 때까지 봉쇄(blocked)됩니다 (`Promise.all`의 방식처럼요).
