@@ -10,7 +10,7 @@
   * [x] [액션 dispatch 하기](/basics/DispatchingActions.md) 
   * [x] [에러 핸들링](/basics/ErrorHandling.md)
   * [x] [이펙트 추상화](/basics/Effect.md)
-* [ ] [고급 개념](/advanced/README.md)
+* [x] [고급 개념](/advanced/README.md)
   * [x] [Pulling future actions](/advanced/FutureActions.md)
   * [x] [Non blocking calls](/advanced/NonBlockingCalls.md)
   * [x] [Running tasks in parallel](/advanced/RunningTasksInParallel.md)
@@ -22,7 +22,7 @@
   * [x] [Common Concurrency Patterns](/advanced/Concurrency.md)
   * [x] [Examples of Testing Sagas](/advanced/Testing.md)
   * [x] [Connecting Sagas to external Input/Output](/advanced/UsingRunSaga.md)
-  * [ ] [Using Channels](/advanced/Channels.md) `진행중`
+  * [x] [Using Channels](/advanced/Channels.md)
 * [ ] [레시피](/recipes/README.md)
 * [ ] [외부 자료](/ExternalResources.md)
 * [ ] [문제해결](/Troubleshooting.md)
