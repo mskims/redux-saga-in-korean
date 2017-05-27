@@ -2,7 +2,13 @@
   "gitbook": "3.2.0",
   "root": "./docs_kr",
   "language": "ko",
-  "plugins": ["prism@1.0.0", "-highlight", "github", "ga"],
+  "plugins": [
+    "prism@1.0.0",
+    "-highlight",
+    "github",
+    "ga",
+    "edit-link"
+  ],
   "pluginsConfig": {
     "github": {
       "url": "https://github.com/mskims/redux-saga-in-korean/"
@@ -22,6 +28,10 @@
     },
     "ga": {
       "token": "UA-100043099-1"
+    },
+    "edit-link": {
+      "base": "https://github.com/mskims/redux-saga-in-korean/tree/master/docs_kr",
+      "label": "이 페이지 수정하기"
     }
   }
 }
