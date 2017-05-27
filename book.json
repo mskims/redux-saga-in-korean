@@ -2,7 +2,7 @@
   "gitbook": "3.2.0",
   "root": "./docs_kr",
   "language": "ko",
-  "plugins": ["prism@1.0.0", "-highlight", "github"],
+  "plugins": ["prism@1.0.0", "-highlight", "github", "ga"],
   "pluginsConfig": {
     "github": {
       "url": "https://github.com/mskims/redux-saga-in-korean/"
@@ -19,6 +19,9 @@
       "styles": {
         "website": "build/gitbook.css"
       }
+    },
+    "ga": {
+      "token": "UA-100043099-1"
     }
   }
 }
