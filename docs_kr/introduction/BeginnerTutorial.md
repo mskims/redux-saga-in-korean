@@ -1,6 +1,6 @@
 # 튜토리얼
 
-## 목적
+## 이 튜토리얼의 목적
 
 이 튜토리얼은 redux-saga 를 가능한 쉬운 방법으로 소개할것입니다.
 <!--This tutorial attempts to introduce redux-saga in a (hopefully) accessible way.-->
@@ -101,7 +101,7 @@ const action = type => store.dispatch({type})
 지금까지 우리의 Saga 는 특별하지 않습니다. 이건 단지 로그 메세지만을 남기고 종료될 뿐입니다.
 <!--So far, our Saga does nothing special. It just logs a message then exits.-->
 
-## 비동기 호출
+## 비동기 호출하기
 
 이제, 오리지널 카운터 데모 가까이 무언가를 추가해봅시다. 비동기 호출을 설명하기 위해 클릭 1초 후 증가되는 또다른 버튼을 추가할겁니다.
 <!--Now let's add something closer to the original Counter demo. To illustrate asynchronous calls, we will add another button to increment the counter 1 second after the click.-->
@@ -206,12 +206,12 @@ Promise 가 한번 resolve 되고 나면, 미들웨어는 Saga 를 다시 작동
 <!--Now we have 2 Sagas, and we need to start them both at once. To do that, we'll add a `rootSaga` that is responsible for starting our other Sagas. In the same file `sagas.js`, add the following code:-->
 
 ```javascript
-// 모든 Saga들을 한번에 시작하기 위한 하나의 지점입니다.
+// 모든 Saga들을 한번에 시작하기 위한 단일 entry point 입니다.
 export default function* rootSaga() {
-  yield [
-    incrementAsync(),
+  yield all([
+    helloSaga(),
     watchIncrementAsync()
-  ]
+  ])
 }
 ```
 
@@ -230,7 +230,7 @@ sagaMiddleware.run(rootSaga)
 // ...
 ```
 
-## 테스트
+## 테스트 가능한 코드 만들기
 
 이제 우리의 `incrementAsync` Saga 가 바람직한 태스크를 수행하는지 확실하게 해야겠죠? 테스트를 만들어 봅시다.
 <!--We want to test our `incrementAsync` Saga to make sure it performs the desired task.-->
@@ -384,7 +384,7 @@ test('incrementAsync Saga test', (assert) => {
 });
 ```
 
-`put` 과 `call` 이 순수 객체를 반환하기 때문에, 테스트 코드에서 같은 함수들을 재사용할수 있게 되었고, `incrementAsync` 의 로직을 테스트 하기 위해 단순히 제너레이터를 반복하고 값에 대해 `deepEqual` 테스트를 할수 있게 되었습니다.
+`put` 과 `call` 이 일반 객체를 반환하기 때문에, 테스트 코드에서 같은 함수들을 재사용할수 있게 되었고, `incrementAsync` 의 로직을 테스트 하기 위해 단순히 제너레이터를 반복하고 값에 대해 `deepEqual` 테스트를 할수 있게 되었습니다.
 
 <!--Since `put` and `call` return plain objects, we can reuse the same functions in our test code. And to test the logic of `incrementAsync`, we simply iterate over the generator and do `deepEqual` tests on its values.-->
 
