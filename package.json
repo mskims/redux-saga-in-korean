@@ -3,12 +3,8 @@
   "version": "0.9.5",
   "description": "Redux-saga 한국어",
   "scripts": {
-    "clean": "rimraf _book",
     "build": "gitbook build -g mskims/redux-saga-in-korean",
-    "watch": "gitbook serve",
-    "publish": "npm run prepublish && npm run gh-pages",
-    "gh-pages": "./node_modules/gh-pages/bin/gh-pages -d _book -r git@github.com:mskims/redux-saga-in-korean.git",
-    "prepublish": "npm run clean && npm run build && cd _book && git init && git commit --allow-empty -m 'update book' && git checkout -b gh-pages && touch .nojekyll && git add . && git commit -am 'update book'"
+    "watch": "gitbook serve"
   },
   "repository": {
     "type": "git",
@@ -33,7 +29,6 @@
     "gh-pages": "^0.12.0",
     "gitbook-cli": "2.3.0",
     "gitbook-plugin-edit-link": "^2.0.2",
-    "gitbook-plugin-ga": "^1.0.1",
-    "rimraf": "^2.6.1"
+    "gitbook-plugin-ga": "^1.0.1"
   }
 }
