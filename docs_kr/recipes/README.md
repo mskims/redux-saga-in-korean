@@ -1,8 +1,10 @@
-# Recipes
+# 레시피
 
-## Throttling
+## 쓰로들링
 
-You can throttle a sequence of dispatched actions by using a handy built-in `throttle` helper. For example, suppose the UI fires an `INPUT_CHANGED` action while the user is typing in a text field.
+`throttle` 헬퍼 함수를 사용해서 dispatch 된 액션들에 쓰로들링을 할 수 있습니다.
+
+<!--You can throttle a sequence of dispatched actions by using a handy built-in `throttle` helper. For example, suppose the UI fires an `INPUT_CHANGED` action while the user is typing in a text field.-->
 
 ```javascript
 import { throttle } from 'redux-saga/effects'
