@@ -1,5 +1,6 @@
 sudo: false
 language: node_js
-before_script:
+install:
 - gitbook install
+- npm install
 script: npm run build
