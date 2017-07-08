@@ -5,7 +5,7 @@ set -e # exit with nonzero exit code if anything fails
 rm -rf _book || exit 0;
 
 # run our compile script, discussed above
-gitbook build
+npm run build
 
 # go to the out directory and create a *new* Git repo
 cd _book

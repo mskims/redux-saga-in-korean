@@ -3,6 +3,7 @@ language: node_js
 before_install:
 - npm i -g gitbook-cli@2.3.0
 - gitbook install
+script: npm run build
 deploy:
   provider: script
   script: bin/deploy.sh
