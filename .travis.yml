@@ -1,6 +1,10 @@
 sudo: false
 language: node_js
-install:
+before_install:
+- npm i -g gitbook-cli@2.3.0
 - gitbook install
-- npm install
-script: npm run build
+deploy:
+  provider: script
+  script: npm run publish
+  on:
+   branch: master
