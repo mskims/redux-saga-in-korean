@@ -1,6 +1,8 @@
 [https://mskims.github.io/redux-saga-in-korean/](https://mskims.github.io/redux-saga-in-korean)
 
 # redux-saga 한국어 번역 프로젝트
+[![Build Status](https://travis-ci.org/mskims/redux-saga-in-korean.svg?branch=master)](https://travis-ci.org/mskims/redux-saga-in-korean)
+
 [`redux-saga` 저장소](https://github.com/redux-saga/redux-saga)의 의 동의를 구하고 시작한 번역 프로젝트 입니다.
 
 [`README` 에 저희 저장소가 링크되어 있습니다!](https://github.com/redux-saga/redux-saga/pull/954)
