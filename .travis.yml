@@ -4,8 +4,7 @@ before_install:
 - npm i -g gitbook-cli@2.3.0
 - gitbook install
 deploy:
-  provider: pages
-  skip_cleanup: true
-  github_token: $GITHUB_TOKEN # Set in travis-ci.org dashboard
+  provider: script
+  script: bin/deploy.sh
   on:
     branch: master
