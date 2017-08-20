@@ -24,6 +24,13 @@ saga는 애플리케이션에서 사이드 이펙트만을 담당하는 별도�
 ## 설치
 
 ```sh
+// repo 생성
+$ git clone https://github.com/redux-saga/redux-saga-beginner-tutorial.git
+
+$ cd redux-saga-beginner-tutorial
+```
+
+```sh
 $ npm install --save redux-saga
 ```
 혹은
