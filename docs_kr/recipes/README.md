@@ -18,19 +18,19 @@ function* watchInput() {
 }
 ```
 
-throttle 도우미 함수를 사용하면 `watchInput`는 500ms동안 `handleInput` 작업을 새로 수행하지 않습니다. 동시에 가장 최신의 `INPUT_CHANGED` 액션을 `buffer`에 넣습니다. 그래서 `handleInput` 작업을 수행하지 않는 그 500ms 사이에 발생하는 `INPUT_CHANGED` 액션들을 모두 놓칠 것입니다. Saga는 각 500ms의 지연시간 동안 최대 하나의 `INPUT_CHANGED` 액션을 수행하고 후행 액션을 처리 할 수 있도록 보장합니다.
+throttle 헬퍼(helper) 함수를 사용하면 `watchInput`는 500ms동안 `handleInput` 작업을 새로 수행하지 않습니다. 동시에 가장 최신의 `INPUT_CHANGED` 액션을 `buffer`에 넣습니다. 그래서 `handleInput` 작업을 수행하지 않는 그 500ms 사이에 발생하는 `INPUT_CHANGED` 액션들을 모두 놓칠 것입니다. Saga는 각 500ms의 지연시간 동안 최대 하나의 `INPUT_CHANGED` 액션을 수행하고 후행 액션을 처리 할 수 있도록 보장합니다.
 
 
 ## 디바운싱(Debouncing)
 
-내장 도우미 함수인 `delay`를 fork된 작업(아래 예제에서는 `handleInput`)에 넣음으로써 순서를 디바운스 할 수 있습니다.
+내장 헬퍼(helper) 함수인 `delay`를 fork된 작업(아래 예제에서는 `handleInput`)에 넣음으로써 지연(debounce)을 줄 수 있습니다.
 
 ```javascript
 
 import { delay } from 'redux-saga'
 
 function* handleInput(input) {
-  // 500ms마다 디바운스
+  // 500ms마다 지연
   yield call(delay, 500)
   ...
 }
@@ -47,21 +47,21 @@ function* watchInput() {
 }
 ```
 
-`delay` 함수는 promise를 사용하여 간단한 debounce를 구현합니다.
+`delay` 함수는 promise를 사용하여 간단한 지연(debounce)을 구현합니다.
 ```
 const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms))
 ```
 
 위 예제에서 `handleInput`은 로직을 수행하기 전에 500ms를 기다립니다. 만약 유저가 그 시간(500ms)동안 무언가를 타이핑한다면 `INPUT_CHANGED` 액션을 더 많이 얻게 됩니다. `handleInput`은 호출된 `delay` 함수에 의해 차단 될 것이기 때문에, 로직을 수행하기 전에`watchInput`에 의해 취소 될 것입니다.
 
-위 예제는 `takeLatest` 도우미 함수로 다시 쓸 수 있습니다.
+위 예제는 또다른 헬퍼(helper) 함수인 `takeLatest`를 적용하여 다시 작성할 수 있습니다.
 
 ```javascript
 
 import { delay } from 'redux-saga'
 
 function* handleInput({ input }) {
-  // 500ms마다 디바운스
+  // 500ms마다 
   yield call(delay, 500)
   ...
 }
