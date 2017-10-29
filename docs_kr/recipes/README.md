@@ -18,12 +18,12 @@ function* watchInput() {
 }
 ```
 
-throttle 헬퍼(helper) 함수를 사용하면 `watchInput`는 500ms동안 `handleInput` 작업을 새로 수행하지 않습니다. 동시에 가장 최신의 `INPUT_CHANGED` 액션을 `buffer`에 넣습니다. 그래서 `handleInput` 작업을 수행하지 않는 그 500ms 사이에 발생하는 `INPUT_CHANGED` 액션들을 모두 놓칠 것입니다. Saga는 각 500ms의 지연시간 동안 최대 하나의 `INPUT_CHANGED` 액션을 수행하고 후행 액션을 처리 할 수 있도록 보장합니다.
+throttle 헬퍼(helper) 함수를 사용하면 `watchInput`는 0.5초동안 `handleInput` 작업을 새로 수행하지 않습니다. 동시에 가장 최신의 `INPUT_CHANGED` 액션을 `buffer`에 넣습니다. 하여 0.5초의 지연 주기 사이에 발생하는 `INPUT_CHANGED` 액션들은 모두 놓치게 됩니다. Saga는 0.5초의 지연 시간 동안 최대 하나의 `INPUT_CHANGED` 액션을 수행하고 후행 액션을 처리 할 수 있도록 보장합니다.
 
 
 ## 디바운싱(Debouncing)
 
-내장 헬퍼(helper) 함수인 `delay`를 fork된 작업(아래 예제에서는 `handleInput`)에 넣음으로써 지연(debounce)을 줄 수 있습니다.
+내장 헬퍼(helper) 함수인 `delay`를 fork된 작업(아래 예제에서는 `handleInput`)에 넣음으로써 디바운스(debounce)를 부여할 수 있습니다.
 
 ```javascript
 
@@ -47,12 +47,12 @@ function* watchInput() {
 }
 ```
 
-`delay` 함수는 promise를 사용하여 간단한 지연(debounce)을 구현합니다.
+`delay` 함수는 promise를 사용하여 간단한 디바운스(debounce)를 구현합니다.
 ```
 const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms))
 ```
 
-위 예제에서 `handleInput`은 로직을 수행하기 전에 500ms를 기다립니다. 만약 유저가 그 시간(500ms)동안 무언가를 타이핑한다면 `INPUT_CHANGED` 액션을 더 많이 얻게 됩니다. `handleInput`은 호출된 `delay` 함수에 의해 차단 될 것이기 때문에, 로직을 수행하기 전에`watchInput`에 의해 취소 될 것입니다.
+위 예제에서 `handleInput`은 로직을 수행하기 전에 0.5초를 기다립니다. 만약 유저가 그 0.5초 동안에 무언가를 타이핑한다면 더 많은 `INPUT_CHANGED` 액션을 얻게 됩니다. `handleInput`은 호출된 `delay` 함수에 의해 차단 될 것이기 때문에, 로직을 수행하기 전에`watchInput`에 의해 취소 될 것입니다.
 
 위 예제는 또다른 헬퍼(helper) 함수인 `takeLatest`를 적용하여 다시 작성할 수 있습니다.
 
@@ -117,7 +117,7 @@ export default function* updateResource() {
 
 위 예제에서 `apiRequest`는 각각 2초의 지연시간을 가지고 5번 다시 시도됩니다. 5번째 실패 후에 던져진(thrown) 예외는 부모 사가(parent saga)에 의해 catch되고, 부모 사가는 'UPDATE_ERROR` 액션을 전달(디스패치, dispatch)합니다.
 
-만약 무제한으로 제시도하기를 원한다면, `for` 반복문을 `while (true)`로 대체하면 가능합니다. 또한 `take`대신에 `takeLatest`를 사용하면 마지막 요청만 재시도할 수 있습니다. 에러 핸들링에서 `UPDATE_RETRY`액션을 추가하면, 업데이트가 성공적이지 않았지만 다시 시도 할 것임을 유저에게 알릴 수 있습니다.
+만약 무제한으로 제시도하기를 원한다면, `for` 반복문을 `while (true)`로 대체하면 가능합니다. 또한 `take`대신에 `takeLatest`를 사용하면 마지막 요청만 재시도할 수 있습니다. 에러 핸들링에서 `UPDATE_RETRY`액션을 추가하면, 업데이트를 성공적으로 마치지 못했으며 다시 시도 할 것임을 유저에게 알릴 수 있습니다.
 
 ```javascript
 import { delay } from 'redux-saga'
