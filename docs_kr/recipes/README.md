@@ -153,10 +153,11 @@ export function* watchUpdateResource() {
 
 ## 실행 취소(Undo)
 
-실행 취소 기능은 '사용자가 자신이 무엇을 하고 있는지를 모르는 상황'을 가정합니다. 그 후의 자연스러운 흐름으로 액션을 발생시킴으로써 사용자를 존중합니다. [GoodUI](https://goodui.org/#8)
-[redux documentation](http://redux.js.org/docs/recipes/ImplementingUndoHistory.html)은 `past`, `present`, `future` 상태(state)를 담고 있는 리듀서(reducer)의 수정에 기반한 실행 취소를 구현하는 강력한 방법을 기술합니다. 심지어 [redux-undo](https://github.com/omnidan/redux-undo)라는 라이브러리도 제공합니다. 이 라이브러리는 개발자에게서 무거운 짐을 덜어주기 위해 고차원의 리듀서를 만들어줍니다. 하지만, 이 메소드는 응용 프로그램의 이전 상태에 대한 레퍼런스가 저장된 것을 전달받습니다(overheard).
+실행 취소 기능은 '사용자가 자신이 무엇을 하고 있는지를 모르는 상황'을 가정합니다. 그 가정 아래 자연스럽게 이후 액션을 발생시켜 사용자의 선택을 존중합니다.(참고: [GoodUI](https://goodui.org/#8))
 
-리덕스 사가의 `delay`와 `race`를 사용하면, 리듀서를 강화하거나 이전 상태(state)를 저장하지 않고도 한번의 실행 취소를 쉽게 구현할 수 있습니다.
+[redux documentation](http://redux.js.org/docs/recipes/ImplementingUndoHistory.html)은 `past`, `present`, `future` 상태(state)를 담고 있는 리듀서(reducer)를 수정하는 것을 기본으로 실행 취소를 구현하는 강력한 방법을 기술합니다. 심지어 [redux-undo](https://github.com/omnidan/redux-undo)라는 라이브러리도 제공합니다. 이 라이브러리는 개발자에게서 무거운 짐을 덜어주기 위해 고차원의 리듀서를 만들어줍니다. 하지만, 이 방법은 응용 프로그램의 이전 상태에 대한 저장된 레퍼런스를 전달(overheard)받는 것입니다.
+
+리덕스 사가의 `delay`와 `race`를 사용하면, 리듀서를 고도화하거나 이전 상태(state)를 저장하지 않고도 한번의 실행 취소를 간단하게 구현할 수 있습니다.
 
 ```javascript
 import { take, put, call, spawn, race } from 'redux-saga/effects'
