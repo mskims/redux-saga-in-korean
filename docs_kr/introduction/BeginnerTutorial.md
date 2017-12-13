@@ -149,7 +149,7 @@ function render() {
 
 > 각각의 `INCREMENT_ASYNC` 액션에서, 우리는 다음과 같은 작업을 수행할 태스크를 시작하고자 합니다. 
 
-<!--> On each `INCREMENT_ASYNC` action, we want to start a task that will do the following-->
+<!--On each `INCREMENT_ASYNC` action, we want to start a task that will do the following-->
 
 > - 1 초를 기다린 후 카운터 증가
 
