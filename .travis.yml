@@ -13,9 +13,6 @@ before_script:
 
 script: npm run build
 
-before_deploy:
-  - chmod +x bin/deploy.sh
-
 deploy:
   provider: script
   script: ./bin/deploy.sh
