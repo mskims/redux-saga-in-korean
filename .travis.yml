@@ -1,14 +1,14 @@
 sudo: false
 language: node_js
-
+node_js:
+  - "9"
 # cache:
 #   directories:
 #     - node_modules
 
-before_install:
+before_script:
   - npm i -g gitbook-cli@2.3.0
   - gitbook install
-
 script: npm run build
 
 before_deploy:
