@@ -23,7 +23,7 @@
   * [사가 테스트](/advanced/Testing.md)
   * [사가와 외부 입/출력 연결](/advanced/UsingRunSaga.md)
   * [채널](/advanced/Channels.md)
-* [레시피(미번역)](/recipes/README.md)
+* [레시피](/recipes/README.md)
 * [외부 자료(미번역)](/ExternalResources.md)
 * [문제해결(미번역)](/Troubleshooting.md)
 * [용어 사전(미번역)](/Glossary.md)
