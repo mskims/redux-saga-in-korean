@@ -119,7 +119,7 @@ assert.deepEqual(
 )
 ```
 
-이제 아무것도 흉내낼 필교가 없어졌습니다. 간단한 비교 테스트로 충분할것입니다.
+이제 아무것도 흉내낼 필요가 없어졌습니다. 간단한 비교 테스트로 충분할것입니다.
 <!-- Now we don't need to mock anything, and a simple equality test will suffice. -->
 
 이런 *서술적 호출을* 을 함으로써 Saga 내부에서 간단히 제너레이터를 반복하고, 연속적으로 yield 된 값들에 `deepEqual` 테스트를 하는것 만으로 모든 로직을 테스트 할 수 있습니다. 
