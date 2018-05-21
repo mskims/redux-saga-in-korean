@@ -6,7 +6,7 @@
 헬퍼 함수들은 저레벨 API의 상단에 내장되어있습니다. 우리는 심화 섹션에서 어떻게 이 함수들이 구현될 수 있는지 볼겁니다.
 <!--The helper functions are built on top of the lower level API. In the advanced section, we'll see how those functions can be implemented.-->
 
-첫번쨰 헬버 함수는 `redux-thunk` 과 비슷한 행동을 제공하는 아주 유명한 `takeEvery` 함수 입니다
+첫번째 헬버 함수는 `redux-thunk` 과 비슷한 행동을 제공하는 아주 유명한 `takeEvery` 함수 입니다
 <!--The first function, `takeEvery` is the most familiar and provides a behavior similar to `redux-thunk`.-->
 
 흔한 AJAX 예제와 설명해보겠습니다. 클릭할때 마다 `FETCH_REQUESTED` 액션을 dispatch 하는 버튼이 있고,
