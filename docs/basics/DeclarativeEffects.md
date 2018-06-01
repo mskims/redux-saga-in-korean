@@ -1,6 +1,6 @@
 # Declarative Effects
 
-In `redux-saga`, Sagas are implemented using Generator functions. To express the Saga logic we yield plain JavaScript Objects from the Generator. We call those Objects *Effects*. An Effect is simply an object which contains some information to be interpreted by the middleware. You can view Effects like instructions to the middleware to perform some operation (invoke some asynchronous function, dispatch an action to the store).
+In `redux-saga`, Sagas are implemented using Generator functions. To express the Saga logic, we yield plain JavaScript Objects from the Generator. We call those Objects [*Effects*](https://redux-saga.js.org/docs/api/#effect-creators). An Effect is simply an object that contains some information to be interpreted by the middleware. You can view Effects like instructions to the middleware to perform some operation (e.g., invoke some asynchronous function, dispatch an action to the store, etc.).
 
 To create Effects, you use the functions provided by the library in the `redux-saga/effects` package.
 
@@ -28,7 +28,7 @@ In the example above, we are invoking `Api.fetch` directly from inside the Gener
 
 `Api.fetch('/products')` triggers an AJAX request and returns a Promise that will resolve with the resolved response, the AJAX request will be executed immediately. Simple and idiomatic, but...
 
-Suppose we want to test generator above:
+Suppose we want to test the generator above:
 
 ```javascript
 const iterator = fetchProducts()
@@ -129,3 +129,5 @@ assert.deepEqual(iterator.next().value, cps(readFile, '/path/to/file') )
 ```
 
 `cps` also supports the same method invocation form as `call`.
+
+A full list of declarative effects can be found in the [API reference](https://redux-saga.js.org/docs/api/#effect-creators).

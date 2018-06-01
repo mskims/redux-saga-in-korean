@@ -27,7 +27,7 @@ for them to finish, then resume with all the results
 
 ```javascript
 function* mainSaga(getState) {
-  const results = yield [call(task1), call(task2), ...]
+  const results = yield all([call(task1), call(task2), ...])
   yield put(showResults(results))
 }
 ```
@@ -43,7 +43,7 @@ function* game(getState) {
     // has to finish in 60 seconds
     const {score, timeout} = yield race({
       score: call(play, getState),
-      timeout: call(delay, 60000)
+      timeout: delay(60000)
     })
 
     if (!timeout) {
