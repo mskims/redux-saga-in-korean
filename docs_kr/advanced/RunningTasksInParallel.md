@@ -11,10 +11,10 @@ const users  = yield call(fetch, '/users'),
 왜냐하면, 두 번째 이펙트는 첫번째 call이 resolve되기 전까지는 실행되지 않을 것이기 때문입니다. 대신에, 우리는 이렇게 써야 합니다:
 
 ```javascript
-import { call } from 'redux-saga/effects'
+import { all, call } from 'redux-saga/effects'
 
 // correct, effects will get executed in parallel
-const [users, repos]  = yield [
+const [users, repos]  = yield all[
   call(fetch, '/users'),
   call(fetch, '/repos')
 ]
