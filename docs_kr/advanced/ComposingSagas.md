@@ -26,7 +26,7 @@ function* watchFetch() {
 
 ```javascript
 function* mainSaga(getState) {
-  const results = yield [call(task1), call(task2), ...]
+  const results = yield all[call(task1), call(task2), ...]
   yield put(showResults(results))
 }
 ```
