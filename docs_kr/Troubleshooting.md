@@ -44,7 +44,7 @@ function* logActions() {
 
 <!-- ### My Saga is missing dispatched actions -->
 
-사가는 어떤 이펙트에 의해 봉쇄되지 않았는지 확인하세요. 사가가 이펙트가 해결되기를 기다리는 동안, 이펙트가 해결되기 전까지는 액션을 디스패치할 수 없습니다.
+사가가 어떤 이펙트에 의해 봉쇄되지 않았는지 확인하세요. 사가가 이펙트가 해결되기를 기다리는 동안은 액션을 디스패치할 수 없습니다.
 
 <!-- Make sure the Saga is not blocked on some effect. When a Saga is waiting for an Effect to resolve, it will not be able to take dispatched actions until the Effect is resolved. -->
 
@@ -84,7 +84,7 @@ dispatch(REQUEST)............................................................ Ac
 .......................take('REQUEST')....................................... saga is resumed
 ```
 
-위에서 언급했듯, **봉쇄 호출(blocking call)** 에 의해 사가가 봉쇄되면 중간에 디스패치된 액션들을 누락됩니다. 
+위에서 언급했듯, **봉쇄 호출(blocking call)** 에 의해 사가가 봉쇄되면 중간에 디스패치된 액션들은 누락됩니다. 
 
 <!-- As illustrated above, when a Saga is blocked on a **blocking call** then it will miss
 all the actions dispatched in-between. -->
