@@ -26,5 +26,5 @@
 * [x] [레시피](/recipes/README.md)
 * [ ] [외부 자료](/ExternalResources.md)
 * [x] [문제해결](/Troubleshooting.md)
-* [ ] [용어 사전](/Glossary.md)
+* [x] [용어 사전](/Glossary.md)
 * [ ] [API 레퍼런스](/api/README.md)
