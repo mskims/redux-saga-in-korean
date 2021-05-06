@@ -215,7 +215,7 @@ export default function* rootSaga() {
 }
 ```
 
-이 Saga는 `helloSaga` Saga 와 `watchIncrementAsync` Saga 가 호출된 결과의 배열을 yield 합니다. 이것은 생선된 두 제너레이터가 병렬로 시작된다는것을 의미하죠. 이제 `sagaMiddleware.run` 를 `main.js` 의 root Saga에 주입할 일만 남았습니다.
+이 Saga는 `helloSaga` Saga 와 `watchIncrementAsync` Saga 가 호출된 결과의 배열을 yield 합니다. 이것은 생성된 두 제너레이터가 병렬로 시작된다는것을 의미하죠. 이제 `sagaMiddleware.run` 를 `main.js` 의 root Saga에 주입할 일만 남았습니다.
 
 <!--This Saga yields an array with the results of calling our two sagas, `helloSaga` and `watchIncrementAsync`. This means the two resulting Generators will be started in parallel. Now we only have to invoke `sagaMiddleware.run` on the root Saga in `main.js`.-->
 
