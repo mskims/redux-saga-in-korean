@@ -1,0 +1,644 @@
+
+<!DOCTYPE HTML>
+<html lang="ko" >
+    <head>
+        <title>사가 조합 · GitBook</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.0">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="TaskCancellation.html" />
+    
+    
+    <link rel="prev" href="SequencingSagas.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="검색어 입력" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        <li class="header">목차</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    읽어주세요
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../introduction/">
+            
+                <a href="../introduction/">
+            
+                    
+                    소개
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../introduction/BeginnerTutorial.html">
+            
+                <a href="../introduction/BeginnerTutorial.html">
+            
+                    
+                    튜토리얼
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../introduction/SagaBackground.html">
+            
+                <a href="../introduction/SagaBackground.html">
+            
+                    
+                    배경지식
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../basics/">
+            
+                <a href="../basics/">
+            
+                    
+                    기본 개념
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../basics/UsingSagaHelpers.html">
+            
+                <a href="../basics/UsingSagaHelpers.html">
+            
+                    
+                    헬퍼 함수
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../basics/DeclarativeEffects.html">
+            
+                <a href="../basics/DeclarativeEffects.html">
+            
+                    
+                    서술적 이펙트
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../basics/DispatchingActions.html">
+            
+                <a href="../basics/DispatchingActions.html">
+            
+                    
+                    액션 dispatch 하기
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../basics/ErrorHandling.html">
+            
+                <a href="../basics/ErrorHandling.html">
+            
+                    
+                    에러 핸들링
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../basics/Effect.html">
+            
+                <a href="../basics/Effect.html">
+            
+                    
+                    이펙트 추상화
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    고급 개념
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="FutureActions.html">
+            
+                <a href="FutureActions.html">
+            
+                    
+                    액션 풀링
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="NonBlockingCalls.html">
+            
+                <a href="NonBlockingCalls.html">
+            
+                    
+                    비봉쇄(non-blocking) 호출
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="RunningTasksInParallel.html">
+            
+                <a href="RunningTasksInParallel.html">
+            
+                    
+                    병렬 태스크 실행
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="RacingEffects.html">
+            
+                <a href="RacingEffects.html">
+            
+                    
+                    여러 이펙트의 경주
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="SequencingSagas.html">
+            
+                <a href="SequencingSagas.html">
+            
+                    
+                    yield*를 이용한 사가 배열
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.4.6" data-path="ComposingSagas.html">
+            
+                <a href="ComposingSagas.html">
+            
+                    
+                    사가 조합
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="TaskCancellation.html">
+            
+                <a href="TaskCancellation.html">
+            
+                    
+                    태스크 취소
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="ForkModel.html">
+            
+                <a href="ForkModel.html">
+            
+                    
+                    redux-saga의 포크(fork) 모델
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.9" data-path="Concurrency.html">
+            
+                <a href="Concurrency.html">
+            
+                    
+                    동시성 패턴
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.10" data-path="Testing.html">
+            
+                <a href="Testing.html">
+            
+                    
+                    사가 테스트
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.11" data-path="UsingRunSaga.html">
+            
+                <a href="UsingRunSaga.html">
+            
+                    
+                    사가와 외부 입/출력 연결
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.12" data-path="Channels.html">
+            
+                <a href="Channels.html">
+            
+                    
+                    채널
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../recipes/">
+            
+                <a href="../recipes/">
+            
+                    
+                    레시피
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../ExternalResources.html">
+            
+                <a href="../ExternalResources.html">
+            
+                    
+                    외부 자료(미번역)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../Troubleshooting.html">
+            
+                <a href="../Troubleshooting.html">
+            
+                    
+                    문제해결
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../Glossary.html">
+            
+                <a href="../Glossary.html">
+            
+                    
+                    용어 사전
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../api/">
+            
+                <a href="../api/">
+            
+                    
+                    API 레퍼런스(미번역)
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            GitBook에 게시
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >사가 조합</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#xC0AC;&#xAC00;-&#xC870;&#xD569;">&#xC0AC;&#xAC00; &#xC870;&#xD569;</h1><p><code>yield*</code>&#xC740; &#xAD00;&#xC6A9;&#xC801;&#xC73C;&#xB85C; &#xC0AC;&#xAC00; &#xC870;&#xD569;&#xC744; &#xAC00;&#xB2A5;&#xD558;&#xAC8C; &#xD574; &#xC8FC;&#xC9C0;&#xB9CC;, &#xC774; &#xC811;&#xADFC;&#xBC95;&#xC5D0;&#xB294; &#xD55C;&#xACC4;&#xAC00; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;:</p><ul><li><p>&#xBB49;&#xCCD0;&#xC9C4; &#xC81C;&#xB108;&#xB808;&#xC774;&#xD130;&#xB4E4;&#xC744; &#xBD84;&#xB9AC;&#xD558;&#xC5EC; &#xD14C;&#xC2A4;&#xD2B8;&#xD558;&#xACE0; &#xC2F6;&#xC73C;&#xC2E4; &#xAC81;&#xB2C8;&#xB2E4;. &#xC774;&#xB294; &#xD14C;&#xC2A4;&#xD2B8; &#xCF54;&#xB4DC; &#xC548;&#xC5D0;&#xC11C;&#xC758; &#xC911;&#xBCF5;&#xBFD0;&#xB9CC; &#xC544;&#xB2C8;&#xB77C;, &#xC911;&#xBCF5;&#xB41C; &#xC2E4;&#xD589;&#xC758; &#xC624;&#xBC84;&#xD5E4;&#xB4DC; &#xB610;&#xD55C; &#xBC1C;&#xC0DD;&#xC2DC;&#xD0B5;&#xB2C8;&#xB2E4;. &#xC6B0;&#xB9AC;&#xB294; &#xAC19;&#xC740; &#xC81C;&#xB108;&#xB808;&#xC774;&#xD130;&#xB97C; &#xC911;&#xCCA9;&#xD558;&#xC5EC; &#xC2E4;&#xD589;&#xC2DC;&#xD0A4;&#xACE0; &#xC2F6;&#xC9C0; &#xC54A;&#xACE0;, &#xADF8;&#xAC83;&#xC774; &#xC62C;&#xBC14;&#xB978; &#xC778;&#xC218;&#xB85C; &#xD638;&#xCD9C;&#xB418;&#xC5C8;&#xB294;&#xC9C0;&#xB9CC; &#xD655;&#xC778;&#xD558;&#xACE0; &#xC2F6;&#xC2B5;&#xB2C8;&#xB2E4;.</p></li>
+<li><p>&#xB354; &#xC911;&#xC694;&#xD55C; &#xAC83;&#xC740;, <code>yield*</code>&#xB294; &#xC624;&#xC9C1; &#xC21C;&#xCC28;&#xC801;&#xC778; &#xD0DC;&#xC2A4;&#xD06C;&#xB4E4;&#xC758; &#xC870;&#xD569;&#xB9CC; &#xD5C8;&#xC6A9;&#xD558;&#xAE30; &#xB54C;&#xBB38;&#xC5D0;, &#xD55C; &#xBC88;&#xC5D0; &#xD558;&#xB098;&#xC758; &#xC81C;&#xB108;&#xB808;&#xC774;&#xD130;&#xB9CC; <code>yield*</code>&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p></li></ul>
+<p><code>yield</code>&#xB97C; &#xC0AC;&#xC6A9;&#xD558;&#xC5EC; &#xD558;&#xB098; &#xD639;&#xC740; &#xADF8; &#xC774;&#xC0C1;&#xC758; &#xC11C;&#xBE0C; &#xD0DC;&#xC2A4;&#xD06C;&#xB4E4;&#xC744; &#xBCD1;&#xB82C;&#xB85C; &#xC2DC;&#xC791;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. &#xC81C;&#xB108;&#xB808;&#xC774;&#xD130;&#xB97C; <code>yield</code>&#xD560; &#xC2DC;&#xC5D0;, &#xC0AC;&#xAC00;&#xB294; &#xB354; &#xC9C4;&#xD589;&#xD558;&#xAE30; &#xC804;&#xC5D0; &#xC81C;&#xB108;&#xB808;&#xC774;&#xD130;&#xAC00; &#xC885;&#xB8CC;&#xB418;&#xAE30;&#xB97C; &#xAE30;&#xB2E4;&#xB9B4; &#xAC83;&#xC785;&#xB2C8;&#xB2E4;. &#xADF8;&#xB7F0; &#xB2E4;&#xC74C;&#xC5D0;&#xB294; &#xC81C;&#xB108;&#xB808;&#xC774;&#xD130;&#xB85C;&#xBD80;&#xD130; &#xBC18;&#xD658;&#xB41C; &#xAC12;(&#xD639;&#xC740; &#xC11C;&#xBE0C; &#xD0DC;&#xC2A4;&#xD06C;&#xB85C;&#xBD80;&#xD130; &#xC804;&#xD574;&#xC9C4; &#xC5D0;&#xB7EC;)&#xC73C;&#xB85C; &#xB2E4;&#xC2DC; &#xC9C4;&#xD589;&#xD560; &#xAC83;&#xC785;&#xB2C8;&#xB2E4;.</p><pre><code class="lang-javascript"><span class="token keyword">function</span><span class="token operator">*</span> <span class="token function">fetchPosts</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">yield</span> <span class="token function">put</span><span class="token punctuation">(</span>actions<span class="token punctuation">.</span><span class="token function">requestPosts</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token keyword">const</span> products <span class="token operator">=</span> <span class="token keyword">yield</span> <span class="token function">call</span><span class="token punctuation">(</span>fetchApi<span class="token punctuation">,</span> <span class="token string">&apos;/products&apos;</span><span class="token punctuation">)</span>
+  <span class="token keyword">yield</span> <span class="token function">put</span><span class="token punctuation">(</span>actions<span class="token punctuation">.</span><span class="token function">receivePosts</span><span class="token punctuation">(</span>products<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span><span class="token operator">*</span> <span class="token function">watchFetch</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token keyword">yield</span> <span class="token function">take</span><span class="token punctuation">(</span>FETCH_POSTS<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">yield</span> <span class="token function">call</span><span class="token punctuation">(</span>fetchPosts<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// waits for the fetchPosts task to terminate</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<p>&#xBC30;&#xC5F4;&#xC73C;&#xB85C; &#xC774;&#xB8E8;&#xC5B4;&#xC9C4; &#xC5EC;&#xB7EC; &#xC81C;&#xB108;&#xB808;&#xC774;&#xD130;&#xB97C; <code>yield</code>&#xD558;&#xBA74; &#xADF8; &#xC548;&#xC758; &#xC11C;&#xBE0C; &#xC81C;&#xB108;&#xB808;&#xC774;&#xD130;&#xB4E4;&#xC740; &#xBCD1;&#xB82C;&#xB85C; &#xC2DC;&#xC791;&#xD558;&#xAC8C; &#xB420; &#xAC83;&#xC774;&#xACE0;, &#xADF8;&#xB4E4;&#xC774; &#xB05D;&#xB098;&#xAE30;&#xB97C; &#xAE30;&#xB2E4;&#xB9B0; &#xB2E4;&#xC74C;&#xC5D0;, &#xBC18;&#xD658;&#xB41C; &#xBAA8;&#xB4E0; &#xACB0;&#xACFC;&#xB97C; &#xAC00;&#xC9C0;&#xACE0; &#xC9C4;&#xD589;&#xB420; &#xAC83;&#xC785;&#xB2C8;&#xB2E4;.</p><pre><code class="lang-javascript"><span class="token keyword">function</span><span class="token operator">*</span> <span class="token function">mainSaga</span><span class="token punctuation">(</span>getState<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> results <span class="token operator">=</span> <span class="token keyword">yield</span> all<span class="token punctuation">[</span><span class="token function">call</span><span class="token punctuation">(</span>task1<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">call</span><span class="token punctuation">(</span>task2<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">]</span>
+  <span class="token keyword">yield</span> <span class="token function">put</span><span class="token punctuation">(</span><span class="token function">showResults</span><span class="token punctuation">(</span>results<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span></code></pre>
+<p>&#xC0AC;&#xC2E4;, &#xC0AC;&#xAC00;&#xB97C; <code>yield</code>&#xD558;&#xB294; &#xAC83;&#xC740; &#xB2E4;&#xB978; &#xC774;&#xD399;&#xD2B8;(&#xC561;&#xC158;, <code>timeout</code> &#xB4F1;)&#xB97C; <code>yield</code>&#xD558;&#xB294; &#xAC83;&#xACFC; &#xB2E4;&#xB974;&#xC9C0; &#xC54A;&#xC2B5;&#xB2C8;&#xB2E4;. &#xC0AC;&#xAC00;&#xB4E4;&#xC744; &#xC774;&#xD399;&#xD2B8; &#xC870;&#xD569;&#xC790;&#xB97C; &#xC774;&#xC6A9;&#xD558;&#xC5EC; &#xB2E4;&#xB978; &#xBAA8;&#xB4E0; &#xD0C0;&#xC785;&#xACFC; &#xAC19;&#xC774; &#xC870;&#xD569;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p><p>&#xC608;&#xB97C; &#xB4E4;&#xC5B4;, &#xC81C;&#xD55C; &#xC2DC;&#xAC04; &#xB0B4;&#xC5D0; &#xC5B4;&#xB5A4; &#xAC8C;&#xC784;&#xC744; &#xB05D;&#xB0B4;&#xACE0; &#xC2F6;&#xC744; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p><pre><code class="lang-javascript"><span class="token keyword">function</span><span class="token operator">*</span> <span class="token function">game</span><span class="token punctuation">(</span>getState<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> finished
+  <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token operator">!</span>finished<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// has to finish in 60 seconds</span>
+    <span class="token keyword">const</span> <span class="token punctuation">{</span>score<span class="token punctuation">,</span> timeout<span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token keyword">yield</span> <span class="token function">race</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      score<span class="token punctuation">:</span> <span class="token function">call</span><span class="token punctuation">(</span>play<span class="token punctuation">,</span> getState<span class="token punctuation">)</span><span class="token punctuation">,</span>
+      timeout<span class="token punctuation">:</span> <span class="token function">call</span><span class="token punctuation">(</span>delay<span class="token punctuation">,</span> <span class="token number">60000</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>timeout<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      finished <span class="token operator">=</span> <span class="token keyword">true</span>
+      <span class="token keyword">yield</span> <span class="token function">put</span><span class="token punctuation">(</span><span class="token function">showScore</span><span class="token punctuation">(</span>score<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="SequencingSagas.html" class="navigation navigation-prev " aria-label="Previous page: yield*를 이용한 사가 배열">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="TaskCancellation.html" class="navigation navigation-next " aria-label="Next page: 태스크 취소">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"사가 조합","level":"1.4.6","depth":2,"next":{"title":"태스크 취소","level":"1.4.7","depth":2,"path":"advanced/TaskCancellation.md","ref":"advanced/TaskCancellation.md","articles":[]},"previous":{"title":"yield*를 이용한 사가 배열","level":"1.4.5","depth":2,"path":"advanced/SequencingSagas.md","ref":"advanced/SequencingSagas.md","articles":[]},"dir":"ltr"},"config":{"plugins":["prism@1.0.0","-highlight","github","ga","edit-link"],"root":"./docs_kr","styles":{"website":"build/gitbook.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"github":{"url":"https://github.com/mskims/redux-saga-in-korean/"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"ga":{"configuration":"auto","token":"UA-100043099-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"이 페이지 수정하기","base":"https://github.com/mskims/redux-saga-in-korean/tree/master/docs_kr"},"theme-default":{"styles":{"website":"build/gitbook.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"ko","gitbook":"3.2.0"},"file":{"path":"advanced/ComposingSagas.md","mtime":"2021-05-06T05:35:29.768Z","type":"markdown"},"gitbook":{"version":"3.2.0","time":"2021-05-06T05:36:43.381Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-ga/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

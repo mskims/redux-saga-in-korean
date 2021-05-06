@@ -1,0 +1,677 @@
+
+<!DOCTYPE HTML>
+<html lang="ko" >
+    <head>
+        <title>액션 dispatch 하기 · GitBook</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.0">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="ErrorHandling.html" />
+    
+    
+    <link rel="prev" href="DeclarativeEffects.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="검색어 입력" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        <li class="header">목차</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    읽어주세요
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../introduction/">
+            
+                <a href="../introduction/">
+            
+                    
+                    소개
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../introduction/BeginnerTutorial.html">
+            
+                <a href="../introduction/BeginnerTutorial.html">
+            
+                    
+                    튜토리얼
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../introduction/SagaBackground.html">
+            
+                <a href="../introduction/SagaBackground.html">
+            
+                    
+                    배경지식
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    기본 개념
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="UsingSagaHelpers.html">
+            
+                <a href="UsingSagaHelpers.html">
+            
+                    
+                    헬퍼 함수
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="DeclarativeEffects.html">
+            
+                <a href="DeclarativeEffects.html">
+            
+                    
+                    서술적 이펙트
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3.3" data-path="DispatchingActions.html">
+            
+                <a href="DispatchingActions.html">
+            
+                    
+                    액션 dispatch 하기
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="ErrorHandling.html">
+            
+                <a href="ErrorHandling.html">
+            
+                    
+                    에러 핸들링
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="Effect.html">
+            
+                <a href="Effect.html">
+            
+                    
+                    이펙트 추상화
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../advanced/">
+            
+                <a href="../advanced/">
+            
+                    
+                    고급 개념
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../advanced/FutureActions.html">
+            
+                <a href="../advanced/FutureActions.html">
+            
+                    
+                    액션 풀링
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../advanced/NonBlockingCalls.html">
+            
+                <a href="../advanced/NonBlockingCalls.html">
+            
+                    
+                    비봉쇄(non-blocking) 호출
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../advanced/RunningTasksInParallel.html">
+            
+                <a href="../advanced/RunningTasksInParallel.html">
+            
+                    
+                    병렬 태스크 실행
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../advanced/RacingEffects.html">
+            
+                <a href="../advanced/RacingEffects.html">
+            
+                    
+                    여러 이펙트의 경주
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../advanced/SequencingSagas.html">
+            
+                <a href="../advanced/SequencingSagas.html">
+            
+                    
+                    yield*를 이용한 사가 배열
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../advanced/ComposingSagas.html">
+            
+                <a href="../advanced/ComposingSagas.html">
+            
+                    
+                    사가 조합
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="../advanced/TaskCancellation.html">
+            
+                <a href="../advanced/TaskCancellation.html">
+            
+                    
+                    태스크 취소
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="../advanced/ForkModel.html">
+            
+                <a href="../advanced/ForkModel.html">
+            
+                    
+                    redux-saga의 포크(fork) 모델
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.9" data-path="../advanced/Concurrency.html">
+            
+                <a href="../advanced/Concurrency.html">
+            
+                    
+                    동시성 패턴
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.10" data-path="../advanced/Testing.html">
+            
+                <a href="../advanced/Testing.html">
+            
+                    
+                    사가 테스트
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.11" data-path="../advanced/UsingRunSaga.html">
+            
+                <a href="../advanced/UsingRunSaga.html">
+            
+                    
+                    사가와 외부 입/출력 연결
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.12" data-path="../advanced/Channels.html">
+            
+                <a href="../advanced/Channels.html">
+            
+                    
+                    채널
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../recipes/">
+            
+                <a href="../recipes/">
+            
+                    
+                    레시피
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../ExternalResources.html">
+            
+                <a href="../ExternalResources.html">
+            
+                    
+                    외부 자료(미번역)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../Troubleshooting.html">
+            
+                <a href="../Troubleshooting.html">
+            
+                    
+                    문제해결
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../Glossary.html">
+            
+                <a href="../Glossary.html">
+            
+                    
+                    용어 사전
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../api/">
+            
+                <a href="../api/">
+            
+                    
+                    API 레퍼런스(미번역)
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            GitBook에 게시
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >액션 dispatch 하기</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#xC2A4;&#xD1A0;&#xC5B4;&#xC5D0;-&#xC561;&#xC158;-dispatch-&#xD558;&#xAE30;">&#xC2A4;&#xD1A0;&#xC5B4;&#xC5D0; &#xC561;&#xC158; dispatch &#xD558;&#xAE30;</h1><p>Save &#xD6C4; &#xC2A4;&#xD1A0;&#xC5B4;&#xC5D0;&#xAC8C; fetch &#xAC00; &#xC131;&#xACF5;&#xD588;&#xB2E4;&#xACE0; &#xC54C;&#xB824;&#xC8FC;&#xB294; &#xC561;&#xC158;&#xC744; dispatch &#xD558;&#xB824; &#xD55C;&#xB2E4;&#xACE0; &#xAC00;&#xC815;&#xD574;&#xBD05;&#xC2DC;&#xB2E4;. (&#xC2E4;&#xD328;&#xD558;&#xB294; &#xCF00;&#xC774;&#xC2A4;&#xB294; &#xB098;&#xC911;&#xC5D0; &#xC0B4;&#xD3B4;&#xBCF4;&#xACA0;&#xC2B5;&#xB2C8;&#xB2E4;.)</p><!-- Taking the previous example further, let's say that after each save, we want to dispatch some action
+to notify the Store that the fetch has succeeded (we'll omit the failure case for the moment). -->
+
+
+<p>&#xC2A4;&#xD1A0;&#xC5B4;&#xC758; <code>dispatch</code> &#xD568;&#xC218;&#xB97C; &#xC81C;&#xB108;&#xB808;&#xC774;&#xD130;&#xC5D0;&#xAC8C; &#xB118;&#xAE30;&#xBA74;, &#xC81C;&#xB108;&#xB808;&#xC774;&#xD130;&#xB294; &#xC774; &#xD568;&#xC218;&#xB97C; fetch &#xC751;&#xB2F5;&#xC744; &#xBC1B;&#xC740; &#xD6C4;&#xC5D0; &#xC2E4;&#xD589;&#xD560; &#xAC83;&#xC785;&#xB2C8;&#xB2E4;.</p><!-- We could pass the Store's `dispatch` function to the Generator. Then the
+Generator could invoke it after receiving the fetch response: -->
+
+
+<pre><code class="lang-javascript"><span class="token comment" spellcheck="true">// ...</span>
+
+<span class="token keyword">function</span><span class="token operator">*</span> <span class="token function">fetchProducts</span><span class="token punctuation">(</span>dispatch<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> products <span class="token operator">=</span> <span class="token keyword">yield</span> <span class="token function">call</span><span class="token punctuation">(</span>Api<span class="token punctuation">.</span>fetch<span class="token punctuation">,</span> <span class="token string">&quot;/products&quot;</span><span class="token punctuation">)</span>
+  <span class="token function">dispatch</span><span class="token punctuation">(</span><span class="token punctuation">{</span> type<span class="token punctuation">:</span> <span class="token string">&quot;PRODUCTS_RECEIVED&quot;</span><span class="token punctuation">,</span> products <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span></code></pre>
+<p>&#xADF8;&#xB7EC;&#xB098;, &#xC774; &#xBC29;&#xBC95;&#xC740; &#xC81C;&#xB108;&#xB808;&#xC774;&#xD130; &#xB0B4;&#xBD80;&#xC5D0;&#xC11C; &#xD568;&#xC218;&#xB97C; &#xC9C1;&#xC811;&#xC801;&#xC73C;&#xB85C; &#xD638;&#xCD9C;&#xD558;&#xB294; &#xAC83;&#xACFC; &#xBE44;&#xC2B7;&#xD55C; &#xB2E8;&#xC810;&#xC774; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. (&#xC774;&#xC804; &#xC139;&#xC158;&#xC5D0;&#xC11C; &#xB9D0;&#xD588;&#xB358; &#xAC83;&#xACFC; &#xAC19;&#xC2B5;&#xB2C8;&#xB2E4;.) &#xB9CC;&#xC57D; <code>fetchProducts</code> &#xAC00; AJAX &#xC751;&#xB2F5;&#xC744; &#xBC1B;&#xC740; &#xD6C4;&#xC5D0; dispatch &#xB97C; &#xC218;&#xD589;&#xD55C;&#xB2E4;&#xB294; &#xAC83;&#xC744; &#xD14C;&#xC2A4;&#xD2B8;&#xD558;&#xACE0; &#xC2F6;&#xB2E4;&#xBA74;, &#xB610;&#xB2E4;&#xC2DC; <code>dispatch</code> &#xD568;&#xC218;&#xB97C; &#xD749;&#xB0B4; &#xB0B4;&#xC57C; &#xD560;&#xAC83;&#xC785;&#xB2C8;&#xB2E4;.</p><!-- However, this solution has the same drawbacks as invoking functions directly from inside the Generator (as discussed in the previous section). If we want to test that `fetchProducts` performs the dispatch after receiving the AJAX response, we'll need again to mock the `dispatch`
+function. -->
+
+
+<p>&#xD749;&#xB0B4; &#xB0B4;&#xB294; &#xAC83; &#xB300;&#xC2E0;, &#xC11C;&#xC220;&#xC801; &#xD574;&#xACB0;&#xCC45;&#xC774; &#xD544;&#xC694;&#xD569;&#xB2C8;&#xB2E4;. &#xADF8;&#xC800; &#xBBF8;&#xB4E4;&#xC6E8;&#xC5B4;&#xC5D0;&#xAC8C; &#xC5B4;&#xB5A4; &#xC561;&#xC158;&#xC744; dispatch &#xD574;&#xC57C; &#xD558;&#xB294;&#xC9C0; &#xC9C0;&#xC2DC;&#xD558;&#xB294; &#xAC1D;&#xCCB4;&#xB97C; &#xB9CC;&#xB4E4;&#xACE0;, &#xC2E4;&#xC81C; dispatch &#xB294; &#xBBF8;&#xB4E4;&#xC6E8;&#xC5B4;&#xAC00; &#xD558;&#xB3C4;&#xB85D; &#xB194;&#xB450;&#xC138;&#xC694;. &#xC774;&#xB807;&#xAC8C;&#xB9CC; &#xD55C;&#xB2E4;&#xBA74; yield &#xB41C; &#xC774;&#xD399;&#xD2B8;&#xB97C; &#xAC80;&#xC0AC;&#xD558;&#xACE0; &#xC815;&#xD655;&#xD55C; &#xBA85;&#xB839;&#xC774; &#xD3EC;&#xD568;&#xB418;&#xC5B4;&#xC788;&#xB294;&#xC9C0; &#xD655;&#xC778;&#xD558;&#xB294; &#xAC83;&#xB9CC;&#xC73C;&#xB85C; &#xC81C;&#xB108;&#xB808;&#xC774;&#xD130;&#xC758; dispatch &#xB97C; &#xD14C;&#xC2A4;&#xD2B8; &#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p><!-- Instead, we need the same declarative solution. Just create an Object to instruct the
+middleware that we need to dispatch some action, and let the middleware perform the real
+dispatch. This way we can test the Generator's dispatch in the same way: by just inspecting the yielded Effect and making sure it contains the correct instructions. -->
+
+
+<p>&#xC774; &#xB77C;&#xC774;&#xBE0C;&#xB7EC;&#xB9AC;&#xB294; &#xC774;&#xB7F0; &#xBAA9;&#xC801;&#xB4E4; &#xB54C;&#xBB38;&#xC5D0; dispatch &#xC774;&#xD399;&#xD2B8;&#xB97C; &#xC0DD;&#xC131;&#xD558;&#xB294; <code>put</code> &#xD568;&#xC218;&#xB97C; &#xC81C;&#xACF5;&#xD569;&#xB2C8;&#xB2E4;.</p><!-- The library provides, for this purpose, another function `put` which creates the dispatch
+Effect. -->
+
+
+<pre><code class="lang-javascript"><span class="token keyword">import</span> <span class="token punctuation">{</span> call<span class="token punctuation">,</span> put <span class="token punctuation">}</span> from <span class="token string">&quot;redux-saga/effects&quot;</span>
+<span class="token comment" spellcheck="true">// ...</span>
+
+<span class="token keyword">function</span><span class="token operator">*</span> <span class="token function">fetchProducts</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> products <span class="token operator">=</span> <span class="token keyword">yield</span> <span class="token function">call</span><span class="token punctuation">(</span>Api<span class="token punctuation">.</span>fetch<span class="token punctuation">,</span> <span class="token string">&quot;/products&quot;</span><span class="token punctuation">)</span>
+  <span class="token comment" spellcheck="true">// dispatch &#xC774;&#xD399;&#xD2B8;&#xB97C; &#xC0DD;&#xC131;&#xD558;&#xACE0; yield &#xD569;&#xB2C8;&#xB2E4;.</span>
+  <span class="token keyword">yield</span> <span class="token function">put</span><span class="token punctuation">(</span><span class="token punctuation">{</span> type<span class="token punctuation">:</span> <span class="token string">&quot;PRODUCTS_RECEIVED&quot;</span><span class="token punctuation">,</span> products <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span></code></pre>
+<p>&#xC790; &#xC774;&#xC81C; &#xC774;&#xC804; &#xC139;&#xC158;&#xC5D0;&#xC11C; &#xD588;&#xB358; &#xAC83;&#xACFC; &#xAC19;&#xC774; &#xC81C;&#xB108;&#xB808;&#xC774;&#xD130;&#xB97C; &#xC27D;&#xAC8C; &#xD14C;&#xC2A4;&#xD2B8; &#xD560; &#xC218; &#xC788;&#xAC8C; &#xB418;&#xC5C8;&#xC2B5;&#xB2C8;&#xB2E4;.</p><!-- Now, we can test the Generator easily as in the previous section -->
+
+
+<pre><code class="lang-javascript"><span class="token keyword">import</span> <span class="token punctuation">{</span> call<span class="token punctuation">,</span> put <span class="token punctuation">}</span> from <span class="token string">&quot;redux-saga/effects&quot;</span>
+<span class="token keyword">import</span> Api from <span class="token string">&quot;...&quot;</span>
+
+<span class="token keyword">const</span> iterator <span class="token operator">=</span> <span class="token function">fetchProducts</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">// expects a call instruction</span>
+assert<span class="token punctuation">.</span><span class="token function">deepEqual</span><span class="token punctuation">(</span>
+  iterator<span class="token punctuation">.</span><span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>value<span class="token punctuation">,</span>
+  <span class="token function">call</span><span class="token punctuation">(</span>Api<span class="token punctuation">.</span>fetch<span class="token punctuation">,</span> <span class="token string">&quot;/products&quot;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token string">&quot;fetchProducts should yield an Effect call(Api.fetch, &apos;./products&apos;)&quot;</span>
+<span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">// create a fake response</span>
+<span class="token keyword">const</span> products <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">// expects a dispatch instruction</span>
+assert<span class="token punctuation">.</span><span class="token function">deepEqual</span><span class="token punctuation">(</span>
+  iterator<span class="token punctuation">.</span><span class="token function">next</span><span class="token punctuation">(</span>products<span class="token punctuation">)</span><span class="token punctuation">.</span>value<span class="token punctuation">,</span>
+  <span class="token function">put</span><span class="token punctuation">(</span><span class="token punctuation">{</span> type<span class="token punctuation">:</span> <span class="token string">&quot;PRODUCTS_RECEIVED&quot;</span><span class="token punctuation">,</span> products <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token string">&quot;fetchProducts should yield an Effect put({ type: &apos;PRODUCTS_RECEIVED&apos;, products })&quot;</span>
+<span class="token punctuation">)</span></code></pre>
+<p><code>next</code> &#xBA54;&#xC18C;&#xB4DC;&#xB97C; &#xD1B5;&#xD574; &#xC81C;&#xB108;&#xB808;&#xC774;&#xD130;&#xC5D0;&#xAC8C; &#xC5B4;&#xB5BB;&#xAC8C; &#xAC00;&#xC9DC; &#xC751;&#xB2F5;&#xC744; &#xC92C;&#xB294;&#xC9C0; &#xAE30;&#xC5B5;&#xD558;&#xC138;&#xC694;. &#xBBF8;&#xB4E4;&#xC6E8;&#xC5B4; &#xB0B4;&#xBD80;&#xAC00; &#xC544;&#xB2C8;&#xAE30; &#xB54C;&#xBB38;&#xC5D0; &#xC81C;&#xB108;&#xB808;&#xC774;&#xD130;&#xB97C; &#xC644;&#xBCBD;&#xD558;&#xAC8C; &#xC81C;&#xC5B4;&#xD560; &#xC218; &#xC788;&#xACE0;, &#xC774; &#xB54C;&#xBB38;&#xC5D0; &#xACB0;&#xACFC;&#xB97C; &#xD749;&#xB0B4; &#xB0B4;&#xACE0; &#xC81C;&#xB108;&#xB808;&#xC774;&#xD130;&#xB97C; &#xC7AC;&#xC2DC;&#xC791;&#xD558;&#xB294; &#xAC83; &#xB9CC;&#xC73C;&#xB85C; &#xC2E4;&#xC81C; &#xD658;&#xACBD;&#xC744; &#xC2DC;&#xBBAC;&#xB808;&#xC774;&#xD2B8; &#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. &#xB370;&#xC774;&#xD130;(&#xACB0;&#xACFC;)&#xB97C; &#xD749;&#xB0B4; &#xB0B4;&#xB294; &#xAC83;&#xC740; &#xD568;&#xC218;&#xB098; call &#xB4E4;&#xC744; &#xD749;&#xB0B4;&#xB0B4;&#xB294;&#xAC83;&#xBCF4;&#xB2E4; &#xD6E8;&#xC52C; &#xAC04;&#xB2E8;&#xD569;&#xB2C8;&#xB2E4;.</p><!-- Note how we pass the fake response to the Generator via its `next` method. Outside the
+middleware environment, we have total control over the Generator, we can simulate a
+real environment by simply mocking results and resuming the Generator with them. Mocking
+data is a lot simpler than mocking functions and spying calls. -->
+
+
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="DeclarativeEffects.html" class="navigation navigation-prev " aria-label="Previous page: 서술적 이펙트">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="ErrorHandling.html" class="navigation navigation-next " aria-label="Next page: 에러 핸들링">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"액션 dispatch 하기","level":"1.3.3","depth":2,"next":{"title":"에러 핸들링","level":"1.3.4","depth":2,"path":"basics/ErrorHandling.md","ref":"basics/ErrorHandling.md","articles":[]},"previous":{"title":"서술적 이펙트","level":"1.3.2","depth":2,"path":"basics/DeclarativeEffects.md","ref":"basics/DeclarativeEffects.md","articles":[]},"dir":"ltr"},"config":{"plugins":["prism@1.0.0","-highlight","github","ga","edit-link"],"root":"./docs_kr","styles":{"website":"build/gitbook.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"github":{"url":"https://github.com/mskims/redux-saga-in-korean/"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"ga":{"configuration":"auto","token":"UA-100043099-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"이 페이지 수정하기","base":"https://github.com/mskims/redux-saga-in-korean/tree/master/docs_kr"},"theme-default":{"styles":{"website":"build/gitbook.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"ko","gitbook":"3.2.0"},"file":{"path":"basics/DispatchingActions.md","mtime":"2021-05-06T05:35:29.768Z","type":"markdown"},"gitbook":{"version":"3.2.0","time":"2021-05-06T05:36:43.381Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-ga/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

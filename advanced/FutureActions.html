@@ -1,0 +1,649 @@
+
+<!DOCTYPE HTML>
+<html lang="ko" >
+    <head>
+        <title>액션 풀링 · GitBook</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.0">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="NonBlockingCalls.html" />
+    
+    
+    <link rel="prev" href="./" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="검색어 입력" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        <li class="header">목차</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    읽어주세요
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../introduction/">
+            
+                <a href="../introduction/">
+            
+                    
+                    소개
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../introduction/BeginnerTutorial.html">
+            
+                <a href="../introduction/BeginnerTutorial.html">
+            
+                    
+                    튜토리얼
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../introduction/SagaBackground.html">
+            
+                <a href="../introduction/SagaBackground.html">
+            
+                    
+                    배경지식
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../basics/">
+            
+                <a href="../basics/">
+            
+                    
+                    기본 개념
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../basics/UsingSagaHelpers.html">
+            
+                <a href="../basics/UsingSagaHelpers.html">
+            
+                    
+                    헬퍼 함수
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../basics/DeclarativeEffects.html">
+            
+                <a href="../basics/DeclarativeEffects.html">
+            
+                    
+                    서술적 이펙트
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../basics/DispatchingActions.html">
+            
+                <a href="../basics/DispatchingActions.html">
+            
+                    
+                    액션 dispatch 하기
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../basics/ErrorHandling.html">
+            
+                <a href="../basics/ErrorHandling.html">
+            
+                    
+                    에러 핸들링
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../basics/Effect.html">
+            
+                <a href="../basics/Effect.html">
+            
+                    
+                    이펙트 추상화
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    고급 개념
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.4.1" data-path="FutureActions.html">
+            
+                <a href="FutureActions.html">
+            
+                    
+                    액션 풀링
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="NonBlockingCalls.html">
+            
+                <a href="NonBlockingCalls.html">
+            
+                    
+                    비봉쇄(non-blocking) 호출
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="RunningTasksInParallel.html">
+            
+                <a href="RunningTasksInParallel.html">
+            
+                    
+                    병렬 태스크 실행
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="RacingEffects.html">
+            
+                <a href="RacingEffects.html">
+            
+                    
+                    여러 이펙트의 경주
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="SequencingSagas.html">
+            
+                <a href="SequencingSagas.html">
+            
+                    
+                    yield*를 이용한 사가 배열
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="ComposingSagas.html">
+            
+                <a href="ComposingSagas.html">
+            
+                    
+                    사가 조합
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="TaskCancellation.html">
+            
+                <a href="TaskCancellation.html">
+            
+                    
+                    태스크 취소
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="ForkModel.html">
+            
+                <a href="ForkModel.html">
+            
+                    
+                    redux-saga의 포크(fork) 모델
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.9" data-path="Concurrency.html">
+            
+                <a href="Concurrency.html">
+            
+                    
+                    동시성 패턴
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.10" data-path="Testing.html">
+            
+                <a href="Testing.html">
+            
+                    
+                    사가 테스트
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.11" data-path="UsingRunSaga.html">
+            
+                <a href="UsingRunSaga.html">
+            
+                    
+                    사가와 외부 입/출력 연결
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.12" data-path="Channels.html">
+            
+                <a href="Channels.html">
+            
+                    
+                    채널
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../recipes/">
+            
+                <a href="../recipes/">
+            
+                    
+                    레시피
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../ExternalResources.html">
+            
+                <a href="../ExternalResources.html">
+            
+                    
+                    외부 자료(미번역)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../Troubleshooting.html">
+            
+                <a href="../Troubleshooting.html">
+            
+                    
+                    문제해결
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../Glossary.html">
+            
+                <a href="../Glossary.html">
+            
+                    
+                    용어 사전
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../api/">
+            
+                <a href="../api/">
+            
+                    
+                    API 레퍼런스(미번역)
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            GitBook에 게시
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >액션 풀링</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#xC561;&#xC158;-&#xD480;&#xB9C1;">&#xC561;&#xC158; &#xD480;&#xB9C1;</h1><p>&#xC9C0;&#xAE08;&#xAE4C;&#xC9C0; &#xC6B0;&#xB9AC;&#xB294; &#xB4E4;&#xC5B4;&#xC624;&#xB294; &#xAC01;&#xAC01;&#xC758; &#xC561;&#xC158;&#xC5D0; &#xC0C8;&#xB85C;&#xC6B4; &#xD0DC;&#xC2A4;&#xD06C;&#xB97C; &#xB9CC;&#xB4E4;&#xAE30; &#xC704;&#xD574;&#xC11C; <code>takeEvery</code> &#xD5EC;&#xD37C; &#xC774;&#xD399;&#xD2B8;&#xB97C; &#xC0AC;&#xC6A9;&#xD588;&#xC2B5;&#xB2C8;&#xB2E4;. &#xC774;&#xAC83;&#xC740; &#xC57D;&#xAC04; redux-thunk&#xC640; &#xC720;&#xC0AC;&#xD569;&#xB2C8;&#xB2E4;: &#xC608;&#xB97C; &#xB4E4;&#xC5B4; &#xB9E4;&#xBC88; <code>fetchProducts</code> &#xC561;&#xC158; &#xD06C;&#xB9AC;&#xC5D0;&#xC774;&#xD130;&#xB97C; &#xD638;&#xCD9C;&#xD558;&#xBA74;, &#xADF8; &#xC561;&#xC158; &#xD06C;&#xB9AC;&#xC5D0;&#xC774;&#xD130;&#xB294; &#xB370;&#xC774;&#xD130; &#xCEE8;&#xD2B8;&#xB864;&#xC744; &#xC704;&#xD574; &#xC37D;&#xD06C;&#xB97C; dispatch&#xD558;&#xB294; &#xAC83;&#xCC98;&#xB7FC;&#xC694;.</p><p>&#xC0AC;&#xC2E4;, <code>takeEvery</code>&#xB294; &#xB85C;&#xC6B0; &#xB808;&#xBCA8;&#xC758; &#xB05D;&#xC5D0; &#xC788;&#xB294; &#xB0B4;&#xBD80;&#xC801;&#xC778; &#xD5EC;&#xD37C; &#xD568;&#xC218;&#xC640; &#xAC15;&#xB825;&#xD55C; API&#xAC00; &#xAC10;&#xC2F8;&#xC9C4; &#xC774;&#xD399;&#xD2B8;&#xC5D0; &#xBD88;&#xACFC;&#xD569;&#xB2C8;&#xB2E4;. &#xC774; &#xC7A5;&#xC5D0;&#xC11C; &#xC6B0;&#xB9AC;&#xB294; &#xC0C8;&#xB85C;&#xC6B4; &#xC774;&#xD399;&#xD2B8; <code>take</code>&#xB97C; &#xBCF4;&#xAC8C; &#xB420; &#xAC83;&#xC785;&#xB2C8;&#xB2E4;. &#xC774; &#xC774;&#xD399;&#xD2B8;&#xB294; &#xC561;&#xC158; &#xAC10;&#xC2DC; &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xC758; &#xC804;&#xCCB4;&#xC801;&#xC778; &#xC81C;&#xC5B4;&#xB97C; &#xAC00;&#xB2A5;&#xD558;&#xAC8C; &#xD568;&#xC73C;&#xB85C;&#xC368;, &#xBCF5;&#xC7A1;&#xD55C; &#xB370;&#xC774;&#xD130; &#xCEE8;&#xD2B8;&#xB864; &#xD50C;&#xB85C;&#xC6B0;&#xB97C; &#xC124;&#xACC4;&#xD560; &#xC218; &#xC788;&#xAC8C; &#xD569;&#xB2C8;&#xB2E4;.</p><h2 id="&#xAC04;&#xB2E8;&#xD55C;-&#xB85C;&#xAC70;">&#xAC04;&#xB2E8;&#xD55C; &#xB85C;&#xAC70;</h2><p>&#xC774;&#xC81C; &#xC0AC;&#xAC00;&#xC758; &#xAC04;&#xB2E8;&#xD55C; &#xC608;&#xC81C;&#xB97C; &#xBD05;&#xC2DC;&#xB2E4;. &#xC774; &#xC0AC;&#xAC00;&#xB294; &#xC2A4;&#xD1A0;&#xC5B4;&#xB85C; dispatch&#xB418;&#xB294; &#xBAA8;&#xB4E0; &#xC561;&#xC158;&#xB4E4;&#xC744; watch&#xD558;&#xACE0;, &#xCF58;&#xC194;&#xC73C;&#xB85C; &#xB85C;&#xADF8;&#xB97C; &#xCC0D;&#xC5B4;&#xC90D;&#xB2C8;&#xB2E4;.</p><p><code>takeEvery(&apos;*&apos;)</code>(&#xC640;&#xC77C;&#xB4DC;&#xCE74;&#xB4DC; <code>*</code> &#xD328;&#xD134;)&#xB97C; &#xC500;&#xC73C;&#xB85C;&#xC368;, &#xC6B0;&#xB9AC;&#xB294; &#xC561;&#xC158;&#xC758; &#xD0C0;&#xC785;&#xACFC;&#xB294; &#xBB34;&#xAD00;&#xD558;&#xAC8C; &#xBAA8;&#xB4E0; &#xC561;&#xC158;&#xC744; &#xC7A1;&#xC544;&#xB0BC; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p><pre><code class="lang-javascript"><span class="token keyword">import</span> <span class="token punctuation">{</span> select<span class="token punctuation">,</span> takeEvery <span class="token punctuation">}</span> from <span class="token string">&apos;redux-saga/effects&apos;</span>
+
+<span class="token keyword">function</span><span class="token operator">*</span> <span class="token function">watchAndLog</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">yield</span> <span class="token function">takeEvery</span><span class="token punctuation">(</span><span class="token string">&apos;*&apos;</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token operator">*</span> <span class="token function">logger</span><span class="token punctuation">(</span>action<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> state <span class="token operator">=</span> <span class="token keyword">yield</span> <span class="token function">select</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;action&apos;</span><span class="token punctuation">,</span> action<span class="token punctuation">)</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;state after&apos;</span><span class="token punctuation">,</span> state<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span></code></pre>
+<p>&#xC774;&#xC81C;, &#xC704;&#xC640; &#xAC19;&#xC740; &#xD50C;&#xB85C;&#xC6B0;&#xB97C; &#xC774;&#xD589;&#xD558;&#xAE30; &#xC704;&#xD574; &#xC5B4;&#xB5BB;&#xAC8C; <code>take</code> &#xC774;&#xD399;&#xD2B8;&#xB97C; &#xC0AC;&#xC6A9;&#xD558;&#xB294;&#xC9C0; &#xBD05;&#xC2DC;&#xB2E4;.</p><pre><code class="lang-javascript"><span class="token keyword">import</span> <span class="token punctuation">{</span> select<span class="token punctuation">,</span> take <span class="token punctuation">}</span> from <span class="token string">&apos;redux-saga/effects&apos;</span>
+
+<span class="token keyword">function</span><span class="token operator">*</span> <span class="token function">watchAndLog</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token keyword">true</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> action <span class="token operator">=</span> <span class="token keyword">yield</span> <span class="token function">take</span><span class="token punctuation">(</span><span class="token string">&apos;*&apos;</span><span class="token punctuation">)</span>
+    <span class="token keyword">const</span> state <span class="token operator">=</span> <span class="token keyword">yield</span> <span class="token function">select</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;action&apos;</span><span class="token punctuation">,</span> action<span class="token punctuation">)</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;state after&apos;</span><span class="token punctuation">,</span> state<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<p><code>take</code>&#xB294; &#xC6B0;&#xB9AC;&#xAC00; &#xC804;&#xC5D0; &#xBD24;&#xB358; <code>call</code>, <code>put</code>&#xC640; &#xBE44;&#xC2B7;&#xD569;&#xB2C8;&#xB2E4;. &#xC774;&#xB294; &#xD2B9;&#xC815;&#xD55C; &#xC561;&#xC158;&#xC744; &#xAE30;&#xB2E4;&#xB9AC;&#xAE30; &#xC704;&#xD574;&#xC11C; &#xBBF8;&#xB4E4;&#xC6E8;&#xC5B4;&#xC5D0; &#xC54C;&#xB824;&#xC8FC;&#xB294; &#xBA85;&#xB839; &#xC624;&#xBE0C;&#xC81D;&#xD2B8;&#xB97C; &#xC0DD;&#xC131;&#xD569;&#xB2C8;&#xB2E4;. <code>call</code> &#xC774;&#xD399;&#xD2B8;&#xB294; &#xBBF8;&#xB4E4;&#xC6E8;&#xC5B4;&#xAC00; &#xD504;&#xB85C;&#xBBF8;&#xC2A4;&#xC758; resolve&#xB97C; &#xAE30;&#xB2E4;&#xB9AC;&#xAC8C; &#xD569;&#xB2C8;&#xB2E4;. <code>take</code>&#xC758; &#xACBD;&#xC6B0;&#xC5D0;&#xB294; &#xBBF8;&#xB4E4;&#xC6E8;&#xC5B4;&#xAC00; &#xB9E4;&#xCE6D;&#xB418;&#xB294; &#xC561;&#xC158;&#xC774; dispatch&#xB420; &#xB54C;&#xAE4C;&#xC9C0; &#xAE30;&#xB2E4;&#xB9BD;&#xB2C8;&#xB2E4;. &#xC704;&#xC758; &#xC608;&#xC5D0;&#xC11C;, <code>watchAndLog</code>&#xB294; &#xC5B4;&#xB5A0;&#xD55C; &#xD55C; &#xC561;&#xC158;&#xC774; dispatch&#xB420; &#xB54C;&#xAE4C;&#xC9C0; &#xAE30;&#xB2E4;&#xB9B4; &#xAC81;&#xB2C8;&#xB2E4;.</p><p>&#xC6B0;&#xB9AC;&#xAC00; &#xC5B4;&#xB5BB;&#xAC8C; &#xBB34;&#xD55C; &#xB8E8;&#xD504; <code>while (true)</code>&#xB97C; &#xC2E4;&#xD589;&#xC2DC;&#xD0A4;&#xB294;&#xC9C0; &#xBCF4;&#xC138;&#xC694;. &#xC774;&#xAC74; &#xC81C;&#xB108;&#xB808;&#xC774;&#xD130; &#xD568;&#xC218;&#xB77C;&#xB294; &#xAC83;&#xC744; &#xAE30;&#xC5B5;&#xD558;&#xC138;&#xC694;. &#xC81C;&#xB108;&#xB808;&#xC774;&#xD130;&#xB294; &#xC644;&#xB8CC;&#xB97C; &#xD5A5;&#xD574; &#xB2EC;&#xB824;&#xAC00;&#xB294;(run-to-completion) &#xD568;&#xC218;&#xAC00; &#xC544;&#xB2D9;&#xB2C8;&#xB2E4;. &#xC6B0;&#xB9AC;&#xAC00; &#xB9CC;&#xB4E0; &#xC81C;&#xB108;&#xB808;&#xC774;&#xD130;&#xB294; &#xD55C; &#xBC88; &#xBC18;&#xBCF5;&#xB420; &#xB54C;&#xB9C8;&#xB2E4; &#xC561;&#xC158;&#xC774; &#xC77C;&#xC5B4;&#xB098;&#xAE30;&#xB97C; &#xAE30;&#xB2E4;&#xB9B4; &#xAC83;&#xC785;&#xB2C8;&#xB2E4;.</p><p><code>take</code>&#xB97C; &#xC0AC;&#xC6A9;&#xD558;&#xB294; &#xAC83;&#xC740; &#xC6B0;&#xB9AC;&#xC758; &#xCF54;&#xB4DC; &#xC791;&#xC131;&#xBC95;&#xC5D0; &#xC791;&#xC740; &#xCDA9;&#xACA9;&#xC744; &#xC90D;&#xB2C8;&#xB2E4;. <code>takeEvery</code>&#xC758; &#xACBD;&#xC6B0;&#xC5D0;, &#xC2E4;&#xD589;&#xB41C; &#xD0DC;&#xC2A4;&#xD06C;&#xB294; &#xADF8;&#xB4E4;&#xC774; &#xB2E4;&#xC2DC; &#xC2E4;&#xD589;&#xB420; &#xB54C;&#xC5D0; &#xB300;&#xD55C; &#xAD00;&#xB9AC; &#xBC29;&#xBC95;&#xC774; &#xC5C6;&#xC2B5;&#xB2C8;&#xB2E4;. &#xADF8;&#xC800; &#xAC01;&#xAC01;&#xC758; &#xB9E4;&#xCE6D;&#xB418;&#xB294; &#xC561;&#xC158;&#xC5D0; &#xC2E4;&#xD589;&#xB418;&#xACE0;, &#xB610; &#xC2E4;&#xD589;&#xB418;&#xACA0;&#xC8E0;. &#xB610;&#xD55C; &#xADF8;&#xB4E4;&#xC740; &#xC5B8;&#xC81C; &#xAC10;&#xC2DC;(observing)&#xB97C; &#xBA48;&#xCDB0;&#xC57C; &#xD558;&#xB294;&#xC9C0;&#xC5D0; &#xB300;&#xD55C; &#xAD00;&#xB9AC; &#xBC29;&#xBC95;&#xB3C4; &#xC5C6;&#xC2B5;&#xB2C8;&#xB2E4;.</p><p><code>take</code>&#xC758; &#xACBD;&#xC6B0;&#xC5D0;&#xB294; &#xCEE8;&#xD2B8;&#xB864;&#xC758; &#xBC29;&#xD5A5;&#xC774; &#xC815;&#xBC18;&#xB300;&#xC785;&#xB2C8;&#xB2E4;. &#xD578;&#xB4E4;&#xB7EC; &#xD0DC;&#xC2A4;&#xD06C;&#xC5D0; <em>&#xD478;&#xC2DC;(push)</em>&#xB418;&#xACE0; &#xC788;&#xB294; &#xC561;&#xC158;&#xB4E4; &#xB300;&#xC2E0;, &#xC0AC;&#xAC00;&#xB294; &#xC2A4;&#xC2A4;&#xB85C; &#xC561;&#xC158;&#xB4E4;&#xC744; <em>&#xD480;&#xB9C1;(pulling)</em>&#xD569;&#xB2C8;&#xB2E4;. &#xC774;&#xB294; &#xC0AC;&#xAC00;&#xAC00; &#xC77C;&#xBC18; &#xD568;&#xC218; &#xCF5C;&#xC744; &#xD558;&#xB294; &#xAC83;&#xCC98;&#xB7FC; &#xBCF4;&#xC785;&#xB2C8;&#xB2E4;. &#xC561;&#xC158;&#xC774; dispatch&#xB418;&#xC5C8;&#xC744; &#xB54C; resolve&#xD558;&#xB294; <code>action = getNextAction()</code>&#xCC98;&#xB7FC;&#xC694;.</p><p>&#xC774; &#xCEE8;&#xD2B8;&#xB864;&#xC758; &#xC804;&#xD658;&#xC740; &#xD2B9;&#xBCC4;&#xD55C; &#xCEE8;&#xD2B8;&#xB864; &#xD50C;&#xB85C;&#xC6B0;&#xB97C; &#xC218;&#xD589;&#xD560; &#xC218; &#xC788;&#xAC8C; &#xD569;&#xB2C8;&#xB2E4;. &#xC804;&#xD1B5;&#xC801;&#xC778; &#xC561;&#xC158;&#xC758; <em>&#xD478;&#xC2DC;</em> &#xC811;&#xADFC;&#xBC95;&#xC744; &#xD574;&#xACB0;&#xD574;&#xC8FC;&#xC8E0;.</p><p>&#xAC04;&#xB2E8;&#xD55C; &#xC608;&#xB85C;, Todo &#xC5B4;&#xD50C;&#xB9AC;&#xCF00;&#xC774;&#xC158;&#xC5D0;&#xC11C; &#xC720;&#xC800;&#xC758; &#xC561;&#xC158;&#xB4E4;&#xC744; watch&#xD558;&#xACE0; &#xC788;&#xB2E4;&#xAC00;, &#xC720;&#xC800;&#xAC00; &#xC138; &#xAC1C;&#xC758; todo&#xB97C; &#xB9CC;&#xB4E4;&#xBA74; &#xCD95;&#xD558; &#xBA54;&#xC138;&#xC9C0;&#xB97C; &#xB744;&#xC6CC;&#xBD05;&#xC2DC;&#xB2E4;.</p><pre><code class="lang-javascript"><span class="token keyword">import</span> <span class="token punctuation">{</span> take<span class="token punctuation">,</span> put <span class="token punctuation">}</span> from <span class="token string">&apos;redux-saga/effects&apos;</span>
+
+<span class="token keyword">function</span><span class="token operator">*</span> <span class="token function">watchFirstThreeTodosCreation</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">3</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> action <span class="token operator">=</span> <span class="token keyword">yield</span> <span class="token function">take</span><span class="token punctuation">(</span><span class="token string">&apos;TODO_CREATED&apos;</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">yield</span> <span class="token function">put</span><span class="token punctuation">(</span><span class="token punctuation">{</span>type<span class="token punctuation">:</span> <span class="token string">&apos;SHOW_CONGRATULATION&apos;</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span></code></pre>
+<p><code>while (true)</code> &#xB300;&#xC2E0;&#xC5D0;, &#xC6B0;&#xB9AC;&#xB294; &#xB531; 3&#xBC88;&#xB9CC; &#xBC18;&#xBCF5;&#xD558;&#xB294; <code>for</code> &#xB8E8;&#xD504;&#xB97C; &#xB9CC;&#xB4E4;&#xC5C8;&#xC2B5;&#xB2C8;&#xB2E4;. &#xCC98;&#xC74C; &#xC138; &#xBC88;&#xC758; <code>TODO_CREATED</code> &#xC561;&#xC158; &#xD6C4;&#xC5D0;, <code>watchFirstThreeTodosCreation</code>&#xB294; &#xC5B4;&#xD50C;&#xB9AC;&#xCF00;&#xC774;&#xC158;&#xC5D0;&#xAC8C; &#xCD95;&#xD558; &#xBA54;&#xC2DC;&#xC9C0;&#xB97C; &#xB744;&#xC6B0;&#xB3C4;&#xB85D; &#xC694;&#xCCAD;&#xD558;&#xACE0; &#xC885;&#xB8CC;&#xB420; &#xAC83;&#xC785;&#xB2C8;&#xB2E4;. &#xC774;&#xB294; &#xC81C;&#xB108;&#xB808;&#xC774;&#xD130;&#xAC00; <em>&#xAC00;&#xBE44;&#xC9C0; &#xCF5C;&#xB809;&#xC158;</em>&#xC774; &#xB418;&#xACE0;, &#xB354; &#xC774;&#xC0C1;&#xC758; &#xBD88;&#xD544;&#xC694;&#xD55C; &#xAC10;&#xC2DC;&#xB294; &#xC5C6;&#xB2E4;&#xB294; &#xAC83;&#xC744; &#xC758;&#xBBF8;&#xD569;&#xB2C8;&#xB2E4;.</p><p><em>&#xD480;</em> &#xC811;&#xADFC;&#xBC95;&#xC758; &#xB2E4;&#xB978; &#xC774;&#xC810;&#xC740; &#xC6B0;&#xB9AC;&#xAC00; &#xCE5C;&#xC219;&#xD55C; &#xB3D9;&#xAE30;&#xC801;(synchronous) &#xC2A4;&#xD0C0;&#xC77C;&#xB85C; &#xCEE8;&#xD2B8;&#xB864; &#xD50C;&#xB85C;&#xC6B0;&#xB97C; &#xD45C;&#xD604;&#xD560; &#xC218; &#xC788;&#xB2E4;&#xB294; &#xAC83;&#xC785;&#xB2C8;&#xB2E4;. &#xC608;&#xB97C; &#xB4E4;&#xC5B4;, &#xC6B0;&#xB9AC;&#xAC00; <code>LOGIN</code> &#xC561;&#xC158;&#xACFC; <code>LOGOUT</code> &#xC561;&#xC158;&#xC744; &#xC774;&#xC6A9;&#xD558;&#xC5EC; &#xB85C;&#xADF8;&#xC778; &#xD50C;&#xB85C;&#xC6B0;&#xB97C; &#xC2E4;&#xD589;&#xC2DC;&#xD0A4;&#xACE0; &#xC2F6;&#xB2E4;&#xACE0; &#xAC00;&#xC815;&#xD574;&#xBD05;&#xC2DC;&#xB2E4;. <code>takeEvery</code>(&#xD639;&#xC740; <code>redux-thunk</code>)&#xC744; &#xC774;&#xC6A9;&#xD588;&#xB2E4;&#xBA74; <code>LOGIN</code>&#xACFC; <code>LOGOUT</code>&#xC73C;&#xB85C; &#xB098;&#xB258;&#xC5B4;&#xC9C4; &#xB450; &#xAC1C;&#xC758; &#xD0DC;&#xC2A4;&#xD06C;(&#xD639;&#xC740; &#xC37D;&#xD06C;)&#xB97C; &#xC791;&#xC131;&#xD574;&#xC57C; &#xD588;&#xC744; &#xAC83;&#xC785;&#xB2C8;&#xB2E4;.</p><p>&#xACB0;&#xACFC;&#xBB3C;&#xC740; &#xB450; &#xAC1C;&#xB85C; &#xB098;&#xB258;&#xC5B4;&#xC9C8; &#xAC81;&#xB2C8;&#xB2E4;. &#xB204;&#xAD70;&#xAC00; &#xC9C4;&#xD589; &#xC0C1;&#xD669;&#xC744; &#xC774;&#xD574;&#xD558;&#xAE30; &#xC704;&#xD574;&#xC11C; &#xC6B0;&#xB9AC;&#xB4E4;&#xC758; &#xCF54;&#xB4DC;&#xB97C; &#xC77D;&#xB294;&#xB2E4;&#xBA74;, &#xADF8;&#xB294; &#xB450; &#xAC1C;&#xC758; &#xD578;&#xB4E4;&#xB7EC;&#xC758; &#xC18C;&#xC2A4;&#xB97C; &#xC77D;&#xACE0;, &#xC774; &#xB450; &#xC18C;&#xC2A4;&#xB97C; &#xC5F0;&#xACB0;&#xC2DC;&#xCF1C; &#xC0DD;&#xAC01;&#xD574;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;. &#xC774;&#xB294; &#xADF8;&#xAC00; &#xB2E4;&#xC591;&#xD55C; &#xC704;&#xCE58;&#xC5D0; &#xC788;&#xB294; &#xCF54;&#xB4DC;&#xB4E4;&#xC744; &#xBA38;&#xB9AC; &#xC18D;&#xC73C;&#xB85C; &#xC62C;&#xBC14;&#xB978; &#xC21C;&#xC11C;&#xB85C; &#xC7AC; &#xC815;&#xB82C;&#xD55C; &#xB4A4;&#xC5D0; &#xD50C;&#xB85C;&#xC6B0; &#xBAA8;&#xB378;&#xC744; &#xC7AC;&#xC124;&#xACC4;&#xD574;&#xC57C; &#xD55C;&#xB2E4;&#xB294; &#xAC83;&#xC744; &#xC758;&#xBBF8;&#xD569;&#xB2C8;&#xB2E4;.</p><p>&#xD480; &#xBAA8;&#xB378;&#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xBA74; &#xC6B0;&#xB9AC;&#xB294; &#xAC19;&#xC740; &#xC561;&#xC158;&#xC744; &#xBC18;&#xBCF5;&#xD574;&#xC11C; &#xD578;&#xB4E4;&#xB9C1;&#xD558;&#xC9C0; &#xC54A;&#xACE0; &#xAC19;&#xC740; &#xACF3;&#xC5D0; &#xC6B0;&#xB9AC;&#xC758; &#xD50C;&#xB85C;&#xC6B0;&#xB97C; &#xC791;&#xC131;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p><pre><code class="lang-javascript"><span class="token keyword">function</span><span class="token operator">*</span> <span class="token function">loginFlow</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token keyword">true</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">yield</span> <span class="token function">take</span><span class="token punctuation">(</span><span class="token string">&apos;LOGIN&apos;</span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true">// ... perform the login logic</span>
+    <span class="token keyword">yield</span> <span class="token function">take</span><span class="token punctuation">(</span><span class="token string">&apos;LOGOUT&apos;</span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true">// ... perform the logout logic</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<p><code>loginFlow</code> &#xC0AC;&#xAC00;&#xB294; &#xB354; &#xAE54;&#xB054;&#xD558;&#xAC8C; &#xC608;&#xC0C1;&#xB418;&#xB294; &#xC561;&#xC158; &#xC21C;&#xC11C;&#xB97C; &#xC804;&#xB2EC;&#xD569;&#xB2C8;&#xB2E4;. &#xC774; &#xC0AC;&#xAC00;&#xB294; <code>LOGIN</code> &#xC561;&#xC158;&#xC774; &#xC5B8;&#xC81C;&#xB098; <code>LOGOUT</code> &#xC561;&#xC158; &#xC804;&#xC5D0; &#xC624;&#xACE0;, &#xBC18;&#xB300;&#xB85C; <code>LOGOUT</code> &#xC561;&#xC158;&#xC774; &#xC5B8;&#xC81C;&#xB098; <code>LOGIN</code> &#xC804;&#xC5D0; &#xC640;&#xC57C; &#xD55C;&#xB2E4;&#xB294; &#xAC83;&#xC744; &#xC54C;&#xACE0; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4; (&#xC88B;&#xC740; UI&#xB294; &#xC608;&#xC0C1;&#xB418;&#xC9C0; &#xC54A;&#xC740; &#xC561;&#xC158;&#xC744; &#xC228;&#xAE30;&#xAC70;&#xB098; &#xBE44;&#xD65C;&#xC131;&#xD654;&#xD558;&#xC5EC;, &#xC5B8;&#xC81C;&#xB098; &#xC548;&#xC815;&#xB41C; &#xC21C;&#xC11C;&#xC758; &#xC561;&#xC158;&#xB4E4;&#xC744; &#xC2DC;&#xD589;&#xD574;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;).</p>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: 고급 개념">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="NonBlockingCalls.html" class="navigation navigation-next " aria-label="Next page: 비봉쇄(non-blocking) 호출">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"액션 풀링","level":"1.4.1","depth":2,"next":{"title":"비봉쇄(non-blocking) 호출","level":"1.4.2","depth":2,"path":"advanced/NonBlockingCalls.md","ref":"advanced/NonBlockingCalls.md","articles":[]},"previous":{"title":"고급 개념","level":"1.4","depth":1,"path":"advanced/README.md","ref":"advanced/README.md","articles":[{"title":"액션 풀링","level":"1.4.1","depth":2,"path":"advanced/FutureActions.md","ref":"advanced/FutureActions.md","articles":[]},{"title":"비봉쇄(non-blocking) 호출","level":"1.4.2","depth":2,"path":"advanced/NonBlockingCalls.md","ref":"advanced/NonBlockingCalls.md","articles":[]},{"title":"병렬 태스크 실행","level":"1.4.3","depth":2,"path":"advanced/RunningTasksInParallel.md","ref":"advanced/RunningTasksInParallel.md","articles":[]},{"title":"여러 이펙트의 경주","level":"1.4.4","depth":2,"path":"advanced/RacingEffects.md","ref":"advanced/RacingEffects.md","articles":[]},{"title":"yield*를 이용한 사가 배열","level":"1.4.5","depth":2,"path":"advanced/SequencingSagas.md","ref":"advanced/SequencingSagas.md","articles":[]},{"title":"사가 조합","level":"1.4.6","depth":2,"path":"advanced/ComposingSagas.md","ref":"advanced/ComposingSagas.md","articles":[]},{"title":"태스크 취소","level":"1.4.7","depth":2,"path":"advanced/TaskCancellation.md","ref":"advanced/TaskCancellation.md","articles":[]},{"title":"redux-saga의 포크(fork) 모델","level":"1.4.8","depth":2,"path":"advanced/ForkModel.md","ref":"advanced/ForkModel.md","articles":[]},{"title":"동시성 패턴","level":"1.4.9","depth":2,"path":"advanced/Concurrency.md","ref":"advanced/Concurrency.md","articles":[]},{"title":"사가 테스트","level":"1.4.10","depth":2,"path":"advanced/Testing.md","ref":"advanced/Testing.md","articles":[]},{"title":"사가와 외부 입/출력 연결","level":"1.4.11","depth":2,"path":"advanced/UsingRunSaga.md","ref":"advanced/UsingRunSaga.md","articles":[]},{"title":"채널","level":"1.4.12","depth":2,"path":"advanced/Channels.md","ref":"advanced/Channels.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["prism@1.0.0","-highlight","github","ga","edit-link"],"root":"./docs_kr","styles":{"website":"build/gitbook.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"github":{"url":"https://github.com/mskims/redux-saga-in-korean/"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"ga":{"configuration":"auto","token":"UA-100043099-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"이 페이지 수정하기","base":"https://github.com/mskims/redux-saga-in-korean/tree/master/docs_kr"},"theme-default":{"styles":{"website":"build/gitbook.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"ko","gitbook":"3.2.0"},"file":{"path":"advanced/FutureActions.md","mtime":"2021-05-06T05:35:29.768Z","type":"markdown"},"gitbook":{"version":"3.2.0","time":"2021-05-06T05:36:43.381Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-ga/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

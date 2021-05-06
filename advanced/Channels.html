@@ -1,0 +1,784 @@
+
+<!DOCTYPE HTML>
+<html lang="ko" >
+    <head>
+        <title>채널 · GitBook</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.0">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../recipes/" />
+    
+    
+    <link rel="prev" href="UsingRunSaga.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="검색어 입력" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        <li class="header">목차</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    읽어주세요
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../introduction/">
+            
+                <a href="../introduction/">
+            
+                    
+                    소개
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../introduction/BeginnerTutorial.html">
+            
+                <a href="../introduction/BeginnerTutorial.html">
+            
+                    
+                    튜토리얼
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../introduction/SagaBackground.html">
+            
+                <a href="../introduction/SagaBackground.html">
+            
+                    
+                    배경지식
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../basics/">
+            
+                <a href="../basics/">
+            
+                    
+                    기본 개념
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../basics/UsingSagaHelpers.html">
+            
+                <a href="../basics/UsingSagaHelpers.html">
+            
+                    
+                    헬퍼 함수
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../basics/DeclarativeEffects.html">
+            
+                <a href="../basics/DeclarativeEffects.html">
+            
+                    
+                    서술적 이펙트
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../basics/DispatchingActions.html">
+            
+                <a href="../basics/DispatchingActions.html">
+            
+                    
+                    액션 dispatch 하기
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../basics/ErrorHandling.html">
+            
+                <a href="../basics/ErrorHandling.html">
+            
+                    
+                    에러 핸들링
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../basics/Effect.html">
+            
+                <a href="../basics/Effect.html">
+            
+                    
+                    이펙트 추상화
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    고급 개념
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="FutureActions.html">
+            
+                <a href="FutureActions.html">
+            
+                    
+                    액션 풀링
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="NonBlockingCalls.html">
+            
+                <a href="NonBlockingCalls.html">
+            
+                    
+                    비봉쇄(non-blocking) 호출
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="RunningTasksInParallel.html">
+            
+                <a href="RunningTasksInParallel.html">
+            
+                    
+                    병렬 태스크 실행
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="RacingEffects.html">
+            
+                <a href="RacingEffects.html">
+            
+                    
+                    여러 이펙트의 경주
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="SequencingSagas.html">
+            
+                <a href="SequencingSagas.html">
+            
+                    
+                    yield*를 이용한 사가 배열
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="ComposingSagas.html">
+            
+                <a href="ComposingSagas.html">
+            
+                    
+                    사가 조합
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="TaskCancellation.html">
+            
+                <a href="TaskCancellation.html">
+            
+                    
+                    태스크 취소
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="ForkModel.html">
+            
+                <a href="ForkModel.html">
+            
+                    
+                    redux-saga의 포크(fork) 모델
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.9" data-path="Concurrency.html">
+            
+                <a href="Concurrency.html">
+            
+                    
+                    동시성 패턴
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.10" data-path="Testing.html">
+            
+                <a href="Testing.html">
+            
+                    
+                    사가 테스트
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.11" data-path="UsingRunSaga.html">
+            
+                <a href="UsingRunSaga.html">
+            
+                    
+                    사가와 외부 입/출력 연결
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.4.12" data-path="Channels.html">
+            
+                <a href="Channels.html">
+            
+                    
+                    채널
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../recipes/">
+            
+                <a href="../recipes/">
+            
+                    
+                    레시피
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../ExternalResources.html">
+            
+                <a href="../ExternalResources.html">
+            
+                    
+                    외부 자료(미번역)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../Troubleshooting.html">
+            
+                <a href="../Troubleshooting.html">
+            
+                    
+                    문제해결
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../Glossary.html">
+            
+                <a href="../Glossary.html">
+            
+                    
+                    용어 사전
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../api/">
+            
+                <a href="../api/">
+            
+                    
+                    API 레퍼런스(미번역)
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            GitBook에 게시
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >채널</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#xCC44;&#xB110;">&#xCC44;&#xB110;</h1><p>&#xC9C0;&#xAE08;&#xAE4C;&#xC9C0; &#xC6B0;&#xB9AC;&#xB294; <code>take</code> &#xACFC; <code>put</code> &#xC774;&#xD399;&#xD2B8;&#xB97C; &#xC0AC;&#xC6A9;&#xD574;&#xC11C; &#xB9AC;&#xB355;&#xC2A4; &#xC2A4;&#xD1A0;&#xC5B4;&#xC640; &#xD1B5;&#xC2E0;&#xD588;&#xC2B5;&#xB2C8;&#xB2E4;. &#xCC44;&#xB110;&#xC740; &#xC678;&#xBD80;&#xC758; &#xC774;&#xBCA4;&#xD2B8; &#xC18C;&#xC2A4; &#xB610;&#xB294; &#xC0AC;&#xAC00; &#xAC04; &#xD1B5;&#xC2E0;&#xC744; &#xC704;&#xD574; &#xD574;&#xB2F9; &#xC774;&#xD399;&#xD2B8;&#xB97C; &#xC77C;&#xBC18;&#xD654;&#xD569;&#xB2C8;&#xB2E4;. &#xB610;&#xD55C; &#xC2A4;&#xD1A0;&#xC5B4;&#xC5D0;&#xC11C; &#xD2B9;&#xC815; &#xC791;&#xC5C5;&#xC744; &#xB300;&#xAE30;&#xC5F4;(queue)&#xC5D0; &#xB123;&#xC744; &#xB54C;&#xC5D0;&#xB3C4; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p><p>&#xC774; &#xC7A5;&#xC5D0;&#xC11C;, &#xC6B0;&#xB9AC;&#xB294; &#xB2E4;&#xC74C;&#xC744; &#xC0B4;&#xD3B4;&#xBCFC; &#xAC83;&#xC785;&#xB2C8;&#xB2E4;:</p><ul><li><p><code>yield actionChannel</code> &#xC774;&#xD399;&#xD2B8;&#xB97C; &#xC774;&#xC6A9;&#xD574; &#xC2A4;&#xD1A0;&#xC5B4;&#xC758; &#xD2B9;&#xC815; &#xC561;&#xC158;&#xC744; &#xBC84;&#xD37C;&#xB9C1;&#xD558;&#xB294; &#xBC29;&#xBC95;</p></li>
+<li><p><code>eventChannel</code> &#xD329;&#xD1A0;&#xB9AC; &#xD568;&#xC218;&#xB97C; &#xC0AC;&#xC6A9;&#xD558;&#xC5EC; <code>take</code> &#xC774;&#xD399;&#xD2B8;&#xB97C; &#xC678;&#xBD80; &#xC774;&#xBCA4;&#xD2B8; &#xC18C;&#xC2A4;&#xC5D0; &#xC5F0;&#xACB0;&#xD558;&#xB294; &#xBC29;&#xBC95;</p></li>
+<li><p>&#xC77C;&#xBC18; <code>channel</code> &#xD329;&#xD1A0;&#xB9AC; &#xD568;&#xC218;&#xB97C; &#xC774;&#xC6A9;&#xD558;&#xC5EC; &#xCC44;&#xB110;&#xC744; &#xB9CC;&#xB4DC;&#xB294; &#xBC29;&#xBC95;&#xACFC; &#xC0AC;&#xAC00; &#xAC04;&#xC758; &#xD1B5;&#xC2E0;&#xC744; &#xC704;&#xD574; <code>take</code>/<code>put</code> &#xC774;&#xD399;&#xD2B8;&#xC5D0; &#xC774;&#xB97C; &#xC0AC;&#xC6A9;&#xD558;&#xB294; &#xBC29;&#xBC95;</p></li></ul>
+<h2 id="actionchannel-&#xC774;&#xD399;&#xD2B8;-&#xC0AC;&#xC6A9;"><code>actionChannel</code> &#xC774;&#xD399;&#xD2B8; &#xC0AC;&#xC6A9;</h2><p>&#xAE30;&#xBCF8; &#xC608;&#xC81C;&#xB97C; &#xB2E4;&#xC2DC; &#xBCFC;&#xAE4C;&#xC694;?</p><pre><code class="lang-javascript"><span class="token keyword">import</span> <span class="token punctuation">{</span> take<span class="token punctuation">,</span> fork<span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token punctuation">}</span> from <span class="token string">&apos;redux-saga/effects&apos;</span>
+
+<span class="token keyword">function</span><span class="token operator">*</span> <span class="token function">watchRequests</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token keyword">true</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> <span class="token punctuation">{</span>payload<span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token keyword">yield</span> <span class="token function">take</span><span class="token punctuation">(</span><span class="token string">&apos;REQUEST&apos;</span><span class="token punctuation">)</span>
+    <span class="token keyword">yield</span> <span class="token function">fork</span><span class="token punctuation">(</span>handleRequest<span class="token punctuation">,</span> payload<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span><span class="token operator">*</span> <span class="token function">handleRequest</span><span class="token punctuation">(</span>payload<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token punctuation">}</span></code></pre>
+<p>&#xC704;&#xC758; &#xC608;&#xC81C;&#xB294; &#xC804;&#xD615;&#xC801;&#xC778; <em>watch &#xC640; fork</em> &#xD328;&#xD134;&#xC785;&#xB2C8;&#xB2E4;. <code>watchRequests</code> &#xC0AC;&#xAC00;&#xB294; &#xBD09;&#xC1C4;&#xB97C; &#xD53C;&#xD558;&#xACE0; &#xC2A4;&#xD1A0;&#xC5B4;&#xC5D0;&#xC11C; &#xC5B4;&#xB5A4; &#xC561;&#xC158;&#xB3C4; &#xB193;&#xCE58;&#xC9C0; &#xC54A;&#xAE30; &#xC704;&#xD574;&#xC11C; <code>fork</code>&#xB97C; &#xC0AC;&#xC6A9;&#xD558;&#xACE0; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. <code>handleRequest</code> &#xD0DC;&#xC2A4;&#xD06C;&#xB294; &#xAC01; <code>REQUEST</code> &#xC561;&#xC158;&#xC5D0;&#xC11C; &#xC0DD;&#xC131;&#xB429;&#xB2C8;&#xB2E4;. &#xB530;&#xB77C;&#xC11C; &#xC9E7;&#xC740; &#xC2DC;&#xAC04;&#xC5D0; &#xB9CE;&#xC740; &#xC561;&#xC158;&#xC774; &#xB4E4;&#xC5B4;&#xC628;&#xB2E4;&#xBA74; &#xB3D9;&#xC2DC;&#xC5D0; &#xB9CE;&#xC740; <code>handleRequest</code> &#xD0DC;&#xC2A4;&#xD06C;&#xAC00; &#xC2E4;&#xD589;&#xB420; &#xC218; &#xC788;&#xACA0;&#xC8E0;.</p><p>&#xC774;&#xC81C; &#xC6B0;&#xB9AC;&#xC758; &#xC694;&#xAD6C; &#xC0AC;&#xD56D;&#xC740; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC2B5;&#xB2C8;&#xB2E4;: &#xC6B0;&#xB9AC;&#xB294; <code>REQUEST</code>&#xC744; &#xC21C;&#xCC28;&#xC801;&#xC73C;&#xB85C; &#xCC98;&#xB9AC;&#xD558;&#xB824;&#xACE0; &#xD569;&#xB2C8;&#xB2E4;. &#xC6B0;&#xB9AC;&#xAC00; &#xC5B4;&#xB5A4; &#xC21C;&#xAC04;&#xC5D0; &#xB124; &#xAC1C;&#xC758; &#xC561;&#xC158;&#xC744; &#xAC00;&#xC9C0;&#xACE0; &#xC788;&#xB2E4;&#xBA74;, &#xC6B0;&#xB9AC;&#xB294; &#xCCAB; &#xBC88;&#xC9F8; &#xC561;&#xC158;&#xC744; &#xBA3C;&#xC800; &#xCC98;&#xB9AC;&#xD558;&#xACE0;, &#xB450; &#xBC88;&#xC9F8; &#xC561;&#xC158;&#xC744; &#xCC98;&#xB9AC;&#xD558;&#xB294; &#xB4F1; &#xC561;&#xC158;&#xC744; &#xC21C;&#xCC28;&#xC801;&#xC73C;&#xB85C; &#xCC98;&#xB9AC;&#xD558;&#xB824;&#xACE0; &#xD569;&#xB2C8;&#xB2E4;.</p><p>&#xADF8;&#xB798;&#xC11C; &#xC6B0;&#xB9AC;&#xB294; &#xC544;&#xC9C1; &#xCC98;&#xB9AC;&#xB418;&#xC9C0; &#xC54A;&#xC740; &#xC561;&#xC158;&#xC744; &#xB300;&#xAE30;&#xC5F4;&#xC5D0; &#xC9D1;&#xC5B4;&#xB123;&#xC744; &#xAC81;&#xB2C8;&#xB2E4;. &#xADF8;&#xB9AC;&#xACE0; &#xD604;&#xC7AC; &#xC694;&#xCCAD;&#xC744; &#xB9C8;&#xCCE4;&#xB2E4;&#xBA74;, &#xB300;&#xAE30;&#xC5F4;&#xC5D0;&#xC11C; &#xB2E4;&#xC74C; &#xAC83;&#xC744; &#xAC00;&#xC838;&#xC62C; &#xAC81;&#xB2C8;&#xB2E4;.</p><p>Redux-Saga&#xB294; &#xC791;&#xC740; &#xD5EC;&#xD37C; &#xC774;&#xD399;&#xD2B8; <code>actionChannel</code>&#xB97C; &#xC81C;&#xACF5;&#xD569;&#xB2C8;&#xB2E4;. &#xC774;&#xB294; &#xC704;&#xC5D0;&#xC11C; &#xB9D0;&#xD55C; &#xAC83;&#xB4E4;&#xC744; &#xB2E4;&#xB8F0; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. &#xC774;&#xC81C; &#xC704;&#xC758; &#xC608;&#xC81C;&#xB97C; &#xC5B4;&#xB5BB;&#xAC8C; &#xBC14;&#xAFC0; &#xC218; &#xC788;&#xB294;&#xC9C0; &#xBD05;&#xC2DC;&#xB2E4;.</p><pre><code class="lang-javascript"><span class="token keyword">import</span> <span class="token punctuation">{</span> take<span class="token punctuation">,</span> actionChannel<span class="token punctuation">,</span> call<span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token punctuation">}</span> from <span class="token string">&apos;redux-saga/effects&apos;</span>
+
+<span class="token keyword">function</span><span class="token operator">*</span> <span class="token function">watchRequests</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">// 1- Create a channel for request actions</span>
+  <span class="token keyword">const</span> requestChan <span class="token operator">=</span> <span class="token keyword">yield</span> <span class="token function">actionChannel</span><span class="token punctuation">(</span><span class="token string">&apos;REQUEST&apos;</span><span class="token punctuation">)</span>
+  <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token keyword">true</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// 2- take from the channel</span>
+    <span class="token keyword">const</span> <span class="token punctuation">{</span>payload<span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token keyword">yield</span> <span class="token function">take</span><span class="token punctuation">(</span>requestChan<span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true">// 3- Note that we&apos;re using a blocking call</span>
+    <span class="token keyword">yield</span> <span class="token function">call</span><span class="token punctuation">(</span>handleRequest<span class="token punctuation">,</span> payload<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span><span class="token operator">*</span> <span class="token function">handleRequest</span><span class="token punctuation">(</span>payload<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token punctuation">}</span></code></pre>
+<p>&#xCCAB; &#xBC88;&#xC9F8;&#xB294; &#xC561;&#xC158; &#xCC44;&#xB110;&#xC744; &#xB9CC;&#xB4DC;&#xB294; &#xAC83;&#xC785;&#xB2C8;&#xB2E4;. &#xC6B0;&#xB9AC;&#xB294; &#xC774;&#xC804;&#xC5D0; &#xB9D0;&#xD588;&#xB358; <code>take(pattern)</code>&#xCC98;&#xB7FC;, &#xAC19;&#xC740; &#xADDC;&#xCE59;&#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xC5EC; &#xD574;&#xC11D;&#xB418;&#xB294; &#xD328;&#xD134;&#xC774; &#xC788;&#xB294; &#xACF3;&#xC5D0; <code>yield actionChannel(pattern)</code>&#xB97C; &#xC0AC;&#xC6A9;&#xD569;&#xB2C8;&#xB2E4;. &#xB458;&#xC758; &#xCC28;&#xC774;&#xC810;&#xC740;, &#xC0AC;&#xAC00;&#xAC00; &#xC544;&#xC9C1; &#xADF8;&#xB4E4;&#xC744; &#xCC98;&#xB9AC;&#xD560; &#xC900;&#xBE44;&#xAC00; &#xB418;&#xC9C0; &#xC54A;&#xC558;&#xB2E4;&#xBA74; (&#xC608;&#xB97C; &#xB4E4;&#xC5B4;, API &#xD638;&#xCD9C;&#xC5D0; &#xBD09;&#xC1C4;&#xB428;) <code>actionChannel</code>&#xC740; &#xB4E4;&#xC5B4;&#xC624;&#xB294; &#xBA54;&#xC2DC;&#xC9C0;&#xB97C; &#xBC84;&#xD37C;&#xB9C1;&#xD560; &#xC218; &#xC788;&#xB2E4;&#xB294; &#xAC83;&#xC785;&#xB2C8;&#xB2E4;.</p><p>&#xB2E4;&#xC74C;&#xC740; <code>yield take(requestChan)</code>&#xC744; &#xBD05;&#xC2DC;&#xB2E4;. &#xC2A4;&#xD1A0;&#xC5B4;&#xC5D0;&#xC11C; &#xD2B9;&#xC815; &#xC561;&#xC158;&#xC744; &#xBC1B;&#xAE30; &#xC704;&#xD574; &#xD328;&#xD134;&#xC744; &#xC0AC;&#xC6A9;&#xD55C; &#xAC83;&#xCC98;&#xB7FC;, <code>take</code>&#xB294; &#xCC44;&#xB110;&#xACFC; &#xAC19;&#xC774; &#xC4F0;&#xC77C; &#xC218;&#xB3C4; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4; (&#xC704;&#xC5D0;&#xC11C; &#xC6B0;&#xB9AC;&#xB294; &#xD2B9;&#xC815; &#xC561;&#xC158;&#xC73C;&#xB85C;&#xBD80;&#xD130; &#xCC44;&#xB110; &#xAC1D;&#xCCB4;&#xB97C; &#xB9CC;&#xB4E4;&#xC5C8;&#xC2B5;&#xB2C8;&#xB2E4;). <code>take</code>&#xB294; &#xBA54;&#xC2DC;&#xC9C0;&#xB97C; &#xBC1B;&#xC744; &#xC218; &#xC788;&#xC744; &#xB54C;&#xC5D0;&#xB9CC; &#xC0AC;&#xAC00;&#xB97C; &#xBD09;&#xC1C4;&#xD560; &#xAC83;&#xC785;&#xB2C8;&#xB2E4;. <code>take</code>&#xB294; &#xBC84;&#xD37C;&#xC5D0; &#xBA54;&#xC2DC;&#xC9C0;&#xAC00; &#xC800;&#xC7A5;&#xB418;&#xC5B4; &#xC788;&#xC744; &#xACBD;&#xC6B0;&#xC5D0;&#xB9CC; &#xBD09;&#xC1C4;&#xB418;&#xC9C0; &#xC54A;&#xACE0; &#xC9C4;&#xD589;&#xD560; &#xAC83;&#xC785;&#xB2C8;&#xB2E4;.</p><p>&#xC6B0;&#xB9AC;&#xAC00; &#xBD09;&#xC1C4;&#xD558;&#xB294; <code>call</code>&#xC744; &#xC5B4;&#xB5BB;&#xAC8C; &#xC0AC;&#xC6A9;&#xD558;&#xACE0; &#xC788;&#xB294;&#xC9C0; &#xC8FC;&#xBAA9;&#xD558;&#xC138;&#xC694;. &#xC0AC;&#xAC00;&#xB294; <code>call(handleRequest)</code>&#xAC00; &#xBC18;&#xD658;&#xD560; &#xB54C;&#xAE4C;&#xC9C0; &#xBD09;&#xC1C4;&#xB97C; &#xC720;&#xC9C0;&#xD560; &#xAC83;&#xC785;&#xB2C8;&#xB2E4;. &#xD558;&#xC9C0;&#xB9CC; &#xBD09;&#xC1C4;&#xB418;&#xC5B4; &#xC788;&#xB294; &#xC911;&#xC5D0; &#xB2E4;&#xB978; <code>REQUEST</code> &#xC561;&#xC158;&#xC774; dispatch&#xB41C;&#xB2E4;&#xBA74;, &#xADF8;&#xAC83;&#xC740; <code>requestChan</code>&#xC5D0; &#xC758;&#xD574; &#xB0B4;&#xBD80;&#xC801;&#xC73C;&#xB85C; &#xB300;&#xAE30;&#xC5F4;&#xC5D0; &#xC800;&#xC7A5;&#xB420; &#xAC83;&#xC785;&#xB2C8;&#xB2E4;. &#xC0AC;&#xAC00;&#xAC00; <code>call(handleRequest)</code>&#xC5D0; &#xC758;&#xD574; &#xC7AC;&#xAC1C;&#xB418;&#xACE0; &#xB2E4;&#xC74C; <code>yield take(requestChan)</code>&#xC774; &#xC2E4;&#xD589;&#xB420; &#xB54C;, <code>take</code>&#xB294; &#xB300;&#xAE30;&#xC5F4;&#xC5D0; &#xC800;&#xC7A5;&#xB41C; &#xBA54;&#xC2DC;&#xC9C0;&#xB97C; resolve&#xD560; &#xAC83;&#xC785;&#xB2C8;&#xB2E4;.</p><p>&#xAE30;&#xBCF8;&#xC801;&#xC73C;&#xB85C; <code>actionChannel</code>&#xC740; &#xC81C;&#xD55C; &#xC5C6;&#xC774; &#xBC84;&#xD37C;&#xB9C1;&#xC774; &#xAC00;&#xB2A5;&#xD569;&#xB2C8;&#xB2E4;. &#xBC84;&#xD37C;&#xB9C1;&#xC5D0; &#xB300;&#xD574;&#xC11C; &#xB354; &#xC12C;&#xC138;&#xD788; &#xC81C;&#xC5B4;&#xD558;&#xACE0; &#xC2F6;&#xB2E4;&#xBA74;, &#xC774;&#xD399;&#xD2B8; &#xC0DD;&#xC131;&#xC790;&#xC5D0; &#xBC84;&#xD37C; &#xC778;&#xC790;&#xB97C; &#xC904; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. Redux-Saga&#xB294; &#xC77C;&#xBC18; &#xBC84;&#xD37C;(none, dropping, sliding)&#xB97C; &#xC81C;&#xACF5;&#xD558;&#xC9C0;&#xB9CC; &#xC9C1;&#xC811; &#xCD94;&#xAC00;&#xD574;&#xC11C; &#xC0AC;&#xC6A9;&#xD574;&#xB3C4; &#xB429;&#xB2C8;&#xB2E4;. <a href="../api#buffers">API &#xBB38;&#xC11C;</a>&#xB97C; &#xCC38;&#xC870;&#xD558;&#xC138;&#xC694;.</p><p>&#xC608;&#xB97C; &#xB4E4;&#xC5B4; &#xCD5C;&#xADFC; &#xB2E4;&#xC12F; &#xAC1C;&#xC758; &#xC544;&#xC774;&#xD15C;&#xB9CC; &#xAD00;&#xB9AC;&#xD558;&#xACE0; &#xC2F6;&#xB2E4;&#xBA74; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; &#xC4F8; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;:</p><pre><code class="lang-javascript"><span class="token keyword">import</span> <span class="token punctuation">{</span> buffers <span class="token punctuation">}</span> from <span class="token string">&apos;redux-saga&apos;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> actionChannel <span class="token punctuation">}</span> from <span class="token string">&apos;redux-saga/effects&apos;</span>
+
+<span class="token keyword">function</span><span class="token operator">*</span> <span class="token function">watchRequests</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> requestChan <span class="token operator">=</span> <span class="token keyword">yield</span> <span class="token function">actionChannel</span><span class="token punctuation">(</span><span class="token string">&apos;REQUEST&apos;</span><span class="token punctuation">,</span> buffers<span class="token punctuation">.</span><span class="token function">sliding</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span></code></pre>
+<h2 id="eventchannel-&#xD329;&#xD1A0;&#xB9AC;&#xB97C;-&#xC0AC;&#xC6A9;&#xD574;-&#xC678;&#xBD80;-&#xC774;&#xBCA4;&#xD2B8;&#xC5D0;-&#xC5F0;&#xACB0;&#xD558;&#xAE30;"><code>eventChannel</code> &#xD329;&#xD1A0;&#xB9AC;&#xB97C; &#xC0AC;&#xC6A9;&#xD574; &#xC678;&#xBD80; &#xC774;&#xBCA4;&#xD2B8;&#xC5D0; &#xC5F0;&#xACB0;&#xD558;&#xAE30;</h2><p><code>actionChannel</code> &#xC774;&#xD399;&#xD2B8;&#xCC98;&#xB7FC;, <code>eventChannel</code> (&#xC774;&#xD399;&#xD2B8;&#xAC00; &#xC544;&#xB2CC; &#xD329;&#xD1A0;&#xB9AC; &#xD568;&#xC218;)&#xB294; &#xB9AC;&#xB355;&#xC2A4; &#xC2A4;&#xD1A0;&#xC5B4;&#xAC00; &#xC544;&#xB2CC; &#xC678;&#xBD80; &#xC774;&#xBCA4;&#xD2B8;&#xB97C; &#xC704;&#xD55C; &#xCC44;&#xB110;&#xC744; &#xC0DD;&#xC131;&#xD569;&#xB2C8;&#xB2E4;.</p><p>&#xC774; &#xC608;&#xC81C;&#xB294; &#xC77C;&#xC815;&#xD55C; &#xAC04;&#xACA9;&#xB9C8;&#xB2E4; &#xCC44;&#xB110;&#xC744; &#xC0DD;&#xC131;&#xD569;&#xB2C8;&#xB2E4;:</p><pre><code class="lang-javascript"><span class="token keyword">import</span> <span class="token punctuation">{</span> eventChannel<span class="token punctuation">,</span> END <span class="token punctuation">}</span> from <span class="token string">&apos;redux-saga&apos;</span>
+
+<span class="token keyword">function</span> <span class="token function">countdown</span><span class="token punctuation">(</span>secs<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token function">eventChannel</span><span class="token punctuation">(</span>emitter <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+      <span class="token keyword">const</span> iv <span class="token operator">=</span> <span class="token function">setInterval</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+        secs <span class="token operator">-</span><span class="token operator">=</span> <span class="token number">1</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>secs <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          <span class="token function">emitter</span><span class="token punctuation">(</span>secs<span class="token punctuation">)</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+          <span class="token comment" spellcheck="true">// this causes the channel to close</span>
+          <span class="token function">emitter</span><span class="token punctuation">(</span>END<span class="token punctuation">)</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token comment" spellcheck="true">// The subscriber must return an unsubscribe function</span>
+      <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+        <span class="token function">clearInterval</span><span class="token punctuation">(</span>iv<span class="token punctuation">)</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">)</span>
+<span class="token punctuation">}</span></code></pre>
+<p><code>eventChannel</code>&#xC758; &#xCCAB; &#xBC88;&#xC9F8; &#xC778;&#xC790;&#xB294; <em>&#xAD6C;&#xB3C5;&#xC790;(subscriber)</em> &#xD568;&#xC218;&#xC785;&#xB2C8;&#xB2E4;. &#xAD6C;&#xB3C5;&#xC790;&#xC758; &#xC5ED;&#xD560;&#xC740; &#xC678;&#xBD80;&#xC758; &#xC774;&#xBCA4;&#xD2B8; &#xC18C;&#xC2A4;&#xB97C; &#xCD08;&#xAE30;&#xD654;&#xD558;&#xACE0; (&#xC704;&#xC758; <code>setInterval</code> &#xC0AC;&#xC6A9;), &#xC81C;&#xACF5;&#xB41C; <code>emitter</code>&#xB97C; &#xC2E4;&#xD589;&#xD558;&#xC5EC; &#xC18C;&#xC2A4;&#xC5D0;&#xC11C; &#xCC44;&#xB110;&#xB85C; &#xB4E4;&#xC5B4;&#xC624;&#xB294; &#xBAA8;&#xB4E0; &#xC774;&#xBCA4;&#xD2B8;&#xB97C; &#xB77C;&#xC6B0;&#xD305;&#xD569;&#xB2C8;&#xB2E4;. &#xC704;&#xC758; &#xC608;&#xC81C;&#xC5D0;&#xC11C; &#xC6B0;&#xB9AC;&#xB294; &#xB9E4; &#xCD08;&#xB9C8;&#xB2E4; <code>emitter</code>&#xB97C; &#xD638;&#xCD9C;&#xD569;&#xB2C8;&#xB2E4;.</p><blockquote><p>&#xC8FC;&#xC758;: &#xC774;&#xBCA4;&#xD2B8; &#xCC44;&#xB110;&#xC744; &#xD1B5;&#xD574; null &#xB610;&#xB294; undefined&#xB97C; &#xC804;&#xB2EC;&#xD558;&#xC9C0; &#xC54A;&#xB3C4;&#xB85D; &#xD574;&#xC57C;&#xD569;&#xB2C8;&#xB2E4;. &#xC22B;&#xC790;&#xB97C; &#xC804;&#xB2EC;&#xD558;&#xB294; &#xAC83;&#xC774; &#xC88B;&#xC9C0;&#xB9CC;, &#xC774;&#xBCA4;&#xD2B8; &#xCC44;&#xB110; &#xB370;&#xC774;&#xD130;&#xB97C; &#xB9AC;&#xB355;&#xC2A4; &#xC561;&#xC158;&#xCC98;&#xB7FC; &#xAD6C;&#xC870;&#xD654;&#xD558;&#xB294; &#xAC83;&#xC744; &#xCD94;&#xCC9C;&#xD569;&#xB2C8;&#xB2E4;. <code>number</code>&#xB97C; <code>{ number }</code>&#xB85C; &#xBC14;&#xAFB8;&#xB294; &#xAC83;&#xCC98;&#xB7FC;&#xC694;.</p></blockquote><p><code>emitter(END)</code> &#xD638;&#xCD9C;&#xC5D0;&#xB3C4; &#xC8FC;&#xC758;&#xD558;&#xC138;&#xC694;. &#xC6B0;&#xB9AC;&#xB294; &#xCC44;&#xB110; &#xC18C;&#xBE44;&#xC790;&#xC5D0;&#xAC8C; &#xCC44;&#xB110;&#xC774; &#xD3D0;&#xC1C4;&#xB418;&#xC5C8;&#xB2E4;&#xB294; &#xAC83;&#xC744; &#xC54C;&#xB9AC;&#xAE30; &#xC704;&#xD574; &#xC0AC;&#xC6A9;&#xD569;&#xB2C8;&#xB2E4;. &#xC774;&#xB294; &#xB354; &#xC774;&#xC0C1; &#xB2E4;&#xB978; &#xBA54;&#xC2DC;&#xC9C0;&#xAC00; &#xC774; &#xCC44;&#xB110;&#xC744; &#xD1B5;&#xD574; &#xC62C; &#xC218; &#xC5C6;&#xB2E4;&#xB294; &#xAC83;&#xC744; &#xC758;&#xBBF8;&#xD569;&#xB2C8;&#xB2E4;.</p><p>&#xC6B0;&#xB9AC;&#xC758; &#xC0AC;&#xAC00;&#xC5D0;&#xC11C; &#xC774; &#xCC44;&#xB110;&#xC744; &#xC5B4;&#xB5BB;&#xAC8C; &#xC4F0;&#xB294;&#xC9C0; &#xBD05;&#xC2DC;&#xB2E4;. (&#xC774; &#xC608;&#xC81C;&#xB294; &#xC800;&#xC7A5;&#xC18C;(repository)&#xC758; cancellable-counter &#xC608;&#xC81C;&#xC5D0;&#xC11C; &#xAC00;&#xC838;&#xC654;&#xC2B5;&#xB2C8;&#xB2E4;.)</p><pre><code class="lang-javascript"><span class="token keyword">import</span> <span class="token punctuation">{</span> take<span class="token punctuation">,</span> put<span class="token punctuation">,</span> call <span class="token punctuation">}</span> from <span class="token string">&apos;redux-saga/effects&apos;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> eventChannel<span class="token punctuation">,</span> END <span class="token punctuation">}</span> from <span class="token string">&apos;redux-saga&apos;</span>
+
+<span class="token comment" spellcheck="true">// creates an event Channel from an interval of seconds</span>
+<span class="token keyword">function</span> <span class="token function">countdown</span><span class="token punctuation">(</span>seconds<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token punctuation">}</span>
+
+<span class="token keyword">export</span> <span class="token keyword">function</span><span class="token operator">*</span> <span class="token function">saga</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> chan <span class="token operator">=</span> <span class="token keyword">yield</span> <span class="token function">call</span><span class="token punctuation">(</span>countdown<span class="token punctuation">,</span> value<span class="token punctuation">)</span>
+  <span class="token keyword">try</span> <span class="token punctuation">{</span>    
+    <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token keyword">true</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token comment" spellcheck="true">// take(END) will cause the saga to terminate by jumping to the finally block</span>
+      <span class="token keyword">let</span> seconds <span class="token operator">=</span> <span class="token keyword">yield</span> <span class="token function">take</span><span class="token punctuation">(</span>chan<span class="token punctuation">)</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>`countdown<span class="token punctuation">:</span> $<span class="token punctuation">{</span>seconds<span class="token punctuation">}</span>`<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span> <span class="token keyword">finally</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;countdown terminated&apos;</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<p>&#xC0AC;&#xAC00;&#xB294; <code>take(chan)</code>&#xB97C; yield&#xD558;&#xACE0; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. &#xBA54;&#xC2DC;&#xC9C0;&#xAC00; &#xCC44;&#xB110;&#xC5D0; &#xB4E4;&#xC5B4;&#xAC00;&#xAE30; &#xC804;&#xAE4C;&#xC9C0; &#xC0AC;&#xAC00;&#xB294; &#xBD09;&#xC1C4;&#xB429;&#xB2C8;&#xB2E4;. &#xC704;&#xC758; &#xC608;&#xC81C;&#xC5D0;&#xC11C;, &#xC774;&#xB294; <code>emitter(secs)</code>&#xB97C; &#xD638;&#xCD9C;&#xD560; &#xB54C;&#xC640; &#xC77C;&#xCE58;&#xD569;&#xB2C8;&#xB2E4;. &#xC6B0;&#xB9AC;&#xAC00; <code>try/finally</code> &#xAD6C;&#xC5ED; &#xB0B4;&#xC5D0;&#xC11C; &#xC804;&#xCCB4; <code>while (true) {...}</code>&#xB97C; &#xC2E4;&#xD589;&#xD558;&#xACE0; &#xC788;&#xB294; &#xAC83;&#xC5D0; &#xC8FC;&#xBAA9;&#xD558;&#xC138;&#xC694;. countdown&#xC758; interval&#xC774; &#xC885;&#xB8CC;&#xB418;&#xBA74;, countdown &#xD568;&#xC218;&#xB294; <code>emitter(END)</code>&#xB97C; &#xD638;&#xCD9C;&#xD568;&#xC73C;&#xB85C;&#xC368; &#xC774;&#xBCA4;&#xD2B8; &#xCC44;&#xB110;&#xC744; &#xD3D0;&#xC1C4;&#xD569;&#xB2C8;&#xB2E4;. &#xCC44;&#xB110;&#xC744; &#xB2EB;&#xC73C;&#xBA74; &#xADF8; &#xCC44;&#xB110;&#xC5D0;&#xC11C; <code>take</code>&#xC5D0; &#xBD09;&#xC1C4;&#xB41C; &#xBAA8;&#xB4E0; &#xC0AC;&#xAC00;&#xB4E4;&#xC744; &#xC885;&#xB8CC;&#xC2DC;&#xD0A4;&#xB294; &#xD6A8;&#xACFC;&#xAC00; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. &#xC608;&#xC81C;&#xC5D0;&#xC11C;, &#xC0AC;&#xAC00;&#xB97C; &#xC885;&#xB8CC;&#xD558;&#xBA74; <code>finally</code> &#xAD6C;&#xAC04;&#xC73C;&#xB85C; &#xC810;&#xD504;&#xD558;&#xAC8C; &#xB429;&#xB2C8;&#xB2E4; (<code>finally</code> &#xAD6C;&#xAC04;&#xC774; &#xC5C6;&#xC73C;&#xBA74; &#xADF8;&#xB0E5; &#xC885;&#xB8CC;&#xB429;&#xB2C8;&#xB2E4;).</p><p>&#xAD6C;&#xB3C5;&#xC790;&#xB294; <code>unsubscribe</code> &#xD568;&#xC218;&#xB97C; &#xBC18;&#xD658;&#xD569;&#xB2C8;&#xB2E4;. &#xC774;&#xAC83;&#xC740; &#xC774;&#xBCA4;&#xD2B8; &#xC18C;&#xC2A4;&#xAC00; &#xC644;&#xB8CC;&#xB418;&#xAE30; &#xC804;&#xC5D0; &#xCC44;&#xB110; &#xAD6C;&#xB3C5;&#xC744; &#xCDE8;&#xC18C;&#xD558;&#xB294; &#xB370;&#xC5D0; &#xC0AC;&#xC6A9;&#xB429;&#xB2C8;&#xB2E4;. &#xC774;&#xBCA4;&#xD2B8; &#xCC44;&#xB110;&#xC758; &#xBA54;&#xC2DC;&#xC9C0;&#xB97C; &#xC18C;&#xBE44;&#xD558;&#xB294; &#xC0AC;&#xAC00; &#xB0B4;&#xC5D0;&#xC11C; &#xC774;&#xBCA4;&#xD2B8; &#xC18C;&#xC2A4;&#xAC00; &#xC644;&#xB8CC;&#xB418;&#xAE30; &#xC804;&#xC5D0; <em>&#xC77C;&#xCC0D; &#xB098;&#xAC00;&#xAE30;</em>&#xB97C; &#xC6D0;&#xD55C;&#xB2E4;&#xBA74; (&#xC608;&#xB85C;, &#xC0AC;&#xAC00;&#xAC00; &#xCDE8;&#xC18C;&#xB428;) <code>chan.close()</code>&#xB97C; &#xD638;&#xCD9C;&#xD574; &#xCC44;&#xB110;&#xC744; &#xD3D0;&#xC1C4;&#xD558;&#xACE0; &#xAD6C;&#xB3C5;&#xC744; &#xCDE8;&#xC18C;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p><p>&#xC608;&#xB97C; &#xB4E4;&#xC5B4; &#xC6B0;&#xB9AC;&#xB294; &#xC0AC;&#xAC00;&#xAC00; &#xCDE8;&#xC18C;&#xB97C; &#xC9C0;&#xC6D0;&#xD558;&#xB3C4;&#xB85D; &#xB9CC;&#xB4E4; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p><pre><code class="lang-javascript"><span class="token keyword">import</span> <span class="token punctuation">{</span> take<span class="token punctuation">,</span> put<span class="token punctuation">,</span> call<span class="token punctuation">,</span> cancelled <span class="token punctuation">}</span> from <span class="token string">&apos;redux-saga/effects&apos;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> eventChannel<span class="token punctuation">,</span> END <span class="token punctuation">}</span> from <span class="token string">&apos;redux-saga&apos;</span>
+
+<span class="token comment" spellcheck="true">// creates an event Channel from an interval of seconds</span>
+<span class="token keyword">function</span> <span class="token function">countdown</span><span class="token punctuation">(</span>seconds<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token punctuation">}</span>
+
+<span class="token keyword">export</span> <span class="token keyword">function</span><span class="token operator">*</span> <span class="token function">saga</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> chan <span class="token operator">=</span> <span class="token keyword">yield</span> <span class="token function">call</span><span class="token punctuation">(</span>countdown<span class="token punctuation">,</span> value<span class="token punctuation">)</span>
+  <span class="token keyword">try</span> <span class="token punctuation">{</span>    
+    <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token keyword">true</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">let</span> seconds <span class="token operator">=</span> <span class="token keyword">yield</span> <span class="token function">take</span><span class="token punctuation">(</span>chan<span class="token punctuation">)</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>`countdown<span class="token punctuation">:</span> $<span class="token punctuation">{</span>seconds<span class="token punctuation">}</span>`<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span> <span class="token keyword">finally</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">yield</span> <span class="token function">cancelled</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      chan<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;countdown cancelled&apos;</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>    
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<p>&#xC5EC;&#xAE30; &#xC6F9; &#xC18C;&#xCF13; &#xC774;&#xBCA4;&#xD2B8;&#xB97C; &#xC0AC;&#xAC00;&#xC5D0; &#xC804;&#xB2EC;&#xD558;&#xC5EC; &#xC774;&#xBCA4;&#xD2B8; &#xCC44;&#xB110;&#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xB294; &#xBC29;&#xBC95;&#xC744; &#xB2E4;&#xB8EC; &#xB610; &#xB2E4;&#xB978; &#xC608;&#xC81C;&#xAC00; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4; (&#xC608;: socket.io &#xB77C;&#xC774;&#xBE0C;&#xB7EC;&#xB9AC; &#xC0AC;&#xC6A9;). <code>ping</code>&#xC774;&#xB77C;&#xB294; &#xC11C;&#xBC84; &#xBA54;&#xC2DC;&#xC9C0;&#xB97C; &#xAE30;&#xB2E4;&#xB9AC;&#xACE0; &#xC788;&#xACE0;, &#xC870;&#xAE08; &#xB4A4;&#xC5D0; <code>pong</code>&#xC774;&#xB77C;&#xB294; &#xBA54;&#xC2DC;&#xC9C0;&#xB85C; &#xB2F5;&#xD55C;&#xB2E4;&#xACE0; &#xAC00;&#xC815;&#xD574;&#xBD05;&#xC2DC;&#xB2E4;.</p><pre><code class="lang-javascript"><span class="token keyword">import</span> <span class="token punctuation">{</span> take<span class="token punctuation">,</span> put<span class="token punctuation">,</span> call<span class="token punctuation">,</span> apply <span class="token punctuation">}</span> from <span class="token string">&apos;redux-saga/effects&apos;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> eventChannel<span class="token punctuation">,</span> delay <span class="token punctuation">}</span> from <span class="token string">&apos;redux-saga&apos;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> createWebSocketConnection <span class="token punctuation">}</span> from <span class="token string">&apos;./socketConnection&apos;</span>
+
+<span class="token comment" spellcheck="true">// this function creates an event channel from a given socket</span>
+<span class="token comment" spellcheck="true">// Setup subscription to incoming `ping` events</span>
+<span class="token keyword">function</span> <span class="token function">createSocketChannel</span><span class="token punctuation">(</span>socket<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">// `eventChannel` takes a subscriber function</span>
+  <span class="token comment" spellcheck="true">// the subscriber function takes an `emit` argument to put messages onto the channel</span>
+  <span class="token keyword">return</span> <span class="token function">eventChannel</span><span class="token punctuation">(</span>emit <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">const</span> pingHandler <span class="token operator">=</span> <span class="token punctuation">(</span>event<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+      <span class="token comment" spellcheck="true">// puts event payload into the channel</span>
+      <span class="token comment" spellcheck="true">// this allows a Saga to take this payload from the returned channel</span>
+      <span class="token function">emit</span><span class="token punctuation">(</span>event<span class="token punctuation">.</span>payload<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment" spellcheck="true">// setup the subscription</span>
+    socket<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">&apos;ping&apos;</span><span class="token punctuation">,</span> pingHandler<span class="token punctuation">)</span>
+
+    <span class="token comment" spellcheck="true">// the subscriber must return an unsubscribe function</span>
+    <span class="token comment" spellcheck="true">// this will be invoked when the saga calls `channel.close` method</span>
+    <span class="token keyword">const</span> unsubscribe <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+      socket<span class="token punctuation">.</span><span class="token function">off</span><span class="token punctuation">(</span><span class="token string">&apos;ping&apos;</span><span class="token punctuation">,</span> pingHandler<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">return</span> unsubscribe
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">// reply with a `pong` message by invoking `socket.emit(&apos;pong&apos;)`</span>
+<span class="token keyword">function</span><span class="token operator">*</span> <span class="token function">pong</span><span class="token punctuation">(</span>socket<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">yield</span> <span class="token function">call</span><span class="token punctuation">(</span>delay<span class="token punctuation">,</span> <span class="token number">5000</span><span class="token punctuation">)</span>
+  <span class="token keyword">yield</span> <span class="token function">apply</span><span class="token punctuation">(</span>socket<span class="token punctuation">,</span> socket<span class="token punctuation">.</span>emit<span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token string">&apos;pong&apos;</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// call `emit` as a method with `socket` as context</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">export</span> <span class="token keyword">function</span><span class="token operator">*</span> <span class="token function">watchOnPings</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> socket <span class="token operator">=</span> <span class="token keyword">yield</span> <span class="token function">call</span><span class="token punctuation">(</span>createWebSocketConnection<span class="token punctuation">)</span>
+  <span class="token keyword">const</span> socketChannel <span class="token operator">=</span> <span class="token keyword">yield</span> <span class="token function">call</span><span class="token punctuation">(</span>createSocketChannel<span class="token punctuation">,</span> socket<span class="token punctuation">)</span>
+
+  <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token keyword">true</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> payload <span class="token operator">=</span> <span class="token keyword">yield</span> <span class="token function">take</span><span class="token punctuation">(</span>socketChannel<span class="token punctuation">)</span>
+    <span class="token keyword">yield</span> <span class="token function">put</span><span class="token punctuation">(</span><span class="token punctuation">{</span> type<span class="token punctuation">:</span> INCOMING_PONG_PAYLOAD<span class="token punctuation">,</span> payload <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token keyword">yield</span> <span class="token function">fork</span><span class="token punctuation">(</span>pong<span class="token punctuation">,</span> socket<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<blockquote><p>&#xC8FC;&#xC758;: eventChannel&#xC758; &#xBA54;&#xC2DC;&#xC9C0;&#xB294; &#xAE30;&#xBCF8;&#xC801;&#xC73C;&#xB85C; &#xBC84;&#xD37C;&#xB9C1;&#xB418;&#xC9C0; &#xC54A;&#xC2B5;&#xB2C8;&#xB2E4;. &#xCC44;&#xB110;&#xC758; &#xBC84;&#xD37C;&#xB9C1; &#xC804;&#xB7B5;&#xC744; &#xC9C0;&#xC815;&#xD558;&#xB824;&#xBA74; eventChannel &#xD329;&#xD1A0;&#xB9AC;&#xC5D0; &#xBC84;&#xD37C;&#xB97C; &#xC778;&#xC218;&#xB85C; &#xB123;&#xC5B4;&#xC918;&#xC57C; &#xD569;&#xB2C8;&#xB2E4; (&#xC608;: <code>eventChannel(subscriber, buffer)</code>). &#xC790;&#xC138;&#xD55C; &#xC0AC;&#xD56D;&#xC740; <a href="../api#buffers">API &#xBB38;&#xC11C;</a>&#xB97C; &#xCC38;&#xC870;&#xD558;&#xC138;&#xC694;.</p></blockquote><h3 id="&#xC0AC;&#xAC00;-&#xAC04;-&#xD1B5;&#xC2E0;&#xC5D0;-&#xCC44;&#xB110;-&#xC0AC;&#xC6A9;&#xD558;&#xAE30;">&#xC0AC;&#xAC00; &#xAC04; &#xD1B5;&#xC2E0;&#xC5D0; &#xCC44;&#xB110; &#xC0AC;&#xC6A9;&#xD558;&#xAE30;</h3><p>&#xC561;&#xC158; &#xCC44;&#xB110;&#xACFC; &#xC774;&#xBCA4;&#xD2B8; &#xCC44;&#xB110; &#xC678;&#xC5D0;&#xB3C4; &#xAE30;&#xBCF8;&#xC801;&#xC73C;&#xB85C; &#xC5B4;&#xB5A4; &#xC18C;&#xC2A4;&#xC5D0;&#xB3C4; &#xC5F0;&#xACB0;&#xB418;&#xC9C0; &#xC54A;&#xC740; &#xCC44;&#xB110;&#xC744; &#xC9C1;&#xC811; &#xC0DD;&#xC131;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. &#xADF8;&#xB7F0; &#xB2E4;&#xC74C; &#xCC44;&#xB110;&#xC5D0; &#xC218;&#xB3D9;&#xC73C;&#xB85C; <code>put</code> &#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. &#xC774;&#xB294; &#xC0AC;&#xAC00; &#xAC04;&#xC5D0; &#xD1B5;&#xC2E0;&#xC744; &#xD558;&#xAE30; &#xC704;&#xD574; &#xCC44;&#xB110;&#xC744; &#xC0AC;&#xC6A9;&#xD560; &#xB54C; &#xC720;&#xC6A9;&#xD569;&#xB2C8;&#xB2E4;.</p><p>&#xC124;&#xBA85;&#xC744; &#xC704;&#xD574;&#xC11C; &#xC694;&#xCCAD; &#xCC98;&#xB9AC; &#xC608;&#xB97C; &#xB2E4;&#xC2DC; &#xBD05;&#xC2DC;&#xB2E4;.</p><pre><code class="lang-javascript"><span class="token keyword">import</span> <span class="token punctuation">{</span> take<span class="token punctuation">,</span> fork<span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token punctuation">}</span> from <span class="token string">&apos;redux-saga/effects&apos;</span>
+
+<span class="token keyword">function</span><span class="token operator">*</span> <span class="token function">watchRequests</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token keyword">true</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> <span class="token punctuation">{</span>payload<span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token keyword">yield</span> <span class="token function">take</span><span class="token punctuation">(</span><span class="token string">&apos;REQUEST&apos;</span><span class="token punctuation">)</span>
+    <span class="token keyword">yield</span> <span class="token function">fork</span><span class="token punctuation">(</span>handleRequest<span class="token punctuation">,</span> payload<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span><span class="token operator">*</span> <span class="token function">handleRequest</span><span class="token punctuation">(</span>payload<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token punctuation">}</span></code></pre>
+<p>&#xC6B0;&#xB9AC;&#xB294; &apos;watch &#xC640; fork&apos; &#xD328;&#xD134;&#xC774; &#xB3D9;&#xC2DC;&#xC801;&#xC73C;&#xB85C; &#xC2E4;&#xD589;&#xB418;&#xB294; &#xD0DC;&#xC2A4;&#xD06C;&#xC758; &#xAC2F;&#xC218;&#xC5D0; &#xC81C;&#xD55C; &#xC5C6;&#xC774; &#xB3D9;&#xC2DC;&#xC5D0; &#xB2E4;&#xC218;&#xC758; &#xC694;&#xCCAD;&#xC744; &#xCC98;&#xB9AC;&#xD560; &#xC218; &#xC788;&#xB2E4;&#xB294; &#xAC83;&#xC744; &#xBCF4;&#xC558;&#xC8E0;. &#xADF8;&#xB9AC;&#xACE0; &#xC6B0;&#xB9AC;&#xB294; <code>actionChannel</code> &#xC774;&#xD399;&#xD2B8;&#xB97C; &#xC774;&#xC6A9;&#xD574;&#xC11C; &#xD55C; &#xBC88;&#xC5D0; &#xD558;&#xB098;&#xC758; &#xD0DC;&#xC2A4;&#xD06C;&#xB9CC; &#xC2E4;&#xD589;&#xB418;&#xB3C4;&#xB85D; &#xC81C;&#xD55C;&#xD574;&#xBCF4;&#xC558;&#xC2B5;&#xB2C8;&#xB2E4;.</p><p>&#xC6B0;&#xB9AC;&#xB294; &#xCD5C;&#xB300; &#xC138; &#xAC1C;&#xC758; &#xD0DC;&#xC2A4;&#xD06C;&#xB97C; &#xD55C;&#xBC88;&#xC5D0; &#xC2E4;&#xD589;&#xD574;&#xBCF4;&#xB824;&#xACE0; &#xD569;&#xB2C8;&#xB2E4;. &#xC6B0;&#xB9AC;&#xAC00; &#xC138; &#xAC1C;&#xBCF4;&#xB2E4; &#xC801;&#xC740; &#xD0DC;&#xC2A4;&#xD06C;&#xB97C; &#xC2E4;&#xD589;&#xD558;&#xACE0; &#xC788;&#xB2E4;&#xBA74;, &#xC694;&#xCCAD;&#xC744; &#xC989;&#xC2DC; &#xC2E4;&#xD589;&#xD558;&#xACA0;&#xC8E0;. &#xADF8;&#xAC8C; &#xC544;&#xB2C8;&#xB77C;&#xBA74; &#xC138; &#xAC1C;&#xC758; <em>&#xC2AC;&#xB86F;</em> &#xC911;&#xC5D0; &#xD558;&#xB098;&#xC758; &#xD0DC;&#xC2A4;&#xD06C;&#xAC00; &#xB05D;&#xB098;&#xAE30; &#xC804;&#xAE4C;&#xC9C0; &#xB300;&#xAE30;&#xC5F4;&#xC5D0; &#xC694;&#xCCAD;&#xC744; &#xC9D1;&#xC5B4;&#xB123;&#xC744; &#xAC83;&#xC785;&#xB2C8;&#xB2E4;.</p><p>&#xC544;&#xB798;&#xB294; &#xCC44;&#xB110;&#xC744; &#xC774;&#xC6A9;&#xD55C; &#xD574;&#xBC95;&#xC758; &#xC608;&#xC81C;&#xC785;&#xB2C8;&#xB2E4;:</p><pre><code class="lang-javascript"><span class="token keyword">import</span> <span class="token punctuation">{</span> channel <span class="token punctuation">}</span> from <span class="token string">&apos;redux-saga&apos;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> take<span class="token punctuation">,</span> fork<span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token punctuation">}</span> from <span class="token string">&apos;redux-saga/effects&apos;</span>
+
+<span class="token keyword">function</span><span class="token operator">*</span> <span class="token function">watchRequests</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">// create a channel to queue incoming requests</span>
+  <span class="token keyword">const</span> chan <span class="token operator">=</span> <span class="token keyword">yield</span> <span class="token function">call</span><span class="token punctuation">(</span>channel<span class="token punctuation">)</span>
+
+  <span class="token comment" spellcheck="true">// create 3 worker &apos;threads&apos;</span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">3</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">yield</span> <span class="token function">fork</span><span class="token punctuation">(</span>handleRequest<span class="token punctuation">,</span> chan<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token keyword">true</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> <span class="token punctuation">{</span>payload<span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token keyword">yield</span> <span class="token function">take</span><span class="token punctuation">(</span><span class="token string">&apos;REQUEST&apos;</span><span class="token punctuation">)</span>
+    <span class="token keyword">yield</span> <span class="token function">put</span><span class="token punctuation">(</span>chan<span class="token punctuation">,</span> payload<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span><span class="token operator">*</span> <span class="token function">handleRequest</span><span class="token punctuation">(</span>chan<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token keyword">true</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> payload <span class="token operator">=</span> <span class="token keyword">yield</span> <span class="token function">take</span><span class="token punctuation">(</span>chan<span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true">// process the request</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<p>&#xC704;&#xC758; &#xC608;&#xC81C;&#xC5D0;&#xC11C; &#xC6B0;&#xB9AC;&#xB294; <code>channel</code> &#xD329;&#xD1A0;&#xB9AC;&#xB85C; &#xCC44;&#xB110;&#xC744; &#xB9CC;&#xB4E4;&#xC5C8;&#xC2B5;&#xB2C8;&#xB2E4;. &#xC6B0;&#xB9AC;&#xB294; &#xAE30;&#xBCF8;&#xC801;&#xC73C;&#xB85C; &#xCC44;&#xB110;&#xC5D0; &#xC788;&#xB294; &#xBAA8;&#xB4E0; &#xBA54;&#xC2DC;&#xC9C0;&#xB97C; &#xBC84;&#xD37C;&#xB9C1;&#xD569;&#xB2C8;&#xB2E4; (&#xBCF4;&#xB958; &#xC911;&#xC778; take&#xAC00; &#xC5C6;&#xB294; &#xD55C; &#xBA54;&#xC2DC;&#xC9C0;&#xC640; &#xD568;&#xAED8; &#xC989;&#xC2DC; &#xC7AC;&#xAC1C;&#xB429;&#xB2C8;&#xB2E4;).</p><p>&#xADF8;&#xB7F0; &#xB2E4;&#xC74C; <code>watchRequests</code> &#xC0AC;&#xAC00;&#xB294; &#xC138; &#xAC1C;&#xC758; &#xC6CC;&#xCEE4; &#xC0AC;&#xAC00;&#xB97C; <code>fork</code>&#xD569;&#xB2C8;&#xB2E4;. &#xC0DD;&#xC120;&#xB41C; &#xCC44;&#xB110;&#xC774; fork&#xB41C; &#xBAA8;&#xB4E0; &#xC0AC;&#xAC00;&#xC5D0; &#xC778;&#xC218;&#xB85C; &#xB4E4;&#xC5B4;&#xAC04; &#xAC83;&#xC744; &#xBCF4;&#xC2DC;&#xAE30; &#xBC14;&#xB78D;&#xB2C8;&#xB2E4;. <code>watchRequests</code>&#xB294; &#xC138; &#xAC1C;&#xC758; &#xC6CC;&#xCEE4; &#xC0AC;&#xAC00;&#xB4E4;&#xC5D0;&#xAC8C; &#xC77C;&#xC744; dispatch&#xD558;&#xAE30; &#xC704;&#xD574;&#xC11C; &#xCC44;&#xB110;&#xC744; &#xC0AC;&#xC6A9;&#xD560; &#xAC83;&#xC785;&#xB2C8;&#xB2E4;. &#xAC01; <code>REQUEST</code> &#xC561;&#xC158; &#xB9C8;&#xB2E4; &#xC0AC;&#xAC00;&#xB294; &#xCC44;&#xB110;&#xC5D0; <code>payload</code>&#xB97C; <code>put</code>&#xD569;&#xB2C8;&#xB2E4;. &#xADF8;&#xB7EC;&#xBA74; &#xC774;&#xB294; <em>&#xD560; &#xC77C;&#xC774; &#xC5C6;&#xB294;</em> &#xC6CC;&#xCEE4; &#xC0AC;&#xAC00;&#xC5D0;&#xAC8C; &#xC804;&#xB2EC;&#xB420; &#xAC83;&#xC785;&#xB2C8;&#xB2E4;. &#xADF8;&#xAC8C; &#xC544;&#xB2C8;&#xB77C;&#xBA74; &#xC774;&#xB294; &#xC6CC;&#xCEE4; &#xC0AC;&#xAC00;&#xAC00; &#xAC00;&#xC838;&#xAC08; &#xC900;&#xBE44;&#xAC00; &#xB420; &#xB54C;&#xAE4C;&#xC9C0; &#xCC44;&#xB110;&#xC5D0; &#xC758;&#xD574; &#xB300;&#xAE30;&#xC5F4;&#xC5D0; &#xB123;&#xC5B4;&#xC9C8; &#xAC83;&#xC785;&#xB2C8;&#xB2E4;.</p><p>&#xBAA8;&#xB4E0; &#xC138; &#xAC1C;&#xC758; &#xC6CC;&#xCEE4;&#xAC00; &#xC804;&#xD615;&#xC801;&#xC778; while &#xBC18;&#xBCF5;&#xC73C;&#xB85C; &#xC2E4;&#xD589;&#xB429;&#xB2C8;&#xB2E4;. &#xAC01; &#xBC18;&#xBCF5; &#xB9C8;&#xB2E4;, &#xC6CC;&#xCEE4;&#xB294; &#xB2E4;&#xC74C; &#xC694;&#xCCAD;(<code>REQUEST</code> &#xC561;&#xC158;)&#xC744; &#xAC00;&#xC838;&#xAC00;&#xAC70;&#xB098;, &#xC694;&#xCCAD;&#xC73C;&#xB85C; &#xB9CC;&#xB4E4;&#xC5B4;&#xC9C4; &#xBA54;&#xC2DC;&#xC9C0;&#xAC00; &#xC788;&#xC744; &#xB54C;&#xAE4C;&#xC9C0; &#xBD09;&#xC1C4;&#xB420; &#xAC83;&#xC785;&#xB2C8;&#xB2E4;. &#xC774; &#xBA54;&#xCEE4;&#xB2C8;&#xC998;&#xC774; &#xC138; &#xAC1C;&#xC758; &#xC6CC;&#xCEE4; &#xAC04;&#xC5D0; &#xC790;&#xB3D9; &#xB85C;&#xB4DC;&#xBC38;&#xB7F0;&#xC2F1;&#xC744; &#xD574;&#xC8FC;&#xAC8C; &#xB429;&#xB2C8;&#xB2E4;. &#xBE60;&#xB974;&#xAC8C; &#xC77C;&#xC744; &#xCC98;&#xB9AC;&#xD55C; &#xC6CC;&#xCEE4;&#xB294; &#xB290;&#xB9AC;&#xAC8C; &#xCC98;&#xB9AC;&#xC911;&#xC778; &#xC6CC;&#xCEE4; &#xB54C;&#xBB38;&#xC5D0; &#xAC19;&#xC774; &#xB290;&#xB824;&#xC9C0;&#xB294; &#xC77C;&#xC774; &#xC5C6;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="UsingRunSaga.html" class="navigation navigation-prev " aria-label="Previous page: 사가와 외부 입/출력 연결">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../recipes/" class="navigation navigation-next " aria-label="Next page: 레시피">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"채널","level":"1.4.12","depth":2,"next":{"title":"레시피","level":"1.5","depth":1,"path":"recipes/README.md","ref":"recipes/README.md","articles":[]},"previous":{"title":"사가와 외부 입/출력 연결","level":"1.4.11","depth":2,"path":"advanced/UsingRunSaga.md","ref":"advanced/UsingRunSaga.md","articles":[]},"dir":"ltr"},"config":{"plugins":["prism@1.0.0","-highlight","github","ga","edit-link"],"root":"./docs_kr","styles":{"website":"build/gitbook.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"github":{"url":"https://github.com/mskims/redux-saga-in-korean/"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"ga":{"configuration":"auto","token":"UA-100043099-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"이 페이지 수정하기","base":"https://github.com/mskims/redux-saga-in-korean/tree/master/docs_kr"},"theme-default":{"styles":{"website":"build/gitbook.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"ko","gitbook":"3.2.0"},"file":{"path":"advanced/Channels.md","mtime":"2021-05-06T05:35:29.768Z","type":"markdown"},"gitbook":{"version":"3.2.0","time":"2021-05-06T05:36:43.381Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-ga/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

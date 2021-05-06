@@ -1,0 +1,689 @@
+
+<!DOCTYPE HTML>
+<html lang="ko" >
+    <head>
+        <title>redux-saga의 포크(fork) 모델 · GitBook</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.0">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="Concurrency.html" />
+    
+    
+    <link rel="prev" href="TaskCancellation.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="검색어 입력" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        <li class="header">목차</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    읽어주세요
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../introduction/">
+            
+                <a href="../introduction/">
+            
+                    
+                    소개
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../introduction/BeginnerTutorial.html">
+            
+                <a href="../introduction/BeginnerTutorial.html">
+            
+                    
+                    튜토리얼
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../introduction/SagaBackground.html">
+            
+                <a href="../introduction/SagaBackground.html">
+            
+                    
+                    배경지식
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../basics/">
+            
+                <a href="../basics/">
+            
+                    
+                    기본 개념
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../basics/UsingSagaHelpers.html">
+            
+                <a href="../basics/UsingSagaHelpers.html">
+            
+                    
+                    헬퍼 함수
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../basics/DeclarativeEffects.html">
+            
+                <a href="../basics/DeclarativeEffects.html">
+            
+                    
+                    서술적 이펙트
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../basics/DispatchingActions.html">
+            
+                <a href="../basics/DispatchingActions.html">
+            
+                    
+                    액션 dispatch 하기
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../basics/ErrorHandling.html">
+            
+                <a href="../basics/ErrorHandling.html">
+            
+                    
+                    에러 핸들링
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../basics/Effect.html">
+            
+                <a href="../basics/Effect.html">
+            
+                    
+                    이펙트 추상화
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    고급 개념
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="FutureActions.html">
+            
+                <a href="FutureActions.html">
+            
+                    
+                    액션 풀링
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="NonBlockingCalls.html">
+            
+                <a href="NonBlockingCalls.html">
+            
+                    
+                    비봉쇄(non-blocking) 호출
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="RunningTasksInParallel.html">
+            
+                <a href="RunningTasksInParallel.html">
+            
+                    
+                    병렬 태스크 실행
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="RacingEffects.html">
+            
+                <a href="RacingEffects.html">
+            
+                    
+                    여러 이펙트의 경주
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="SequencingSagas.html">
+            
+                <a href="SequencingSagas.html">
+            
+                    
+                    yield*를 이용한 사가 배열
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="ComposingSagas.html">
+            
+                <a href="ComposingSagas.html">
+            
+                    
+                    사가 조합
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="TaskCancellation.html">
+            
+                <a href="TaskCancellation.html">
+            
+                    
+                    태스크 취소
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.4.8" data-path="ForkModel.html">
+            
+                <a href="ForkModel.html">
+            
+                    
+                    redux-saga의 포크(fork) 모델
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.9" data-path="Concurrency.html">
+            
+                <a href="Concurrency.html">
+            
+                    
+                    동시성 패턴
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.10" data-path="Testing.html">
+            
+                <a href="Testing.html">
+            
+                    
+                    사가 테스트
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.11" data-path="UsingRunSaga.html">
+            
+                <a href="UsingRunSaga.html">
+            
+                    
+                    사가와 외부 입/출력 연결
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.12" data-path="Channels.html">
+            
+                <a href="Channels.html">
+            
+                    
+                    채널
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../recipes/">
+            
+                <a href="../recipes/">
+            
+                    
+                    레시피
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../ExternalResources.html">
+            
+                <a href="../ExternalResources.html">
+            
+                    
+                    외부 자료(미번역)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../Troubleshooting.html">
+            
+                <a href="../Troubleshooting.html">
+            
+                    
+                    문제해결
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../Glossary.html">
+            
+                <a href="../Glossary.html">
+            
+                    
+                    용어 사전
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../api/">
+            
+                <a href="../api/">
+            
+                    
+                    API 레퍼런스(미번역)
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            GitBook에 게시
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >redux-saga의 포크(fork) 모델</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="redux-saga&#xC758;-&#xD3EC;&#xD06C;fork-&#xBAA8;&#xB378;">redux-saga&#xC758; &#xD3EC;&#xD06C;(fork) &#xBAA8;&#xB378;</h1><p><code>redux-saga</code>&#xC5D0;&#xC11C;&#xB294; &#xB450; &#xAC1C;&#xC758; &#xC774;&#xD399;&#xD2B8;&#xB97C; &#xC0AC;&#xC6A9;&#xD558;&#xC5EC; &#xD0DC;&#xC2A4;&#xD06C;&#xB97C; &#xBC31;&#xADF8;&#xB77C;&#xC6B4;&#xB4DC;&#xC5D0;&#xC11C; &#xB3D9;&#xC801;&#xC73C;&#xB85C; &#xC2E4;&#xD589;&#xC2DC;&#xD0AC; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p><ul><li><code>fork</code>&#xB294; <em>&#xACB0;&#xD569;&#xB41C;(attached)</em> &#xD3EC;&#xD06C;&#xB97C; &#xB9CC;&#xB4E4; &#xB54C;&#xC5D0; &#xC0AC;&#xC6A9;&#xB429;&#xB2C8;&#xB2E4;.
+</li>
+<li><code>spawn</code>&#xC740; <em>&#xBD84;&#xB9AC;&#xB41C;(detached)</em> &#xD3EC;&#xD06C;&#xB97C; &#xB9CC;&#xB4E4; &#xB54C;&#xC5D0; &#xC0AC;&#xC6A9;&#xB429;&#xB2C8;&#xB2E4;.
+</li></ul>
+<h2 id="&#xACB0;&#xD569;&#xB41C;-&#xD3EC;&#xD06C;-fork-&#xC0AC;&#xC6A9;">&#xACB0;&#xD569;&#xB41C; &#xD3EC;&#xD06C; (<code>fork</code> &#xC0AC;&#xC6A9;)</h2><p>&#xACB0;&#xD569;&#xB41C; &#xD3EC;&#xD06C;&#xB4E4;&#xC740; &#xB2E4;&#xC74C;&#xC758; &#xADDC;&#xCE59;&#xC5D0; &#xB530;&#xB77C; &#xADF8;&#xB4E4;&#xC758; &#xBD80;&#xBAA8;&#xC640; &#xACB0;&#xD569;&#xB418;&#xC5B4; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p><h3 id="&#xC644;&#xB8CC;">&#xC644;&#xB8CC;</h3><ul><li>&#xC0AC;&#xAC00;&#xB294; &#xC624;&#xC9C1; &#xB2E4;&#xC74C; &#xC0AC;&#xAC74;&#xC5D0;&#xB9CC; &#xC885;&#xB8CC;&#xB429;&#xB2C8;&#xB2E4;.
+<ul><li>&#xC790;&#xC2E0;&#xC758; &#xBA85;&#xB839;&#xC744; &#xBAA8;&#xB450; &#xC774;&#xD589;&#xD55C; &#xB4A4;
+</li>
+<li>&#xBAA8;&#xB4E0; &#xACB0;&#xD569;&#xB41C; &#xD3EC;&#xD06C;&#xB4E4;&#xC774; &#xC885;&#xB8CC;&#xB41C; &#xB4A4;
+</li></ul>
+</li></ul>
+<p>&#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC740; &#xC608;&#xB97C; &#xBD05;&#xC2DC;&#xB2E4;.</p><pre><code class="lang-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> delay <span class="token punctuation">}</span> from <span class="token string">&apos;redux-saga&apos;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> fork<span class="token punctuation">,</span> call<span class="token punctuation">,</span> put <span class="token punctuation">}</span> from <span class="token string">&apos;redux-saga/effects&apos;</span>
+<span class="token keyword">import</span> api from <span class="token string">&apos;./somewhere/api&apos;</span> <span class="token comment" spellcheck="true">// app specific</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> receiveData <span class="token punctuation">}</span> from <span class="token string">&apos;./somewhere/actions&apos;</span> <span class="token comment" spellcheck="true">// app specific</span>
+
+<span class="token keyword">function</span><span class="token operator">*</span> <span class="token function">fetchAll</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> task1 <span class="token operator">=</span> <span class="token keyword">yield</span> <span class="token function">fork</span><span class="token punctuation">(</span>fetchResource<span class="token punctuation">,</span> <span class="token string">&apos;users&apos;</span><span class="token punctuation">)</span>
+  <span class="token keyword">const</span> task2 <span class="token operator">=</span> <span class="token keyword">yield</span> <span class="token function">fork</span><span class="token punctuation">(</span>fetchResource<span class="token punctuation">,</span> <span class="token string">&apos;comments&apos;</span><span class="token punctuation">)</span>
+  <span class="token keyword">yield</span> <span class="token function">call</span><span class="token punctuation">(</span>delay<span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span><span class="token operator">*</span> <span class="token function">fetchResource</span><span class="token punctuation">(</span>resource<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> <span class="token punctuation">{</span>data<span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token keyword">yield</span> <span class="token function">call</span><span class="token punctuation">(</span>api<span class="token punctuation">.</span>fetch<span class="token punctuation">,</span> resource<span class="token punctuation">)</span>
+  <span class="token keyword">yield</span> <span class="token function">put</span><span class="token punctuation">(</span><span class="token function">receiveData</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span><span class="token operator">*</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">yield</span> <span class="token function">call</span><span class="token punctuation">(</span>fetchAll<span class="token punctuation">)</span>
+<span class="token punctuation">}</span></code></pre>
+<p><code>call(fetchAll)</code>&#xC740; &#xB2E4;&#xC74C;&#xC5D0; &#xC885;&#xB8CC;&#xB420; &#xAC83;&#xC785;&#xB2C8;&#xB2E4;:</p><ul><li><p><code>fetchAll</code> &#xC758; &#xB0B4;&#xC6A9;(body)&#xC774; &#xC885;&#xB8CC;&#xB41C; &#xB4A4; &#xC785;&#xB2C8;&#xB2E4;. &#xC774;&#xB294; &#xC138; &#xAC1C;&#xC758; &#xC774;&#xD399;&#xD2B8;&#xB4E4;&#xC774; &#xC2E4;&#xD589;&#xB418;&#xC5C8;&#xB2E4;&#xB294; &#xAC83;&#xC744; &#xC758;&#xBBF8;&#xD569;&#xB2C8;&#xB2E4;. <code>fork</code> &#xC774;&#xD399;&#xD2B8;&#xB294; &#xBE44;&#xBD09;&#xC1C4;&#xC774;&#xAE30; &#xB54C;&#xBB38;&#xC5D0;, &#xD0DC;&#xC2A4;&#xD06C;&#xB294; <code>call(delay, 1000)</code>&#xC5D0; &#xBD09;&#xC1C4;&#xB420; &#xAC83;&#xC785;&#xB2C8;&#xB2E4;.</p></li>
+<li><p>&#xB450; &#xAC1C;&#xC758; &#xD3EC;&#xD06C;&#xB41C; &#xD0DC;&#xC2A4;&#xD06C;&#xB4E4;&#xC774; &#xC885;&#xB8CC;&#xB41C; &#xB4A4; &#xC785;&#xB2C8;&#xB2E4;. &#xC989;, &#xC694;&#xAD6C;&#xB41C; &#xB9AC;&#xC18C;&#xC2A4;&#xB4E4;&#xC744; &#xAC00;&#xC838;&#xC624;&#xACE0;<code>receiveData</code> &#xC561;&#xC158;&#xC744; &#xC804;&#xB2EC;&#xD55C; &#xB4A4; &#xC785;&#xB2C8;&#xB2E4;.</p></li></ul>
+<p>&#xB530;&#xB77C;&#xC11C; &#xC804;&#xCCB4; &#xD0DC;&#xC2A4;&#xD06C;&#xB294; 1000 &#xBC00;&#xB9AC;&#xCD08;&#xAC00; &#xC9C0;&#xB098;&#xACE0;[1], <code>task1</code>&#xACFC; <code>task2</code>&#xAC00; &#xADF8;&#xB4E4;&#xC758; &#xC77C;&#xC744; &#xB9C8;&#xCE5C; &#xB4A4;[2]&#xC5D0;&#xC57C; &#xC885;&#xB8CC;&#xB429;&#xB2C8;&#xB2E4; ([1]&#xACFC; [2]&#xAC00; &#xBAA8;&#xB450; &#xB9CC;&#xC871;&#xD574;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;).</p><p>&#xC608;&#xB97C; &#xB4E4;&#xC5B4; 1000 &#xBC00;&#xB9AC;&#xCD08;&#xAC00; &#xACBD;&#xACFC;&#xD588;&#xC9C0;&#xB9CC; &#xB450; &#xD0DC;&#xC2A4;&#xD06C;&#xAC00; &#xC544;&#xC9C1; &#xB05D;&#xB098;&#xC9C0; &#xC54A;&#xC558;&#xC744; &#xB54C;&#xC5D0;&#xB294;, <code>fetchAll</code>&#xB294; &#xC804;&#xCCB4; &#xD0DC;&#xC2A4;&#xD06C;&#xB97C; &#xB05D;&#xB0B4;&#xAE30; &#xC804;&#xC5D0; &#xD3EC;&#xD06C;&#xB41C; &#xD0DC;&#xC2A4;&#xD06C;&#xAC00; &#xB05D;&#xB0A0; &#xB54C;&#xAE4C;&#xC9C0; &#xAE30;&#xB2E4;&#xB9B4; &#xAC83;&#xC785;&#xB2C8;&#xB2E4;.</p><p><code>fetchAll</code> &#xC0AC;&#xAC00;&#xAC00; &#xBCD1;&#xB82C; &#xC774;&#xD399;&#xD2B8;&#xB85C; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; &#xC791;&#xC131;&#xB420; &#xC218; &#xC788;&#xB2E4;&#xB294; &#xAC83;&#xC744; &#xAE68;&#xB2EC;&#xC740; &#xBD84;&#xB3C4; &#xACC4;&#xC2E4; &#xAC83;&#xC785;&#xB2C8;&#xB2E4;:</p><pre><code class="lang-js"><span class="token keyword">function</span><span class="token operator">*</span> <span class="token function">fetchAll</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">yield</span> <span class="token punctuation">[</span>
+    <span class="token function">call</span><span class="token punctuation">(</span>fetchResource<span class="token punctuation">,</span> <span class="token string">&apos;users&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>     <span class="token comment" spellcheck="true">// task1</span>
+    <span class="token function">call</span><span class="token punctuation">(</span>fetchResource<span class="token punctuation">,</span> <span class="token string">&apos;comments&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>  <span class="token comment" spellcheck="true">// task2,</span>
+    <span class="token function">call</span><span class="token punctuation">(</span>delay<span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span></code></pre>
+<p>&#xC0AC;&#xC2E4;, &#xACB0;&#xD569;&#xB41C; &#xD3EC;&#xD06C;&#xB4E4;&#xC740; &#xBCD1;&#xB82C; &#xC774;&#xD399;&#xD2B8;&#xC640; &#xAC19;&#xC740; &#xC758;&#xBBF8;&#xB97C; &#xACF5;&#xC720;&#xD569;&#xB2C8;&#xB2E4;:</p><ul><li>&#xBCD1;&#xB82C;&#xC73C;&#xB85C; &#xD0DC;&#xC2A4;&#xD06C;&#xB97C; &#xC2E4;&#xD589;&#xD569;&#xB2C8;&#xB2E4;.
+</li>
+<li>&#xBD80;&#xBAA8;&#xB294; &#xADF8; &#xC548;&#xC5D0;&#xC11C; &#xC2E4;&#xD589;&#xB41C; &#xBAA8;&#xB4E0; &#xD0DC;&#xC2A4;&#xD06C;&#xAC00; &#xC885;&#xB8CC;&#xB41C; &#xB4A4; &#xC885;&#xB8CC;&#xB420; &#xAC83;&#xC785;&#xB2C8;&#xB2E4;. 
+</li></ul>
+<p>&#xADF8;&#xB9AC;&#xACE0; &#xC774;&#xAC83;&#xC740; &#xB2E4;&#xB978; &#xBAA8;&#xB4E0; &#xC758;&#xBBF8;&#xC5D0;&#xB3C4; &#xC801;&#xC6A9;&#xB429;&#xB2C8;&#xB2E4; (&#xC5D0;&#xB7EC;&#xC640; &#xCDE8;&#xC18C; &#xC804;&#xB2EC;). &#xAC04;&#xB2E8;&#xD558;&#xAC8C; <em>&#xB3D9;&#xC801; &#xBCD1;&#xB82C;</em> &#xC774;&#xD399;&#xD2B8;&#xB77C;&#xACE0; &#xC0DD;&#xAC01;&#xD558;&#xC2DC;&#xBA74; &#xACB0;&#xD569;&#xB41C; &#xD3EC;&#xD06C;&#xC758; &#xB3D9;&#xC791;&#xC744; &#xC774;&#xD574;&#xD558;&#xAE30; &#xC26C;&#xC6B8; &#xAC83;&#xC785;&#xB2C8;&#xB2E4;.</p><h2 id="&#xC5D0;&#xB7EC;-&#xC804;&#xB2EC;">&#xC5D0;&#xB7EC; &#xC804;&#xB2EC;</h2><p>&#xAC19;&#xC740; &#xBC29;&#xBC95;&#xC73C;&#xB85C; &#xC5D0;&#xB7EC;&#xAC00; &#xBCD1;&#xB82C; &#xC774;&#xD399;&#xD2B8;&#xC5D0;&#xC11C; &#xC5B4;&#xB5BB;&#xAC8C; &#xB2E4;&#xB904;&#xC9C0;&#xB294;&#xC9C0; &#xC790;&#xC138;&#xD788; &#xAC80;&#xC0AC;&#xD574;&#xBD05;&#xC2DC;&#xB2E4;.</p><p>&#xC608;&#xB97C; &#xB4E4;&#xC5B4;, &#xC774;&#xB7EC;&#xD55C; &#xC774;&#xD399;&#xD2B8;&#xAC00; &#xC788;&#xB2E4;&#xACE0; &#xAC00;&#xC815;&#xD574;&#xBD05;&#xC2DC;&#xB2E4;:</p><pre><code class="lang-js"><span class="token keyword">yield</span> <span class="token punctuation">[</span>
+  <span class="token function">call</span><span class="token punctuation">(</span>fetchResource<span class="token punctuation">,</span> <span class="token string">&apos;users&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token function">call</span><span class="token punctuation">(</span>fetchResource<span class="token punctuation">,</span> <span class="token string">&apos;comments&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token function">call</span><span class="token punctuation">(</span>delay<span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span>
+<span class="token punctuation">]</span></code></pre>
+<p>&#xC704;&#xC758; &#xC774;&#xD399;&#xD2B8;&#xB294; &#xC138; &#xAC1C;&#xC758; &#xC790;&#xC2DD; &#xC774;&#xD399;&#xD2B8;&#xB4E4; &#xC911; &#xD558;&#xB098;&#xAC00; &#xC2E4;&#xD328;&#xD558;&#xC790; &#xB9C8;&#xC790; &#xBC14;&#xB85C; &#xC2E4;&#xD328;&#xD560; &#xAC83;&#xC785;&#xB2C8;&#xB2E4;. &#xB354;&#xC6B1;&#xC774;, &#xC608;&#xC0C1;&#xCE58; &#xBABB;&#xD55C; &#xC5D0;&#xB7EC;&#xAC00; &#xBC1C;&#xC0DD;&#xD558;&#xBA74; &#xBCD1;&#xB82C; &#xC774;&#xD399;&#xD2B8;&#xB294; &#xBAA8;&#xB4E0; &#xB300;&#xAE30; &#xC911;&#xC778; &#xC774;&#xD399;&#xD2B8;&#xB4E4;&#xC744; &#xCDE8;&#xC18C;&#xD560; &#xAC83;&#xC785;&#xB2C8;&#xB2E4;. &#xB530;&#xB77C;&#xC11C;, &#xC608;&#xB97C; &#xB4E4;&#xC5B4; &#xB9CC;&#xC57D; <code>call(fetchResource, &apos;users&apos;)</code> &#xC5D0;&#xC11C; &#xC608;&#xC0C1;&#xCE58; &#xBABB;&#xD55C; &#xC5D0;&#xB7EC;&#xAC00; &#xBC1C;&#xC0DD;&#xD588;&#xB2E4;&#xBA74;, &#xBCD1;&#xB82C; &#xC774;&#xD399;&#xD2B8;&#xB294; &#xB450; &#xAC1C;&#xC758; &#xB2E4;&#xB978; &#xD0DC;&#xC2A4;&#xD06C;&#xB4E4;&#xC744; &#xCDE8;&#xC18C;&#xD560; &#xAC83;&#xC785;&#xB2C8;&#xB2E4; (&#xB9CC;&#xC57D; &#xB450; &#xAC1C;&#xC758; &#xD0DC;&#xC2A4;&#xD06C;&#xAC00; &#xB300;&#xAE30; &#xC911;&#xC774;&#xB77C;&#xBA74;). &#xADF8;&#xB9AC;&#xACE0; &#xC790;&#xC2E0; &#xB610;&#xD55C; &#xC2E4;&#xD328;&#xD55C; &#xD0DC;&#xC2A4;&#xD06C;&#xC640; &#xAC19;&#xC740; &#xC5D0;&#xB7EC;&#xB85C; &#xCDE8;&#xC18C;&#xB420; &#xAC83;&#xC785;&#xB2C8;&#xB2E4;.</p><p>&#xACB0;&#xD569;&#xB41C; &#xD3EC;&#xD06C;&#xC640; &#xBE44;&#xC2B7;&#xD558;&#xAC8C;, &#xC0AC;&#xAC00;&#xB4E4;&#xC740; &#xB2E4;&#xC74C;&#xC5D0; &#xC989;&#xC2DC; &#xCDE8;&#xC18C;&#xB429;&#xB2C8;&#xB2E4;:</p><ul><li><p>&#xC790;&#xC2E0;&#xC758; &#xB0B4;&#xC6A9;&#xC774; &#xC5D0;&#xB7EC;&#xB97C; throw&#xD560; &#xB54C;</p></li>
+<li><p>&#xACB0;&#xD569;&#xB41C; &#xD3EC;&#xD06C;&#xC5D0;&#xC11C; &#xC608;&#xC0C1;&#xCE58; &#xBABB;&#xD55C; &#xC5D0;&#xB7EC;&#xAC00; &#xBC1C;&#xC0DD;&#xD588;&#xC744; &#xB54C;</p></li></ul>
+<p>&#xB530;&#xB77C;&#xC11C; &#xC774;&#xC804;&#xC758; &#xC608;&#xC81C;&#xC5D0;&#xC11C;</p><pre><code class="lang-js"><span class="token comment" spellcheck="true">//... imports</span>
+
+<span class="token keyword">function</span><span class="token operator">*</span> <span class="token function">fetchAll</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> task1 <span class="token operator">=</span> <span class="token keyword">yield</span> <span class="token function">fork</span><span class="token punctuation">(</span>fetchResource<span class="token punctuation">,</span> <span class="token string">&apos;users&apos;</span><span class="token punctuation">)</span>
+  <span class="token keyword">const</span> task2 <span class="token operator">=</span> <span class="token keyword">yield</span> <span class="token function">fork</span><span class="token punctuation">(</span>fetchResource<span class="token punctuation">,</span> <span class="token string">&apos;comments&apos;</span><span class="token punctuation">)</span>
+  <span class="token keyword">yield</span> <span class="token function">call</span><span class="token punctuation">(</span>delay<span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span><span class="token operator">*</span> <span class="token function">fetchResource</span><span class="token punctuation">(</span>resource<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> <span class="token punctuation">{</span>data<span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token keyword">yield</span> <span class="token function">call</span><span class="token punctuation">(</span>api<span class="token punctuation">.</span>fetch<span class="token punctuation">,</span> resource<span class="token punctuation">)</span>
+  <span class="token keyword">yield</span> <span class="token function">put</span><span class="token punctuation">(</span><span class="token function">receiveData</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span><span class="token operator">*</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">try</span> <span class="token punctuation">{</span>
+    <span class="token keyword">yield</span> <span class="token function">call</span><span class="token punctuation">(</span>fetchAll<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">e</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// handle fetchAll errors</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<p>&#xC774; &#xB54C;, <code>fetchAll</code>&#xC740; <code>call(delay, 1000)</code> &#xC774;&#xD399;&#xD2B8;&#xC5D0;&#xC11C; &#xBD09;&#xC1C4;&#xB420; &#xAC83;&#xC774;&#xACE0;, &#xB9CC;&#xC57D; <code>task1</code>&#xAC00; &#xC2E4;&#xD328;&#xD55C;&#xB2E4;&#xBA74;, <code>fetchAll</code> &#xD0DC;&#xC2A4;&#xD06C;&#xB294; &#xB2E4;&#xC74C;&#xC744; &#xC218;&#xD589;&#xD558;&#xBA70; &#xC2E4;&#xD328;&#xD560; &#xAC83;&#xC785;&#xB2C8;&#xB2E4;:</p><ul><li><p>&#xB2E4;&#xB978; &#xB300;&#xAE30; &#xC911;&#xC778; &#xBAA8;&#xB4E0; &#xD0DC;&#xC2A4;&#xD06C;&#xB4E4;&#xC744; &#xCDE8;&#xC18C;&#xD569;&#xB2C8;&#xB2E4;. &#xC774;&#xB294; &#xB2E4;&#xC74C;&#xC744; &#xD3EC;&#xD568;&#xD569;&#xB2C8;&#xB2E4;:</p><ul><li><em>&#xBA54;&#xC778; &#xD0DC;&#xC2A4;&#xD06C;</em> (<code>fetchAll</code>&#xC758; &#xB0B4;&#xC6A9;): &#xC774;&#xB97C; &#xCDE8;&#xC18C;&#xD558;&#xB294; &#xAC83;&#xC740; &#xD604;&#xC7AC; &#xC774;&#xD399;&#xD2B8; <code>call(delay, 1000)</code>&#xB97C; &#xCDE8;&#xC18C;&#xD558;&#xB294; &#xAC83;&#xC744; &#xC758;&#xBBF8;&#xD569;&#xB2C8;&#xB2E4;.
+</li>
+<li>&#xB300;&#xAE30; &#xC911;&#xC778; &#xB2E4;&#xB978; &#xD0DC;&#xC2A4;&#xD06C;&#xB4E4;. &#xC989;, &#xC6B0;&#xB9AC; &#xC608;&#xC81C;&#xC5D0;&#xC11C;&#xB294; <code>task2</code>&#xB97C; &#xC758;&#xBBF8;&#xD569;&#xB2C8;&#xB2E4;.
+</li></ul>
+</li>
+<li><p><code>call(fetchAll)</code>&#xB294; &#xC2A4;&#xC2A4;&#xB85C; &#xC5D0;&#xB7EC;&#xB97C; &#xBC1C;&#xC0DD;&#xC2DC;&#xCF1C; <code>main</code> &#xC548;&#xC5D0; &#xC788;&#xB294; catch &#xAD6C;&#xAC04;&#xC5D0; &#xC7A1;&#xD790; &#xAC83;&#xC785;&#xB2C8;&#xB2E4;.</p></li></ul>
+<p>&#xC624;&#xC9C1; <code>main</code> &#xC548;&#xC5D0;&#xC11C;&#xB9CC; <code>call(fetchAll)</code>&#xC5D0;&#xC11C; &#xBC1C;&#xC0DD;&#xD558;&#xB294; &#xC5D0;&#xB7EC;&#xB97C; &#xC7A1;&#xC744; &#xC218; &#xC788;&#xB2E4;&#xB294; &#xAC83;&#xC5D0; &#xC8FC;&#xC758;&#xD558;&#xC138;&#xC694;. &#xC65C;&#xB0D0;&#xD558;&#xBA74; &#xC6B0;&#xB9AC;&#xB294; &#xBD09;&#xC1C4;&#xB41C; &#xD638;&#xCD9C;&#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xACE0; &#xC788;&#xAE30; &#xB54C;&#xBB38;&#xC785;&#xB2C8;&#xB2E4;. &#xC6B0;&#xB9AC;&#xB294; <code>fetchAll</code> &#xC548;&#xC5D0;&#xC11C; &#xBC14;&#xB85C; &#xC5D0;&#xB7EC;&#xB97C; &#xC7A1;&#xC744; &#xC218; &#xC5C6;&#xC2B5;&#xB2C8;&#xB2E4;. &#xC774;&#xB294; &#xACBD;&#xD5D8;&#xC5D0;&#xC11C; &#xB098;&#xC628; &#xBC95;&#xCE59;&#xC785;&#xB2C8;&#xB2E4;. <strong>&#xD3EC;&#xD06C;&#xB41C; &#xD0DC;&#xC2A4;&#xD06C;&#xC5D0;&#xC11C;&#xB294; &#xC5D0;&#xB7EC;&#xB97C; &#xC7A1;&#xC744; &#xC218; &#xC5C6;&#xC2B5;&#xB2C8;&#xB2E4;.</strong> &#xACB0;&#xD569;&#xB41C; &#xD3EC;&#xD06C;&#xAC00; &#xB0B4;&#xBD80;&#xC5D0;&#xC11C; &#xC2E4;&#xD328;&#xD55C;&#xB2E4;&#xBA74;, &#xD3EC;&#xD06C;&#xD55C; &#xBD80;&#xBAA8;&#xAC00; &#xC774;&#xB97C; &#xCDE8;&#xC18C;&#xC2DC;&#xD0AC; &#xAC83;&#xC785;&#xB2C8;&#xB2E4; (&#xBC1C;&#xC0DD;&#xD558;&#xB294; &#xC5D0;&#xB7EC;&#xB97C; &#xBCD1;&#xB82C; &#xC774;&#xD399;&#xD2B8; <em>&#xC548;&#xC5D0;&#xC11C;</em> &#xC7A1;&#xC744; &#xC218; &#xC5C6;&#xB294; &#xAC83;&#xCC98;&#xB7FC; &#xB9D0;&#xC785;&#xB2C8;&#xB2E4;).</p><h2 id="&#xCDE8;&#xC18C;">&#xCDE8;&#xC18C;</h2><p>&#xC0AC;&#xAC00;&#xB97C; &#xCDE8;&#xC18C;&#xD558;&#xB294; &#xAC83;&#xC740; &#xB2E4;&#xC74C;&#xC744; &#xC57C;&#xAE30;&#xD569;&#xB2C8;&#xB2E4;:</p><ul><li><p><em>&#xBA54;&#xC778; &#xD0DC;&#xC2A4;&#xD06C;</em>&#xC758; &#xCDE8;&#xC18C; (&#xC774;&#xB294; &#xBD09;&#xC1C4;&#xB41C; &#xD604;&#xC7AC; &#xC774;&#xD399;&#xD2B8;&#xB97C; &#xCDE8;&#xC18C;&#xD558;&#xB294; &#xAC83;&#xC744; &#xC758;&#xBBF8;&#xD569;&#xB2C8;&#xB2E4;).</p></li>
+<li><p>&#xC2E4;&#xD589; &#xC911;&#xC778; &#xBAA8;&#xB4E0; &#xACB0;&#xD569;&#xB41C; &#xD3EC;&#xD06C;&#xB4E4;&#xC758; &#xCDE8;&#xC18C;</p></li></ul>
+<p><strong>&#xAC1C;&#xBC1C; &#xC911;</strong></p><h2 id="&#xBD84;&#xB9AC;&#xB41C;-&#xD3EC;&#xD06C;-spawn-&#xC0AC;&#xC6A9;">&#xBD84;&#xB9AC;&#xB41C; &#xD3EC;&#xD06C; (<code>spawn</code> &#xC0AC;&#xC6A9;)</h2><p>&#xBD84;&#xB9AC;&#xB41C; &#xD3EC;&#xD06C;&#xB4E4;&#xC740; &#xADF8;&#xB4E4; &#xC2A4;&#xC2A4;&#xB85C; &#xC0B4;&#xC544;&#xAC11;&#xB2C8;&#xB2E4;. &#xBD80;&#xBAA8;&#xB294; &#xBD84;&#xB9AC;&#xB41C; &#xD3EC;&#xD06C;&#xAC00; &#xC885;&#xB8CC;&#xB418;&#xB294; &#xAC83;&#xC744; &#xAE30;&#xB2E4;&#xB9AC;&#xC9C0; &#xC54A;&#xC2B5;&#xB2C8;&#xB2E4;. &#xC608;&#xC0C1;&#xCE58; &#xBABB;&#xD55C; &#xC5D0;&#xB7EC;&#xB294; &#xBD80;&#xBAA8;&#xB85C; &#xC804;&#xB2EC;&#xB418;&#xC9C0; &#xC54A;&#xC2B5;&#xB2C8;&#xB2E4;. &#xADF8;&#xB9AC;&#xACE0; &#xBD80;&#xBAA8;&#xB97C; &#xCDE8;&#xC18C;&#xD55C;&#xB2E4;&#xACE0; &#xD574;&#xB3C4; &#xBD84;&#xB9AC;&#xB41C; &#xD3EC;&#xD06C;&#xB294; &#xC790;&#xB3D9;&#xC73C;&#xB85C; &#xCDE8;&#xC18C;&#xB418;&#xC9C0; &#xC54A;&#xC2B5;&#xB2C8;&#xB2E4; (&#xBD84;&#xB9AC;&#xB41C; &#xD3EC;&#xD06C;&#xB294; &#xBA85;&#xC2DC;&#xC801;&#xC73C;&#xB85C; &#xCDE8;&#xC18C;&#xD574;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;).</p><p>&#xC989;, &#xBD84;&#xB9AC;&#xB41C; &#xD3EC;&#xD06C;&#xB4E4;&#xC740; <code>middleware.run</code> API&#xB97C; &#xC774;&#xC6A9;&#xD55C; &#xCD5C;&#xC0C1;&#xC704; &#xC0AC;&#xAC00;(root saga)&#xCC98;&#xB7FC; &#xD589;&#xB3D9;&#xD569;&#xB2C8;&#xB2E4;.</p><p><strong>&#xAC1C;&#xBC1C; &#xC911;</strong></p>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="TaskCancellation.html" class="navigation navigation-prev " aria-label="Previous page: 태스크 취소">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="Concurrency.html" class="navigation navigation-next " aria-label="Next page: 동시성 패턴">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"redux-saga의 포크(fork) 모델","level":"1.4.8","depth":2,"next":{"title":"동시성 패턴","level":"1.4.9","depth":2,"path":"advanced/Concurrency.md","ref":"advanced/Concurrency.md","articles":[]},"previous":{"title":"태스크 취소","level":"1.4.7","depth":2,"path":"advanced/TaskCancellation.md","ref":"advanced/TaskCancellation.md","articles":[]},"dir":"ltr"},"config":{"plugins":["prism@1.0.0","-highlight","github","ga","edit-link"],"root":"./docs_kr","styles":{"website":"build/gitbook.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"github":{"url":"https://github.com/mskims/redux-saga-in-korean/"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"ga":{"configuration":"auto","token":"UA-100043099-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"이 페이지 수정하기","base":"https://github.com/mskims/redux-saga-in-korean/tree/master/docs_kr"},"theme-default":{"styles":{"website":"build/gitbook.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"ko","gitbook":"3.2.0"},"file":{"path":"advanced/ForkModel.md","mtime":"2021-05-06T05:35:29.768Z","type":"markdown"},"gitbook":{"version":"3.2.0","time":"2021-05-06T05:36:43.381Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-ga/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
