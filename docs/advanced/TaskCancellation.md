@@ -9,8 +9,7 @@ To see how it works, let's consider a simple example: A background sync which ca
 The task will execute continually until a `STOP_BACKGROUND_SYNC` action is triggered. Then we cancel the background task and wait again for the next `START_BACKGROUND_SYNC` action.
 
 ```javascript
-import { take, put, call, fork, cancel, cancelled } from 'redux-saga/effects'
-import { delay } from 'redux-saga'
+import { take, put, call, fork, cancel, cancelled, delay } from 'redux-saga/effects'
 import { someApi, actions } from 'somewhere'
 
 function* bgSync() {
@@ -19,7 +18,7 @@ function* bgSync() {
       yield put(actions.requestStart())
       const result = yield call(someApi)
       yield put(actions.requestSuccess(result))
-      yield call(delay, 5000)
+      yield delay(5000)
     }
   } finally {
     if (yield cancelled())
@@ -93,7 +92,8 @@ describe('main', () => {
 
   it('forks the service', () => {
     const expectedYield = fork(bgSync);
-    expect(generator.next().value).to.deep.equal(expectedYield);
+    const mockedAction = { type: 'START_BACKGROUND_SYNC' };
+    expect(generator.next(mockedAction).value).to.deep.equal(expectedYield);
   });
 
   it('waits for stop action and then cancels the service', () => {
@@ -120,4 +120,4 @@ Besides manual cancellation there are cases where cancellation is triggered auto
 
 1. In a `race` effect. All race competitors, except the winner, are automatically cancelled.
 
-2. In a parallel effect (`yield [...]`). The parallel effect is rejected as soon as one of the sub-effects is rejected (as implied by `Promise.all`). In this case, all the other sub-effects are automatically cancelled.
+2. In a parallel effect (`yield all([...])`). The parallel effect is rejected as soon as one of the sub-effects is rejected (as implied by `Promise.all`). In this case, all the other sub-effects are automatically cancelled.

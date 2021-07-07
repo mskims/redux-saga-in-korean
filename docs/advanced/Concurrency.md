@@ -7,15 +7,14 @@ In this section we'll see how those helpers could be implemented using the low-l
 ## `takeEvery`
 
 ```javascript
-function* takeEvery(pattern, saga, ...args) {
-  const task = yield fork(function* () {
-    while (true) {
-      const action = yield take(pattern)
-      yield fork(saga, ...args.concat(action))
-    }
-  })
-  return task
-}
+import {fork, take} from "redux-saga/effects"
+
+const takeEvery = (pattern, saga, ...args) => fork(function*() {
+  while (true) {
+    const action = yield take(pattern)
+    yield fork(saga, ...args.concat(action))
+  }
+})
 ```
 
 `takeEvery` allows multiple `saga` tasks to be forked concurrently.
@@ -23,19 +22,18 @@ function* takeEvery(pattern, saga, ...args) {
 ## `takeLatest`
 
 ```javascript
-function* takeLatest(pattern, saga, ...args) {
-  const task = yield fork(function* () {
-    let lastTask
-    while (true) {
-      const action = yield take(pattern)
-      if (lastTask)
-        yield cancel(lastTask) // cancel is no-op if the task has already terminated
+import {cancel, fork, take} from "redux-saga/effects"
 
-      lastTask = yield fork(saga, ...args.concat(action))
+const takeLatest = (pattern, saga, ...args) => fork(function*() {
+  let lastTask
+  while (true) {
+    const action = yield take(pattern)
+    if (lastTask) {
+      yield cancel(lastTask) // cancel is no-op if the task has already terminated
     }
-  })
-  return task
-}
+    lastTask = yield fork(saga, ...args.concat(action))
+  }
+})
 ```
 
 `takeLatest` doesn't allow multiple Saga tasks to be fired concurrently. As soon as it gets a new dispatched action, it cancels any previously-forked task (if still running).

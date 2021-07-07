@@ -24,11 +24,11 @@ To debounce a sequence, put the built-in `delay` helper in the forked task:
 
 ```javascript
 
-import { delay } from 'redux-saga'
+import { call, cancel, fork, take, delay } from 'redux-saga/effects'
 
 function* handleInput(input) {
   // debounce by 500ms
-  yield call(delay, 500)
+  yield delay(500)
   ...
 }
 
@@ -44,22 +44,17 @@ function* watchInput() {
 }
 ```
 
-The `delay` function implements a simple debounce using a Promise.
-```
-const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms))
-```
-
 In the above example `handleInput` waits for 500ms before performing its logic. If the user types something during this period we'll get more `INPUT_CHANGED` actions. Since `handleInput` will still be blocked in the `delay` call, it'll be cancelled by `watchInput` before it can start performing its logic.
 
 Example above could be rewritten with redux-saga `takeLatest` helper:
 
 ```javascript
 
-import { delay } from 'redux-saga'
+import { call, takeLatest, delay } from 'redux-saga/effects'
 
 function* handleInput({ input }) {
   // debounce by 500ms
-  yield call(delay, 500)
+  yield delay(500)
   ...
 }
 
@@ -75,7 +70,7 @@ To retry a XHR call for a specific amount of times, use a for loop with a delay:
 
 ```javascript
 
-import { delay } from 'redux-saga'
+import { call, put, take, delay } from 'redux-saga/effects'
 
 function* updateApi(data) {
   for(let i = 0; i < 5; i++) {
@@ -83,12 +78,12 @@ function* updateApi(data) {
       const apiResponse = yield call(apiRequest, { data });
       return apiResponse;
     } catch(err) {
-      if(i < 5) {
-        yield call(delay, 2000);
+      if(i < 4) {
+        yield delay(2000);
       }
     }
   }
-  // attempts failed after 5x2secs
+  // attempts failed after 5 attempts
   throw new Error('API request failed');
 }
 
@@ -117,7 +112,7 @@ In the above example the `apiRequest` will be retried for 5 times, with a delay 
 If you want unlimited retries, then the `for` loop can be replaced with a `while (true)`. Also instead of `take` you can use `takeLatest`, so only the last request will be retried. By adding an `UPDATE_RETRY` action in the error handling, we can inform the user that the update was not successfull but it will be retried.
 
 ```javascript
-import { delay } from 'redux-saga'
+import { delay } from 'redux-saga/effects'
 
 function* updateApi(data) {
   while (true) {
@@ -129,7 +124,7 @@ function* updateApi(data) {
         type: 'UPDATE_RETRY',
         error
       })
-      yield call(delay, 2000);
+      yield delay(2000);
     }
   }
 }
@@ -157,14 +152,13 @@ robust way to implement an undo based on modifying the reducer to contain `past`
 and `future` state.  There is even a library [redux-undo](https://github.com/omnidan/redux-undo) that
 creates a higher order reducer to do most of the heavy lifting for the developer.
 
-However, this method comes with it overheard from storing references to the previous state(s) of the application.
+However, this method comes with overhead because it stores references to the previous state(s) of the application.
 
 Using redux-saga's `delay` and `race` we can implement a simple, one-time undo without enhancing
 our reducer or storing the previous state.
 
 ```javascript
-import { take, put, call, spawn, race } from 'redux-saga/effects'
-import { delay } from 'redux-saga'
+import { take, put, call, spawn, race, delay } from 'redux-saga/effects'
 import { updateThreadApi, actions } from 'somewhere'
 
 function* onArchive(action) {
@@ -184,7 +178,7 @@ function* onArchive(action) {
   // after 5 seconds, 'archive' will be the winner of the race-condition
   const { undo, archive } = yield race({
     undo: take(action => action.type === 'UNDO' && action.undoId === undoId),
-    archive: call(delay, 5000)
+    archive: delay(5000)
   })
 
   // hide undo UI element, the race condition has an answer
@@ -204,7 +198,7 @@ function* main() {
     // wait for an ARCHIVE_THREAD to happen
     const action = yield take('ARCHIVE_THREAD')
     // use spawn to execute onArchive in a non-blocking fashion, which also
-    // prevents cancelation when main saga gets cancelled.
+    // prevents cancellation when main saga gets cancelled.
     // This helps us in keeping state in sync between server and client
     yield spawn(onArchive, action)
   }
