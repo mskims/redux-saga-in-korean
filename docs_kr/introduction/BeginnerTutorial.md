@@ -39,7 +39,7 @@ $ npm start
 이상이 없다면, 당신은 `증가` 와 `감소` 버튼과 `Counter: 0` 이라는 메세지를 볼 수 있을것 입니다.
 <!--If things go well, you should see 2 buttons `Increment` and `Decrement` along with a message below showing `Counter: 0`.-->
 
-> 만약 이 단계에서 어려움을 겪고계시다면, 고민하지 마시고 [튜토리얼 저장소](https://github.com/redux-saga/redux-saga-beginner-tutorial/issues) 에 에슈를 만들어주세요.
+> 만약 이 단계에서 어려움을 겪고계시다면, 고민하지 마시고 [튜토리얼 저장소](https://github.com/redux-saga/redux-saga-beginner-tutorial/issues) 에 이슈를 만들어주세요.
 
 <!-- > In case you encountered an issue with running the application. Feel free to create an issue on the [tutorial repo](https://github.com/redux-saga/redux-saga-beginner-tutorial/issues).-->
 
